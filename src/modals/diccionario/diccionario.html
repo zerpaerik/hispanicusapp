@@ -1,0 +1,22 @@
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button icon-left color="primary" clear small (click)="close($event)">
+        <ion-icon name="cancel"></ion-icon>
+        <div>Volver</div>
+      </button>  	
+    <ion-title>Diccionario</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-grid>
+	  <ion-row>
+	    <ion-col col-2 *ngFor="let l of letras">
+	    	<button (click)="close($event)" ion-button block><b>{{l.letra}}</b></button>
+	    </ion-col>
+	  </ion-row>
+	</ion-grid>	
+</ion-content>

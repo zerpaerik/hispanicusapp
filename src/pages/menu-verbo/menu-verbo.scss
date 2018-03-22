@@ -1,0 +1,24 @@
+@import '../../theme/variables';
+
+page-menu-verbo {
+	.card{
+		border: .5px solid #c2c2c2;
+		background-color: white;
+	}
+
+	.card-header{
+		color:black;
+		text-shadow:6px 1px 17px -1px rgba(71,71,71,1);
+	}
+
+	.foot-text{
+		color:white;
+	}
+
+	.rows{
+		background-color:map-get($colors, primary);
+	}
+	.header-title{
+		font-weight:bold;
+	}
+}
