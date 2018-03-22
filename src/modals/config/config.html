@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+  	<button ion-button icon-left color="primary" clear small (click)="close($event)">
+        <ion-icon name="cancel"></ion-icon>
+        {{'GENERAL.BACK' | translate}}
+      </button>
+    <ion-title>{{'GENERAL.SETTINGS' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-list>
+	  <ion-list-header>
+	    <h2>{{'LANG.LANG' | translate}}</h2>
+	  </ion-list-header>
+	  <ion-item>
+	  	<ion-label>{{'GENERAL.SELECT' | translate}}</ion-label>
+		<ion-select [(ngModel)]="lang" (ngModelChange)="changeLang()" block>
+	      <ion-option value="en">{{'LANG.EN' | translate}}</ion-option>
+	      <ion-option value="es">{{'LANG.ES' | translate}}</ion-option>
+	      <ion-option value="pt" disabled>{{'LANG.PT' | translate}}</ion-option>
+	      <ion-option value="cn" disabled>{{'LANG.CN' | translate}}</ion-option>
+	    </ion-select>	  	
+	  </ion-item> 
+	</ion-list>	
+</ion-content>
