@@ -9,7 +9,7 @@ import { MenuVerboPage } from '../menu-verbo/menu-verbo';
 export class HomePage {
 
   constructor(public navCtrl: NavController) {
-
+  	
   }
   
   next(){

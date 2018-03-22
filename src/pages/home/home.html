@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Menu</ion-title>
+    <ion-title translate>{{'HOME.MENU.TITLE' | translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -10,9 +10,9 @@
   </ion-fab>
   
   <br><br>
-  <button ion-button icon-start block (tap)="next()">
-  <ion-icon name="create"></ion-icon>
-  Conjugar
-</button>
+  <button ion-button icon-start block (tap)="next()" translate>
+    <ion-icon name="create"></ion-icon>
+    {{'HOME.MENU.COMBINE_BUTTON' | translate}}
+  </button>
 
 </ion-content>
