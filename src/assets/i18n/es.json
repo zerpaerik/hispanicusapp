@@ -1,8 +1,33 @@
 {
+	"GENERAL": {	
+		"SELECT" : "Seleccione",
+		"BACK"   : "Atras",
+		"SETTINGS" : "Ajustes"
+	},
+
+	"LANG" : {
+		"LANG" : "Lenguaje",
+		"ES" : "Español",
+		"EN" : "Ingles",
+		"CN" : "Chino",
+		"PT" : "Portugues"
+	},
+
 	"HOME" : {
 		"MENU": {
 			"COMBINE_BUTTON" : "Conjugar",
 			"TITLE" 	     : "Menu"
 		}
+	},
+
+	"VERBS_MENU" : {
+		"TITLE" : "Selecciona un grupo",
+		"REGULAR" : "Verbos Regulares",	
+		"IRREGULAR" : "Verbos Irregulares",
+		"ORTH_CHANGE" : "Verbos Regulares (Cambio Ortografico)",
+		"ALL" : "Todo",
+		"START" : "Empezar",
+		"INFO"  : "Info"
 	}
+
 }

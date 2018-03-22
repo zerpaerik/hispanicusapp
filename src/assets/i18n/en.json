@@ -1,8 +1,17 @@
 {
 
-	"LAN" : {
+	"GENERAL": {	
+		"SELECT" : "Select",
+		"BACK"   : "Back",
+		"SETTINGS" : "Settings"
+	},
+
+	"LANG" : {
+		"LANG" : "Language",
 		"ES" : "Spanish",
-		"EN" : "English"
+		"EN" : "English",
+		"CN" : "Chinese",
+		"PT" : "Portuguese"
 	},
 
 	"HOME" : {

@@ -20,6 +20,7 @@ import { VerboRegularPage } from '../pages/verbo-regular/verbo-regular';
 //MODALS
 
 import { DiccionarioPage } from '../modals/diccionario/diccionario';
+import { ConfigPage } from '../modals/config/config';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -38,7 +39,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MenuVerboPage,
     ListVerbosPage,
     DiccionarioPage,
-    VerboRegularPage
+    VerboRegularPage,
+    ConfigPage
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MenuVerboPage,
     ListVerbosPage,
     DiccionarioPage,
-    VerboRegularPage
+    VerboRegularPage,
+    ConfigPage
   ],
   providers: [
     StatusBar,
