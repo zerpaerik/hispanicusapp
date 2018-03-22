@@ -1,0 +1,25 @@
+{
+
+	"LAN" : {
+		"ES" : "Spanish",
+		"EN" : "English"
+	},
+
+	"HOME" : {
+		"MENU": {
+			"COMBINE_BUTTON" : "Combine",
+			"TITLE" 	     : "Menu"
+		}
+	},
+
+	"VERBS_MENU" : {
+		"TITLE" : "Select a group",
+		"REGULAR" : "Regular Verbs",	
+		"IRREGULAR" : "Irregular Verbs",
+		"ORTH_CHANGE" : "Regular Verbs (Orthographic Change)",
+		"ALL" : "All",
+		"START" : "Start",
+		"INFO"  : "Info"
+	}
+
+}

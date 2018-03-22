@@ -7,14 +7,14 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Seleccione un grupo</ion-title>
+    <ion-title>{{'VERBS_MENU.TITLE' | translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 <ion-card>
   <ion-card-header>
-    <h2 class="header-title" align=center>Verbos Regulares</h2>
+    <h2 class="header-title" align=center>{{'VERBS_MENU.REGULAR' | translate}}</h2>
   </ion-card-header>
   <ion-card-content>
   </ion-card-content>
@@ -23,13 +23,13 @@
     <ion-col>
       <button ion-button icon-left color="light" clear small (tap)="next()">
         <ion-icon name="paper"></ion-icon>
-        <div class="foot-text">Empezar</div>
+        <div class="foot-text">{{'VERBS_MENU.START' | translate}}</div>
       </button>
     </ion-col>
     <ion-col center text-center>
       <button ion-button icon-left color="light" clear small>
         <ion-icon name="help"></ion-icon>
-        <div class="foot-text">Info</div>
+        <div class="foot-text">{{'VERBS_MENU.INFO' | translate}}</div>
       </button>
     </ion-col>
   </ion-row>
@@ -38,7 +38,7 @@
 
 <ion-card>
   <ion-card-header>
-    <h2 class="header-title" align=center>Verbos Regulares (Cambio Ortografico)</h2>
+    <h2 class="header-title" align=center>{{'VERBS_MENU.ORTH_CHANGE' | translate}}</h2>
   </ion-card-header>
   <ion-card-content>
   </ion-card-content>
@@ -47,13 +47,13 @@
     <ion-col>
       <button ion-button icon-left color="light" clear small>
         <ion-icon name="paper"></ion-icon>
-        <div class="foot-text">Empezar</div>
+        <div class="foot-text">{{'VERBS_MENU.START' | translate}}</div>
       </button>
     </ion-col>
     <ion-col center text-center>
       <button ion-button icon-left color="light" clear small>
         <ion-icon name="help"></ion-icon>
-        <div class="foot-text">Info</div>
+        <div class="foot-text">{{'VERBS_MENU.INFO' | translate}}</div>
       </button>
     </ion-col>
   </ion-row>
@@ -62,7 +62,7 @@
 
 <ion-card>
   <ion-card-header>
-    <h2 class="header-title" align=center>Verbos Irregulares</h2>
+    <h2 class="header-title" align="center">{{'VERBS_MENU.IRREGULAR' | translate}}</h2>
   </ion-card-header>
   <ion-card-content>
   </ion-card-content>
@@ -71,13 +71,31 @@
     <ion-col>
       <button ion-button icon-left color="light" clear small>
         <ion-icon name="paper"></ion-icon>
-        <div class="foot-text">Empezar</div>
+        <div class="foot-text">{{'VERBS_MENU.START' | translate}}</div>
       </button>
     </ion-col>
     <ion-col center text-center>
       <button ion-button icon-left color="light" clear small>
         <ion-icon name="help"></ion-icon>
-        <div class="foot-text">Info</div>
+        <div class="foot-text">{{'VERBS_MENU.INFO' | translate}}</div>
+      </button>
+    </ion-col>
+  </ion-row>
+
+</ion-card>  
+
+<ion-card>
+  <ion-card-header>
+    <h2 class="header-title" align="center">{{'VERBS_MENU.ALL' | translate}}</h2>
+  </ion-card-header>
+  <ion-card-content>
+  </ion-card-content>
+
+  <ion-row class="rows">
+    <ion-col>
+      <button ion-button icon-left color="light" clear small block>
+        <ion-icon name="paper"></ion-icon>
+        <div class="foot-text">{{'VERBS_MENU.START' | translate}}</div>
       </button>
     </ion-col>
   </ion-row>
@@ -90,10 +108,10 @@
   <ion-toolbar color="light">
     <ion-row>   
       <ion-col>
-        <button ion-button block color="light">Español</button>
+        <button ion-button block color="light">{{'LAN.ES' | translate}}</button>
       </ion-col>
       <ion-col>
-        <button ion-button block color="light">Ingles</button>
+        <button ion-button block color="light">{{'LAN.EN' | translate}}</button>
       </ion-col>
     </ion-row>
   </ion-toolbar>
