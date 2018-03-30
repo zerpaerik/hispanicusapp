@@ -10,12 +10,12 @@
 <ion-content padding>
 
 	<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>	
-  
-	<ion-item-group *ngFor="let i of fakeData">
-	    <ion-item-divider color="light" (tap)="openModal()" id="{{i.letra}}"><b>{{i.letra}}</b></ion-item-divider>
-	    <ion-item *ngFor="let it of i.data" (click)="selectVerbo(it.inf)">
-	    	<h2><b>{{it.inf}}</b></h2>
-	    	<p style="color:gray;"> {{it.t1}} - {{it.t2}} </p> 
-	    </ion-item>
-    </ion-item-group>	
+
+	<ion-item-group *ngFor="let i of keys">
+    <ion-item-divider color="light" (tap)="openModal()" id="{{i}}"><b>{{i}}</b></ion-item-divider>
+    <ion-item *ngFor="let it of verbs[i]" (click)="selectVerbo(it.id)">
+    	<h2><b>{{it.infinitivo}}</b></h2>
+    </ion-item>
+  </ion-item-group>
+
 </ion-content>

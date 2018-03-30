@@ -24,6 +24,7 @@ import { ConfigPage } from '../modals/config/config';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { VerbosProvider } from '../providers/verbos/verbos';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
     return new TranslateHttpLoader(httpClient, "./assets/i18n/", ".json");
@@ -70,7 +71,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    VerbosProvider
   ]
 })
 
