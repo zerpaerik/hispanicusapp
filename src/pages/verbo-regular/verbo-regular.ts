@@ -17,6 +17,7 @@ export class VerboRegularPage {
   	vp.getVerb(this.verbo.id)
   		.subscribe(data => {
   			this.verboData = data["data"];
+        console.log(data["data"]);
         this.verboKeys = Object.keys(this.verboData);
   		});
   }

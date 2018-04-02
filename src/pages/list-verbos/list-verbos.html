@@ -12,7 +12,10 @@
 	<ion-item-group *ngFor="let i of keys" >
     <ion-item-divider color="light" (tap)="openModal()" id="{{i}}"><b>{{i}}</b></ion-item-divider>
     <ion-item *ngFor="let it of verbs[i]" (click)="selectVerbo(it)">
-    	<h2><b>{{it.infinitivo}}</b></h2>
+    	<h2 item-start><b>{{it.infinitivo}}</b></h2>
+      <button ion-button icon-only color="light" item-end>
+        <ion-icon name="star-outline"></ion-icon>
+      </button>
     </ion-item>
   </ion-item-group>
 </ion-content>
