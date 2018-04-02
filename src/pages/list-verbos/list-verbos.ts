@@ -16,14 +16,32 @@ export class ListVerbosPage {
 
   public verbs;
   public keys;
+  public items;
+  public searching : boolean;
+  public searchQuery: string = '';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl : ModalController, public vp : VerbosProvider) {
-    
-  	vp.listVerbs().subscribe(data => {
+
+     this.items = [];
+     this.searching = false;
+     this.initializeItems();
+
+  }
+
+  public initializeItems(){
+    this.vp.listVerbs().subscribe(data => {
       this.keys = Object.keys(data);
-      this.verbs = data; 
+      this.verbs = data;
     });
 
+  }
+
+  public initItems(data){
+    for (var i in data) {
+       for (var j in data[i]) {
+         this.items.push(data[i][j]["infinitivo"]);
+       }
+     }     
   }
 
   public selectVerbo(xverbo){
@@ -38,6 +56,20 @@ export class ListVerbosPage {
     	}
     });
     modal.present();
+  }
+
+  public getItems(ev: any) {
+
+    this.initItems(this.verbs);
+    let val = ev.target.value;
+
+    if (val && val.trim() != '') {
+      this.items = this.items.filter((item) => {
+        this.searching = true;
+        return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }
+    this.searching = false;
   }
 
   public goTo(value){

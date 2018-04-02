@@ -7,15 +7,12 @@
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding>
-
-	<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>	
-
-	<ion-item-group *ngFor="let i of keys">
+	<ion-item-group *ngFor="let i of keys" >
     <ion-item-divider color="light" (tap)="openModal()" id="{{i}}"><b>{{i}}</b></ion-item-divider>
-    <ion-item *ngFor="let it of verbs[i]" (click)="selectVerbo(it.id)">
+    <ion-item *ngFor="let it of verbs[i]" (click)="selectVerbo(it)">
     	<h2><b>{{it.infinitivo}}</b></h2>
     </ion-item>
   </ion-item-group>
-
 </ion-content>

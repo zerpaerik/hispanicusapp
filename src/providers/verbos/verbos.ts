@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
 
 @Injectable()
 export class VerbosProvider {
@@ -13,6 +12,10 @@ export class VerbosProvider {
 
   listVerbs(){
   	return this.http.get('http://127.0.0.1:8000/api/v1/verbos');
+  }
+
+  getVerb(id){
+  	return this.http.get('http://127.0.0.1:8000/api/v1/verbo/'+id);
   }
 
 }
