@@ -5,6 +5,7 @@ import { ViewChild } from '@angular/core';
 import { DiccionarioPage } from '../../modals/diccionario/diccionario';
 import { VerboRegularPage } from '../verbo-regular/verbo-regular';
 import { VerbosProvider } from '../../providers/verbos/verbos';
+import { LoadingController } from 'ionic-angular';
 
 @Component({
   selector: 'page-list-verbos',
@@ -19,8 +20,9 @@ export class ListVerbosPage {
   public items;
   public searching : boolean;
   public searchQuery: string = '';
+  public isLoading : boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl : ModalController, public vp : VerbosProvider) {
+  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public modalCtrl : ModalController, public vp : VerbosProvider) {
 
      this.items = [];
      this.searching = false;
@@ -29,9 +31,17 @@ export class ListVerbosPage {
   }
 
   public initializeItems(){
+    
+    var loader = this.presentLoading();
+
     this.vp.listVerbs().subscribe(data => {
       this.keys = Object.keys(data);
       this.verbs = data;
+    }, error => {
+      console.log(error);
+      loader.dismiss();
+    }, () => {
+      loader.dismiss();
     });
 
   }
@@ -80,4 +90,12 @@ export class ListVerbosPage {
   		return;
   	}
   }
+
+  presentLoading() {
+    let loader = this.loadingCtrl.create({
+      content: "Please wait...",
+    });
+    return loader;
+  }
+
 }
