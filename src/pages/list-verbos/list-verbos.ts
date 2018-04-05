@@ -33,7 +33,7 @@ export class ListVerbosPage {
   public initializeItems(){
     
     var loader = this.presentLoading();
-
+    loader.present();
     this.vp.listVerbs().subscribe(data => {
       this.keys = Object.keys(data);
       this.verbs = data;
@@ -93,7 +93,8 @@ export class ListVerbosPage {
 
   presentLoading() {
     let loader = this.loadingCtrl.create({
-      content: "Please wait...",
+      spinner : 'crescent',
+      showBackdrop : false
     });
     return loader;
   }

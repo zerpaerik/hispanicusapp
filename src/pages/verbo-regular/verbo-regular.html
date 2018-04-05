@@ -17,13 +17,17 @@
   	<ion-row>
 
     	<ion-col class="pronombre">
-        <span *ngIf="item.pronombre">{{item.pronombre || '---'}}</span>
-        <span *ngIf="item.pronombre_formal_id">{{item.pronombre_formal_id}}</span>
+        <span *ngIf="informal">{{item.pronombre}}</span>
+      </ion-col>
+
+      <ion-col class="pronombre">
+        <span *ngIf="!informal">{{item.pronombre_formal_id}}</span>
       </ion-col>
     	
-      <ion-col id="negado">
-        <span *ngIf="item.negativo != '0'">no</span>
+      <ion-col id="negado" *ngif="negativo">
+        <span>no</span>
       </ion-col>
+
       <ion-col>{{item.pronombre_reflex}}</ion-col>
       <ion-col>{{item.verbo_auxiliar}}</ion-col>
   		<ion-col>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>

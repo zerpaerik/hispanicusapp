@@ -3,7 +3,8 @@
 	"GENERAL": {	
 		"SELECT" : "Select",
 		"BACK"   : "Back",
-		"SETTINGS" : "Settings"
+		"SETTINGS" : "Settings",
+		"EXIT" : "Exit"
 	},
 
 	"LANG" : {
@@ -29,6 +30,12 @@
 		"ALL" : "All",
 		"START" : "Start",
 		"INFO"  : "Info"
+	},
+
+	"ERROR" : {
+		"TITLE" : "Error",
+		"SUBTITLE" : "An error has ocurred, please check your internet connection.",
+		"TRY_AGAIN" : "Try again"
 	}
 
 }

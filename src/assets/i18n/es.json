@@ -2,7 +2,8 @@
 	"GENERAL": {	
 		"SELECT" : "Seleccione",
 		"BACK"   : "Atras",
-		"SETTINGS" : "Ajustes"
+		"SETTINGS" : "Ajustes",
+		"EXIT" : "Salir"
 	},
 
 	"LANG" : {
@@ -28,6 +29,12 @@
 		"ALL" : "Todo",
 		"START" : "Empezar",
 		"INFO"  : "Info"
-	}
+	},
+	
+	"ERROR" : {
+		"TITLE" : "Error",
+		"SUBTITLE" : "Ha ocurrido un error, por favor compruebe su conexión a internet.",
+		"TRY_AGAIN" : "Reintentar"
+	}	
 
 }
