@@ -14,20 +14,20 @@
   </ion-item-divider>
 
   <ion-item *ngFor="let item of verboData[key]">
-  	<ion-row>
+  	<ion-row *ngIf="item.pronombre_reflex">
 
     	<ion-col class="pronombre">
-        <span *ngIf="informal">{{item.pronombre}}</span>
+        <span >{{item.pronombre}}</span>
       </ion-col>
 
       <ion-col class="pronombre">
-        <span *ngIf="!informal">{{item.pronombre_formal_id}}</span>
+        <span >{{item.pronombre_formal_id}}</span>
       </ion-col>
-    	
-      <ion-col id="negado" *ngif="negativo">
+<!--    	
+      <ion-col id="negado">
         <span>no</span>
       </ion-col>
-
+-->
       <ion-col>{{item.pronombre_reflex}}</ion-col>
       <ion-col>{{item.verbo_auxiliar}}</ion-col>
   		<ion-col>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
@@ -39,5 +39,23 @@
 
   	</ion-row>
   </ion-item>
+  <div>
+    <ion-row>
+      <ion-col>
+        <button ion-button block class="grdnt">Afirmativo Informal</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block class="grdnt">Negativo Informal</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button block class="grdnt">Afirmativo Formal</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block class="grdnt">Negativo Formal</button>
+      </ion-col>
+    </ion-row>
+  </div>
 </ion-item-group>	
 </ion-content>
