@@ -3,7 +3,12 @@
 		"SELECT" : "Seleccione",
 		"BACK"   : "Atras",
 		"SETTINGS" : "Ajustes",
-		"EXIT" : "Salir"
+		"EXIT" : "Salir",
+		"MODE" : "Modo de Conjugación",
+		"LOG_OUT" : "Cerrar Sesión",
+		"ACCOUNT" : "Cuenta",
+		"CHANGE_PSW" : "Cambiar Contraseña",
+		"RULE" : "Regla"
 	},
 
 	"LANG" : {
@@ -11,7 +16,10 @@
 		"ES" : "Español",
 		"EN" : "Ingles",
 		"CN" : "Chino",
-		"PT" : "Portugues"
+		"PT" : "Portugues",
+		"SP"   : "España",
+		"LAN"  : "Latino America",
+		"LAS"  : "Argentina/Uruguay"		
 	},
 
 	"HOME" : {

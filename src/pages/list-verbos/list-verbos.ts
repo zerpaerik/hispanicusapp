@@ -30,6 +30,10 @@ export class ListVerbosPage {
 
   }
 
+  public addFav(item){
+    console.log(item);
+  }
+
   public initializeItems(){
     
     var loader = this.presentLoading();
@@ -37,6 +41,7 @@ export class ListVerbosPage {
     this.vp.listVerbs().subscribe(data => {
       this.keys = Object.keys(data);
       this.verbs = data;
+      console.log(data);
     }, error => {
       console.log(error);
       loader.dismiss();

@@ -6,24 +6,25 @@
 
 </ion-header>
 
-
 <ion-content block>
+
 <ion-item-group *ngFor="let key of verboKeys">
   <ion-item-divider color="primary">
-    {{key}}
+    <b>{{key}}</b>
   </ion-item-divider>
 
-  <ion-item *ngFor="let item of verboData[key]">
-  	<ion-row *ngIf="item.pronombre_reflex">
+  <div *ngFor="let item of verboData[key]">
+  <ion-item *ngIf="item.negativo == '0' && !item.pronombre_reflex && !item.pronombre_formal_id">
+  	<ion-row>
 
     	<ion-col class="pronombre">
         <span >{{item.pronombre}}</span>
       </ion-col>
 
       <ion-col class="pronombre">
-        <span >{{item.pronombre_formal_id}}</span>
+        <span>{{item.pronombre_formal_id}}</span>
       </ion-col>
-<!--    	
+<!--
       <ion-col id="negado">
         <span>no</span>
       </ion-col>
@@ -32,14 +33,16 @@
       <ion-col>{{item.verbo_auxiliar}}</ion-col>
   		<ion-col>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
       <ion-col>
-        <button *ngIf="item.regla" ion-button icon-only color="light" item-end>
+        <button *ngIf="item.regla" ion-button icon-only color="light" item-end (click)="showRule(item.regla)">
           <ion-icon name="information"></ion-icon>
         </button>
       </ion-col>
-
   	</ion-row>
+
   </ion-item>
-  <div>
+  </div>
+  
+  <div class="grid-buttons">
     <ion-row>
       <ion-col>
         <button ion-button block class="grdnt">Afirmativo Informal</button>
@@ -56,6 +59,6 @@
         <button ion-button block class="grdnt">Negativo Formal</button>
       </ion-col>
     </ion-row>
-  </div>
+  </div>  
 </ion-item-group>	
 </ion-content>

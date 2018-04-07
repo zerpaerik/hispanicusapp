@@ -27,6 +27,23 @@ export class VerboRegularPage {
     this.initData();
   }
 
+  showRule(regla){
+
+    var rule : string;
+
+    this.translateServ.get('GENERAL').subscribe( general => {
+      rule = general.RULE;
+    });
+
+    let alert = this.alertCtrl.create({
+      title: rule,
+      subTitle: regla,
+      buttons : ["OK"]
+
+    });
+   alert.present();
+  }        
+
   initData(){
     var loader = this.presentLoading();
     var alert = this.showAlert();
@@ -37,11 +54,10 @@ export class VerboRegularPage {
         this.verboData = data["data"];
         console.log(data["data"]);
         this.verboKeys = Object.keys(this.verboData);
+        loader.dismiss();
       },error => {
         loader.dismiss();
         alert.present();    
-      }, () => {
-        loader.dismiss();
       });
     }
 

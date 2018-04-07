@@ -18,12 +18,37 @@
 	  </ion-list-header>
 	  <ion-item>
 	  	<ion-label>{{'GENERAL.SELECT' | translate}}</ion-label>
-		<ion-select [(ngModel)]="lang" (ngModelChange)="changeLang()" block>
+			<ion-select [(ngModel)]="lang" (ngModelChange)="changeLang()" block>
 	      <ion-option value="en">{{'LANG.EN' | translate}}</ion-option>
 	      <ion-option value="es">{{'LANG.ES' | translate}}</ion-option>
 	      <ion-option value="pt" disabled>{{'LANG.PT' | translate}}</ion-option>
 	      <ion-option value="cn" disabled>{{'LANG.CN' | translate}}</ion-option>
 	    </ion-select>	  	
 	  </ion-item> 
+	</ion-list>
+
+	<ion-list>
+	  <ion-list-header>
+	    <h2>{{'GENERAL.MODE' | translate}}</h2>
+	  </ion-list-header>
+	  <ion-item>
+	  	<ion-label>{{'GENERAL.SELECT' | translate}}</ion-label>
+			<ion-select [(ngModel)]="mode" (ngModelChange)="changeMode()" block>
+	      <ion-option value="1">{{'LANG.SP' | translate}}</ion-option>
+	      <ion-option value="2">{{'LANG.LAN' | translate}}</ion-option>
+	      <ion-option value="3">{{'LANG.LAS' | translate}}</ion-option>
+	    </ion-select>	  	
+	  </ion-item> 
 	</ion-list>	
+
+	<ion-list>
+	  <ion-list-header>
+	    <h2>{{'GENERAL.ACCOUNT' | translate}}</h2>
+	  </ion-list-header>
+
+	   <button class="grdnt" ion-button icon-start block (tap)="logout()"><ion-icon name="key"></ion-icon> {{'GENERAL.CHANGE_PSW' | translate}}</button>
+
+		 <button class="grdnt" ion-button icon-start block (tap)="logout()"><ion-icon name="exit"></ion-icon> {{'GENERAL.LOG_OUT' | translate}}</button>
+
+	</ion-list>		
 </ion-content>

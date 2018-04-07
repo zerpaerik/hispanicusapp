@@ -5,14 +5,23 @@
 </ion-header>
 
 <ion-content padding>
+  
   <ion-fab top right edge (click)="openModal()">
     <button ion-fab class="grdnt"><ion-icon name="settings" ></ion-icon></button>
   </ion-fab>
   
   <br><br>
+  
   <button class="grdnt" ion-button icon-start block (tap)="next()" translate>
     <ion-icon name="create"></ion-icon>
     {{'HOME.MENU.COMBINE_BUTTON' | translate}}
   </button>
+  
+  <br>
+
+  <button class="grdnt" ion-button icon-start block (tap)="exit()" translate>
+    <ion-icon name="exit"></ion-icon>
+    {{'GENERAL.EXIT' | translate}}
+  </button>  
 
 </ion-content>

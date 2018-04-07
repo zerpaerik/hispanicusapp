@@ -4,15 +4,23 @@
 		"SELECT" : "Select",
 		"BACK"   : "Back",
 		"SETTINGS" : "Settings",
-		"EXIT" : "Exit"
+		"EXIT" : "Exit",
+		"MODE" : "Combine Mode",
+		"LOG_OUT" : "Log out",
+		"ACCOUNT" : "Account",
+		"CHANGE_PSW" : "Change Password",
+		"RULE" : "Rule"
 	},
 
 	"LANG" : {
 		"LANG" : "Language",
-		"ES" : "Spanish",
-		"EN" : "English",
-		"CN" : "Chinese",
-		"PT" : "Portuguese"
+		"ES"   : "Spanish",
+		"EN"   : "English",
+		"CN"   : "Chinese",
+		"PT"   : "Portuguese",
+		"SP"   : "Spain",
+		"LAN"  : "Latin America",
+		"LAS"  : "Argentina/Uruguay"
 	},
 
 	"HOME" : {
