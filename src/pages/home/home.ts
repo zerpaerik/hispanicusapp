@@ -4,7 +4,7 @@ import { MenuVerboPage } from '../menu-verbo/menu-verbo';
 import { ModalController } from 'ionic-angular';
 import { ConfigPage } from '../../modals/config/config';
 import { Platform } from 'ionic-angular';
-import { IsLogged }  from '../../interceptors/isLogged';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-home',
@@ -12,12 +12,15 @@ import { IsLogged }  from '../../interceptors/isLogged';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, private modalCtrl : ModalController, public plt : Platform, public islogged : IsLogged) {
-  	
+  constructor(public navCtrl: NavController, private modalCtrl : ModalController, public plt : Platform) {
+    
   }
   
   ionViewCanEnter(){
-    return this.islogged.isLoggedIn();
+    if (!localStorage.getItem('token')) {
+      this.navCtrl.setRoot(LoginPage);
+    }
+    return true;    
   }
 
   next(){

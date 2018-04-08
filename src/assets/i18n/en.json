@@ -15,7 +15,9 @@
 		"EMAIL" : "Email",
 		"PASSWORD" : "Password",
 		"NAME" : "Name",
-		"CPASSWORD" : "Confirm Password"
+		"CPASSWORD" : "Confirm Password",
+		"CHANGE_SUCCESS" : "Changes Saved",
+		"CHANGE_FAIL" : "An error has occurred when trying to update settings"
 	},
 
 	"LANG" : {
@@ -52,7 +54,7 @@
 		"TRY_AGAIN" : "Try again",
 		"EMAIL_TAKEN" : "This email is not available",
 		"PASS_MISMATCH" : "Password must match",
-		"UNKNOW" : "An unknow error has ocurred"
+		"UNKNOW" : "An unknow error has ocurred",
+		"CHECK_CREDS" : "Wrong email or password"
 	}
-
 }

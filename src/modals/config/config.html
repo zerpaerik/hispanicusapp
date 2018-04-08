@@ -5,17 +5,16 @@
         <ion-icon name="cancel"></ion-icon>
         {{'GENERAL.BACK' | translate}}
       </button>
-    <ion-title>{{'GENERAL.SETTINGS' | translate}}</ion-title>
+    <ion-title> <ion-icon name="cog"></ion-icon> {{'GENERAL.SETTINGS' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+	
+	<span><h4><ion-icon name="flag"></ion-icon> {{'LANG.LANG' | translate}}</h4></span>
 	<ion-list>
-	  <ion-list-header>
-	    <h2>{{'LANG.LANG' | translate}}</h2>
-	  </ion-list-header>
 	  <ion-item>
 	  	<ion-label>{{'GENERAL.SELECT' | translate}}</ion-label>
 			<ion-select [(ngModel)]="lang" (ngModelChange)="changeLang()" block>
@@ -27,24 +26,24 @@
 	  </ion-item> 
 	</ion-list>
 
+
+	<span><h4> <ion-icon name="globe" left></ion-icon> {{'GENERAL.MODE' | translate}}</h4> </span>
 	<ion-list>
-	  <ion-list-header>
-	    <h2>{{'GENERAL.MODE' | translate}}</h2>
-	  </ion-list-header>
 	  <ion-item>
 	  	<ion-label>{{'GENERAL.SELECT' | translate}}</ion-label>
 			<ion-select [(ngModel)]="mode" (ngModelChange)="changeMode()" block>
 	      <ion-option value="1">{{'LANG.SP' | translate}}</ion-option>
 	      <ion-option value="2">{{'LANG.LAN' | translate}}</ion-option>
 	      <ion-option value="3">{{'LANG.LAS' | translate}}</ion-option>
-	    </ion-select>	  	
+	    </ion-select>
+	    <button ion-button color="light" icon-only item-end>
+      <ion-icon name="alert"></ion-icon>
+    </button>
 	  </ion-item> 
 	</ion-list>	
 
+	<span> <h4><ion-icon name="contact"></ion-icon> {{'GENERAL.ACCOUNT' | translate}}</h4></span>
 	<ion-list>
-	  <ion-list-header>
-	    <h2>{{'GENERAL.ACCOUNT' | translate}}</h2>
-	  </ion-list-header>
 
 	   <button class="grdnt" ion-button icon-start block (tap)="logout()"><ion-icon name="key"></ion-icon> {{'GENERAL.CHANGE_PSW' | translate}}</button>
 

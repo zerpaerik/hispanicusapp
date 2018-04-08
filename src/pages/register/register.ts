@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
@@ -18,7 +18,7 @@ export class RegisterPage {
   constructor(public loadingCtrl: LoadingController, public translateServ : TranslateService, public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public authProvider : AuthProvider) {
   	this.registerFormGroup = formBuilder.group({
   		email 		: ['', Validators.required],
-  		name 		  : ['', Validators.compose([Validators.minLength(6), Validators.pattern('[a-zA-Z0-9]*'), Validators.required])],
+  		name 		  : ['', Validators.compose([Validators.minLength(3), Validators.pattern('[a-zA-Z0-9]*'), Validators.required])],
   		password  : ['', Validators.compose([Validators.minLength(6), Validators.pattern('[a-zA-Z0-9]*'), Validators.required])],
   		cpassword : ['', Validators.compose([Validators.minLength(6), Validators.pattern('[a-zA-Z0-9]*'), Validators.required])]
   	});
@@ -37,6 +37,9 @@ export class RegisterPage {
   		loader.dismiss();
 			localStorage.setItem('token', res['token']);
   		localStorage.setItem('user', JSON.stringify(res['user']));
+      localStorage.setItem('lang', res['lang']);
+      localStorage.setItem('rmode', res['modo']);
+      this.translateServ.setDefaultLang(res['lang']);     
   		this.navCtrl.setRoot(HomePage);
 
   	}, data => {

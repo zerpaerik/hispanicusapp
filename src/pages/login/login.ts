@@ -6,6 +6,8 @@ import { Globalization } from '@ionic-native/globalization';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth';
 import { LoadingController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'page-login',
@@ -15,7 +17,7 @@ export class LoginPage {
 
   loginFormGroup : FormGroup;
 
-  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, private globalization: Globalization, public formBuilder: FormBuilder, public authProvider : AuthProvider) {
+  constructor(public translateServ : TranslateService, public toastCtrl : ToastController, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, private globalization: Globalization, public formBuilder: FormBuilder, public authProvider : AuthProvider) {
     
     this.loginFormGroup = formBuilder.group({
       email     : ['', Validators.required],
@@ -24,7 +26,7 @@ export class LoginPage {
 
   	this.globalization.getPreferredLanguage()
     .then(res => console.log(res))
-    .catch(e => localStorage.setItem('lang', 'en'));
+    .catch(e => console.log(e));
 
   }
 
@@ -47,10 +49,18 @@ export class LoginPage {
       loader.dismiss();
       localStorage.setItem('token', res['token']);
       localStorage.setItem('user', JSON.stringify(res['user']));
+      localStorage.setItem('lang', res['lang']);
+      localStorage.setItem('rmode', res['modo']);
+      this.translateServ.setDefaultLang(res['lang']);
       this.navCtrl.setRoot(HomePage);
 
     }, error => {
-      console.log(error);
+      loader.dismiss();
+      if (error.status == 401) {
+        this.presentToast(true);
+      }else{
+        this.presentToast(false);
+      }
     });
   }
 
@@ -65,5 +75,26 @@ export class LoginPage {
     });
     return loader;
   }
+
+  presentToast(type) {
+
+  let msg : string;
+
+  this.translateServ.get('ERROR').subscribe(error => {
+    if (type) {
+      msg = error.CHECK_CREDS;    
+    }else{
+      msg = error.SUBTITLE;
+    }
+
+  });
+
+  let toast = this.toastCtrl.create({
+    message: msg,
+    duration: 3000,
+    position: 'bottom'
+  });
+  toast.present();
+}
 
 }

@@ -14,7 +14,9 @@
 		"EMAIL" : "Email",
 		"PASSWORD" : "Contraseña",
 		"NAME" : "Usuario",
-		"CPASSWORD" : "Confirmar password"				
+		"CPASSWORD" : "Confirmar password",
+		"CONFIG_CHANGED" : "Los cambios han sido guardados",
+		"CHANGE_FAIL" : "Ha ocurrido un error al intentar actualizar la configuración"
 	},
 
 	"LANG" : {
@@ -51,7 +53,7 @@
 		"TRY_AGAIN" : "Reintentar",
 		"EMAIL_TAKEN" : "Email no disponible",
 		"PASS_MISMATCH" : "La contraseña debe coincidir",
-		"UNKNOW" : "Ha ocurrido un error inesperado"
-	}	
-
+		"UNKNOW" : "Ha ocurrido un error inesperado",
+		"CHECK_CREDS" : "Email o Contraseña erronea"				
+	}
 }

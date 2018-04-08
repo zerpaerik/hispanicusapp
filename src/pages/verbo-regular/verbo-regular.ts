@@ -17,12 +17,14 @@ export class VerboRegularPage {
   verboKeys : any;
 
   informal : boolean;
-  negativo : boolean;
+  afirmativo : boolean;
+  condition : any;
 
   constructor(public plt : Platform, public translateServ : TranslateService, public alertCtrl: AlertController, public loadingCtrl : LoadingController, public navCtrl: NavController, public navParams: NavParams, public vp : VerbosProvider) {
   	
     this.informal = true;
-    this.negativo = false;
+    this.afirmativo = true;
+    this.condition = "item.negativo == '0' && !item.pronombre_reflex && !item.pronombre_formal_id";
     this.verbo = navParams.get('verbo');
     this.initData();
   }
@@ -52,7 +54,7 @@ export class VerboRegularPage {
     this.vp.getVerb(this.verbo.id)
       .subscribe(data => {
         this.verboData = data["data"];
-        console.log(data["data"]);
+        console.log(data["tutorial"]);
         this.verboKeys = Object.keys(this.verboData);
         loader.dismiss();
       },error => {

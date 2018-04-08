@@ -2,6 +2,9 @@
 
   <ion-navbar>
     <ion-title>{{verbo.infinitivo}}</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only><ion-icon name="alert"></ion-icon></button>
+    </ion-buttons>    
   </ion-navbar>
 
 </ion-header>
@@ -14,16 +17,13 @@
   </ion-item-divider>
 
   <div *ngFor="let item of verboData[key]">
-  <ion-item *ngIf="item.negativo == '0' && !item.pronombre_reflex && !item.pronombre_formal_id">
+  <ion-item *ngIf="afirmativo && informal && !item.pronombre_reflex && !item.pronombre_formal_id && !item.verbo_auxiliar && item.negativo != '1'">
   	<ion-row>
 
     	<ion-col class="pronombre">
         <span >{{item.pronombre}}</span>
       </ion-col>
 
-      <ion-col class="pronombre">
-        <span>{{item.pronombre_formal_id}}</span>
-      </ion-col>
 <!--
       <ion-col id="negado">
         <span>no</span>
@@ -40,6 +40,23 @@
   	</ion-row>
 
   </ion-item>
+  
+  <ion-item *ngIf="afirmativo && !informal">
+  <ion-row>  
+    <ion-col class="pronombre">
+      <span>{{item.pronombre_formal_id}}</span>
+    </ion-col>
+    <ion-col>{{item.pronombre_reflex}}</ion-col>
+    <ion-col>{{item.verbo_auxiliar}}</ion-col>
+    <ion-col>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col>
+      <button *ngIf="item.regla" ion-button icon-only color="light" item-end (click)="showRule(item.regla)">
+        <ion-icon name="information"></ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>
+  </ion-item>
+  
   </div>
   
   <ion-grid class="grid-buttons">
