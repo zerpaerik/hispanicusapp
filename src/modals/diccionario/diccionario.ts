@@ -11,6 +11,7 @@ export class DiccionarioPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   	this.letras = this.navParams.get('data');
+    console.log(this.letras);
   }
 
   close(e){

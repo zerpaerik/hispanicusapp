@@ -11,18 +11,21 @@
 
 <ion-list style="margin-top: 20%;">
 
+<form [formGroup]="loginFormGroup">
   <ion-item>
     <ion-label><ion-icon name="person"></ion-icon></ion-label>
-    <ion-input type="text" value=""></ion-input>
+    <ion-input formControlName="email" placeholder="{{ 'GENERAL.EMAIL' | translate}}" type="text" value=""></ion-input>
   </ion-item>
-
+  <br>
   <ion-item>
     <ion-label><ion-icon name="key"></ion-icon></ion-label>
-    <ion-input type="password"></ion-input>
+    <ion-input formControlName="password" placeholder="{{ 'GENERAL.PASSWORD' | translate}}" type="password"></ion-input>
   </ion-item>
+</form>
 
 </ion-list>	
 
-	<button ion-button block (tap)="login()">Acceder</button>
-
+	<button class="grdnt" ion-button block (tap)="login()">{{'GENERAL.SIGN_IN' | translate}}</button>
+  <br><br>
+  <button class="grdnt" ion-button block (tap)="register()">{{'GENERAL.SIGN_UP' | translate}}</button>
 </ion-content>

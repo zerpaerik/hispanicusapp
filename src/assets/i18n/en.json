@@ -9,7 +9,13 @@
 		"LOG_OUT" : "Log out",
 		"ACCOUNT" : "Account",
 		"CHANGE_PSW" : "Change Password",
-		"RULE" : "Rule"
+		"RULE" : "Rule",
+		"SIGN_IN" : "Sign in",
+		"SIGN_UP" : "Sign up",
+		"EMAIL" : "Email",
+		"PASSWORD" : "Password",
+		"NAME" : "Name",
+		"CPASSWORD" : "Confirm Password"
 	},
 
 	"LANG" : {
@@ -43,7 +49,10 @@
 	"ERROR" : {
 		"TITLE" : "Error",
 		"SUBTITLE" : "An error has ocurred, please check your internet connection.",
-		"TRY_AGAIN" : "Try again"
+		"TRY_AGAIN" : "Try again",
+		"EMAIL_TAKEN" : "This email is not available",
+		"PASS_MISMATCH" : "Password must match",
+		"UNKNOW" : "An unknow error has ocurred"
 	}
 
 }

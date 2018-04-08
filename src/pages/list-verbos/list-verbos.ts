@@ -88,7 +88,9 @@ export class ListVerbosPage {
   }
 
   public goTo(value){
-  	let el = document.getElementById(value.toString());
+    let val = value.toString();
+  	let el = document.getElementById(val.toLowerCase());
+
   	if(el){	
       el.scrollIntoView({behavior: 'smooth', block : 'start'});
   	}else{

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthProvider } from '../../providers/auth/auth';
+import { LoginPage } from '../../pages/login/login';
 
 @Component({
   selector: 'page-config',
@@ -11,7 +13,7 @@ export class ConfigPage {
   lang : string;
   mode : string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private translate : TranslateService,  public viewCtrl: ViewController) {
+  constructor(public authProvider : AuthProvider, public navCtrl: NavController, public navParams: NavParams, private translate : TranslateService,  public viewCtrl: ViewController) {
     this.mode = localStorage.getItem("rmode") ||  '1';
     this.lang = localStorage.getItem("lang")  ||  'en';
   }
@@ -46,6 +48,19 @@ export class ConfigPage {
            break;
     }
     
+  }
+
+  logout(){
+    this.authProvider.logout().subscribe(res => {
+      localStorage.clear();
+      this.navCtrl.setRoot(LoginPage);      
+    }, error => {
+      localStorage.clear();
+      this.navCtrl.setRoot(LoginPage);      
+    }, () => {
+      localStorage.clear();
+      this.navCtrl.setRoot(LoginPage);      
+    });
   }
 
   close(e){

@@ -1,0 +1,44 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>registerPage</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<form [formGroup]="registerFormGroup">
+
+	<ion-list style="margin-top: 20%;">
+
+	<ion-item>
+		<ion-label><ion-icon name="mail"></ion-icon></ion-label>
+    <ion-input formControlName="email" placeholder="{{'GENERAL.EMAIL' | translate}}" type="email" value=""></ion-input>
+  </ion-item>
+	
+	<br>
+  <ion-item>
+  	<ion-label><ion-icon name="person"></ion-icon></ion-label>
+    <ion-input formControlName="name" placeholder="{{'GENERAL.NAME' | translate}}" type="text" value=""></ion-input>
+  </ion-item>
+	
+	<br>
+  <ion-item>
+    <ion-label><ion-icon name="key"></ion-icon></ion-label>
+    <ion-input formControlName="password" placeholder="{{'GENERAL.PASSWORD' | translate}}" type="password"></ion-input>
+  </ion-item>
+
+  <br>
+  <ion-item>
+    <ion-label><ion-icon name="key"></ion-icon><ion-icon name="key"></ion-icon></ion-label>
+    <ion-input formControlName="cpassword" placeholder="{{'GENERAL.CPASSWORD' | translate}}" type="password"></ion-input>
+  </ion-item>
+
+</ion-list>	
+
+	<button class="grdnt" [disabled]="!registerFormGroup.valid" ion-button block (tap)="register()">{{'GENERAL.SIGN_UP' | translate}}</button>
+
+</form>	
+</ion-content>

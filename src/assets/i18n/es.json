@@ -8,7 +8,13 @@
 		"LOG_OUT" : "Cerrar Sesión",
 		"ACCOUNT" : "Cuenta",
 		"CHANGE_PSW" : "Cambiar Contraseña",
-		"RULE" : "Regla"
+		"RULE" : "Regla",
+		"SIGN_IN" : "Acceder",
+		"SIGN_UP" : "Regitrarse",
+		"EMAIL" : "Email",
+		"PASSWORD" : "Contraseña",
+		"NAME" : "Usuario",
+		"CPASSWORD" : "Confirmar password"				
 	},
 
 	"LANG" : {
@@ -42,7 +48,10 @@
 	"ERROR" : {
 		"TITLE" : "Error",
 		"SUBTITLE" : "Ha ocurrido un error, por favor compruebe su conexión a internet.",
-		"TRY_AGAIN" : "Reintentar"
+		"TRY_AGAIN" : "Reintentar",
+		"EMAIL_TAKEN" : "Email no disponible",
+		"PASS_MISMATCH" : "La contraseña debe coincidir",
+		"UNKNOW" : "Ha ocurrido un error inesperado"
 	}	
 
 }

@@ -16,7 +16,7 @@ export class VerbosProvider {
 
   getVerb(id){
   	let reg = localStorage.getItem('region') || JSON.stringify([0, 1, 2]);
-  	console.log(reg);
+  	
   	return this.http.post('http://127.0.0.1:8000/api/v1/verbo/'+id, {region : reg}, {
   		headers : {'Accept' : 'appliacation/json'}
   	});

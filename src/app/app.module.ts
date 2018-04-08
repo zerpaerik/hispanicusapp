@@ -1,8 +1,12 @@
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { IsLogged } from '../interceptors/isLogged';
+
+//NATIVES
+import { Globalization } from '@ionic-native/globalization';
 
 import {TranslateModule, TranslateLoader} from "@ngx-translate/core";
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -12,6 +16,8 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 
 import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
+import { MailValidator } from '../pages/register/email-validator';
 
 import { MenuVerboPage } from '../pages/menu-verbo/menu-verbo';
 import { ListVerbosPage } from '../pages/list-verbos/list-verbos';
@@ -24,7 +30,10 @@ import { ConfigPage } from '../modals/config/config';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+//PROVIDERS
 import { VerbosProvider } from '../providers/verbos/verbos';
+import { AuthProvider } from '../providers/auth/auth';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
     return new TranslateHttpLoader(httpClient, "./assets/i18n/", ".json");
@@ -41,7 +50,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ListVerbosPage,
     DiccionarioPage,
     VerboRegularPage,
-    ConfigPage
+    ConfigPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -66,13 +76,18 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ListVerbosPage,
     DiccionarioPage,
     VerboRegularPage,
-    ConfigPage
+    ConfigPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Globalization,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    VerbosProvider
+    {provide: HTTP_INTERCEPTORS, useClass: IsLogged, multi: true},
+    VerbosProvider,
+    AuthProvider,
+    MailValidator
   ]
 })
 
