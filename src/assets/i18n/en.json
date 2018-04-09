@@ -45,7 +45,9 @@
 		"ORTH_CHANGE" : "Regular Verbs (Orthographic Change)",
 		"ALL" : "All",
 		"START" : "Go",
-		"INFO"  : "Info"
+		"INFO"  : "Info",
+		"SIMPLE_TENSES" : "Simple Tenses",
+		"COMPOUND_TENSES" : "Compound Tenses"
 	},
 
 	"ERROR" : {

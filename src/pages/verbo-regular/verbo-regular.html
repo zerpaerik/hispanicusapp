@@ -3,21 +3,24 @@
   <ion-navbar>
     <ion-title>{{verbo.infinitivo}}</ion-title>
     <ion-buttons right>
-      <button ion-button icon-only><ion-icon name="alert"></ion-icon></button>
+      <button ion-button icon-only (click)="hideEmpty()"><ion-icon name="alert"></ion-icon></button>
     </ion-buttons>    
   </ion-navbar>
 
 </ion-header>
 
 <ion-content block>
-
-<ion-item-group *ngFor="let key of verboKeys">
+<ion-item>
+  <ion-label>{{tense}}</ion-label>
+  <ion-toggle checked="true" [(ngModel)]="tenses" (ionChange)="setTense()"></ion-toggle>  
+</ion-item>
+<ion-item-group *ngFor="let key of verboKeys" class="verbitem">
   <ion-item-divider color="primary">
     <b>{{key}}</b>
   </ion-item-divider>
 
   <div *ngFor="let item of verboData[key]">
-  <ion-item *ngIf="afirmativo && informal && !item.pronombre_reflex && !item.pronombre_formal_id && !item.verbo_auxiliar && item.negativo != '1'">
+  <ion-item *ngIf="afirmativo && informal  && !item.pronombre_formal_id && !item.verbo_auxiliar && !item.pronombre_reflex && item.negativo != '1'">
   	<ion-row>
 
     	<ion-col class="pronombre">
@@ -41,11 +44,10 @@
 
   </ion-item>
   
-  <ion-item *ngIf="afirmativo && !informal">
+  <ion-item *ngIf="!afirmativo && informal && !item.pronombre_reflex && !item.pronombre_formal_id && !item.verbo_auxiliar && item.negativo != '1'">
   <ion-row>  
-    <ion-col class="pronombre">
-      <span>{{item.pronombre_formal_id}}</span>
-    </ion-col>
+    <ion-col class="pronombre">{{item.pronombre}}</ion-col>
+    <ion-col>no</ion-col>
     <ion-col>{{item.pronombre_reflex}}</ion-col>
     <ion-col>{{item.verbo_auxiliar}}</ion-col>
     <ion-col>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
@@ -56,24 +58,53 @@
     </ion-col>
   </ion-row>
   </ion-item>
+
+  <ion-item *ngIf="afirmativo && !informal && !item.pronombre_reflex && !item.pronombre && item.pronombre_formal_id && !item.verbo_auxiliar && item.negativo != '1'">
+  <ion-row>  
+    <ion-col class="pronombre">{{item.pronombre_formal_id}}</ion-col>
+    <ion-col>{{item.pronombre_reflex}}</ion-col>
+    <ion-col>{{item.verbo_auxiliar}}</ion-col>
+    <ion-col>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col>
+      <button *ngIf="item.regla" ion-button icon-only color="light" item-end (click)="showRule(item.regla)">
+        <ion-icon name="information"></ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>
+  </ion-item>  
+
+  <ion-item *ngIf="!afirmativo && !informal && !item.pronombre_reflex && !item.pronombre && item.pronombre_formal_id && !item.verbo_auxiliar && item.negativo == '1'">
+  <ion-row>  
+    <ion-col class="pronombre">{{item.pronombre_formal_id}}</ion-col>
+    <ion-col>no</ion-col>
+    <ion-col>{{item.pronombre_reflex}}</ion-col>
+    <ion-col>{{item.verbo_auxiliar}}</ion-col>
+    <ion-col>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col>
+      <button *ngIf="item.regla" ion-button icon-only color="light" item-end (click)="showRule(item.regla)">
+        <ion-icon name="information"></ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>
+  </ion-item>  
   
   </div>
   
   <ion-grid class="grid-buttons">
     <ion-row>
       <ion-col col-6>
-        <button ion-button block class="grdnt">Afirmativo Informal</button>
+        <button ion-button block class="grdnt" (click)="informalAfmt()">Afirmativo Informal</button>
       </ion-col>
       <ion-col col-6>
-        <button ion-button block class="grdnt">Negativo Informal</button>
+        <button ion-button block class="grdnt" (click)="informalNeg()">Negativo Informal</button>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-6>
-        <button ion-button block class="grdnt">Afirmativo Formal</button>
+        <button ion-button block class="grdnt" (click)="formalAfmt()">Afirmativo Formal</button>
       </ion-col>
       <ion-col col-6>
-        <button ion-button block class="grdnt">Negativo Formal</button>
+        <button ion-button block class="grdnt" (click)="formalNeg()">Negativo Formal</button>
       </ion-col>
     </ion-row>
   </ion-grid>  

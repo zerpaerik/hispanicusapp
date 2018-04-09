@@ -20,13 +20,67 @@ export class VerboRegularPage {
   afirmativo : boolean;
   condition : any;
 
+  tenses : boolean;
+  tenseMsgs : any;
+  tense : string;
+
   constructor(public plt : Platform, public translateServ : TranslateService, public alertCtrl: AlertController, public loadingCtrl : LoadingController, public navCtrl: NavController, public navParams: NavParams, public vp : VerbosProvider) {
   	
     this.informal = true;
     this.afirmativo = true;
     this.condition = "item.negativo == '0' && !item.pronombre_reflex && !item.pronombre_formal_id";
     this.verbo = navParams.get('verbo');
+    this.tenseMsgs = [];
+
+    this.translateServ.get('VERBS_MENU').subscribe(verb => {
+      this.tenseMsgs = [verb.SIMPLE_TENSES, verb.COMPOUND_TENSES];
+      this.tense = verb.SIMPLE_TENSES;
+    });
+
+  }
+
+  setTense(){
+    if (this.tenses) {
+      this.tense = this.tenseMsgs[1];
+    }else{
+      this.tense = this.tenseMsgs[0];
+    }
+  }
+
+  ionViewDidLoad(){
     this.initData();
+  }
+
+  informalNeg(){
+    
+     this.hideEmpty();
+     this.showNotEmpty();
+     this.informal = true;
+     this.afirmativo = false;
+  }
+
+  informalAfmt(){
+    
+     this.hideEmpty();
+     this.showNotEmpty();
+     this.informal = true;
+     this.afirmativo = true;
+  }
+
+  formalAfmt(){
+    
+     this.hideEmpty();
+     this.showNotEmpty();
+     this.informal = false;
+     this.afirmativo = true;
+  }  
+
+  formalNeg(){
+    
+     this.hideEmpty();
+     this.showNotEmpty();
+     this.informal = false;
+     this.afirmativo = false;
   }
 
   showRule(regla){
@@ -54,14 +108,59 @@ export class VerboRegularPage {
     this.vp.getVerb(this.verbo.id)
       .subscribe(data => {
         this.verboData = data["data"];
-        console.log(data["tutorial"]);
         this.verboKeys = Object.keys(this.verboData);
         loader.dismiss();
       },error => {
         loader.dismiss();
         alert.present();    
+      }, () => {
+        setTimeout(() => {
+         this.hideEmpty();
+        }, 1000);
       });
     }
+
+  showNotEmpty(){
+    
+    var items = document.getElementsByClassName('verbitem');
+
+    for (var i = 0; i < items.length; i++) {
+      var empty = true;
+
+      for (var j = 1; j < items[i].children.length - 1; j++) {
+        if (items[i].children[j].childElementCount > 0) {
+          empty = false;
+          break;
+        }
+      }
+
+      if (!empty) {
+        items[i]['hidden'] = false;
+      }
+
+    }
+  }
+
+  hideEmpty(){
+    
+    var items = document.getElementsByClassName('verbitem');
+
+    for (var i = 0; i < items.length; i++) {
+      var empty = false;
+
+      for (var j = 1; j < items[i].children.length - 1; j++) {
+        if (items[i].children[j].childElementCount > 0) {
+          empty = false;
+          break;
+        }else{ empty = true; }
+      }
+
+      if (empty) {
+        items[i]['hidden'] = true;
+      }
+
+    }
+  }
 
   presentLoading() {
     let loader = this.loadingCtrl.create({

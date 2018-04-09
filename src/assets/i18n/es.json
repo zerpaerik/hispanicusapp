@@ -44,7 +44,9 @@
 		"ORTH_CHANGE" : "Verbos Regulares (Cambio Ortografico)",
 		"ALL" : "Todo",
 		"START" : "Empezar",
-		"INFO"  : "Info"
+		"INFO"  : "Info",
+		"SIMPLE_TENSES" : "Tiempos Simples",
+		"COMPOUND_TENSES" : "Tiempos Compuestos"		
 	},
 	
 	"ERROR" : {
