@@ -39,6 +39,7 @@ export class RegisterPage {
   		localStorage.setItem('user', JSON.stringify(res['user']));
       localStorage.setItem('lang', res['lang']);
       localStorage.setItem('rmode', res['modo']);
+      localStorage.setItem('favs', JSON.stringify(res['favs']));
       this.translateServ.setDefaultLang(res['lang']);     
   		this.navCtrl.setRoot(HomePage);
 

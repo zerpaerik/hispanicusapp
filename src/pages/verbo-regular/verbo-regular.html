@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content block>
-<ion-item>
+<ion-item id="tense">
   <ion-label>{{tense}}</ion-label>
   <ion-toggle checked="true" [(ngModel)]="tenses" (ionChange)="setTense()"></ion-toggle>  
 </ion-item>
@@ -165,4 +165,8 @@
     </ion-row>
   </ion-grid>  
 </ion-item-group>	
+
+<ion-fab bottom left edge>
+  <button (click)="goTop()" ion-fab><ion-icon name="arrow-round-up"></ion-icon></button>
+</ion-fab>
 </ion-content>

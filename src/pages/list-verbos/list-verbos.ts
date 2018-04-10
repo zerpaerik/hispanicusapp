@@ -5,6 +5,7 @@ import { ViewChild } from '@angular/core';
 import { DiccionarioPage } from '../../modals/diccionario/diccionario';
 import { VerboRegularPage } from '../verbo-regular/verbo-regular';
 import { VerbosProvider } from '../../providers/verbos/verbos';
+import { ConfigProvider } from '../../providers/config/config';
 import { LoadingController } from 'ionic-angular';
 
 @Component({
@@ -22,7 +23,7 @@ export class ListVerbosPage {
   public searchQuery: string = '';
   public isLoading : boolean = false;
 
-  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public modalCtrl : ModalController, public vp : VerbosProvider) {
+  constructor(public configProvider : ConfigProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public modalCtrl : ModalController, public vp : VerbosProvider) {
 
      this.items = [];
      this.searching = false;
@@ -30,8 +31,31 @@ export class ListVerbosPage {
 
   }
 
+  isFav(item){
+    let f = JSON.parse(localStorage.getItem('favs'));
+    if (f.includes(item)) {
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   public addFav(item){
-    console.log(item);
+    let f = JSON.parse(localStorage.getItem('favs'));
+    
+    if (f.includes(item)) {
+      let i = f.indexOf(item);
+      f.splice(i, 1);
+    }else{
+      f.push(item);
+    }
+
+    localStorage.setItem('favs', JSON.stringify(f));
+    
+    this.configProvider.setFavs(f).subscribe(res => {
+      console.log(res);
+    });
+    
   }
 
   public initializeItems(){

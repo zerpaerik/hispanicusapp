@@ -228,4 +228,13 @@ export class VerboRegularPage {
     });
     return alert;
   }
+
+  goTop(){
+    let el = document.getElementById('tense');
+    if(el){  
+      el.scrollIntoView({behavior: 'smooth', block : 'nearest'});
+    }else{
+      return;
+    }    
+  }
 }
