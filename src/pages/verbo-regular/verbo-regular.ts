@@ -42,8 +42,16 @@ export class VerboRegularPage {
   setTense(){
     if (this.tenses) {
       this.tense = this.tenseMsgs[1];
+       setTimeout(() => {
+       this.hideEmpty();
+       this.showNotEmpty();
+     }, 500);
     }else{
       this.tense = this.tenseMsgs[0];
+      setTimeout(() => {
+       this.hideEmpty();
+       this.showNotEmpty();
+     }, 500);
     }
   }
 
@@ -52,35 +60,47 @@ export class VerboRegularPage {
   }
 
   informalNeg(){
-    
-     this.hideEmpty();
-     this.showNotEmpty();
      this.informal = true;
      this.afirmativo = false;
+     setTimeout(() => {
+       this.hideEmpty();
+       this.showNotEmpty();
+     }, 500);
+     
+
   }
 
   informalAfmt(){
-    
-     this.hideEmpty();
-     this.showNotEmpty();
      this.informal = true;
      this.afirmativo = true;
+     setTimeout(() => {
+       this.hideEmpty();
+       this.showNotEmpty();
+     }, 500);
+     
+
   }
 
   formalAfmt(){
-    
-     this.hideEmpty();
-     this.showNotEmpty();
      this.informal = false;
      this.afirmativo = true;
+     setTimeout(() => {
+       this.hideEmpty();
+       this.showNotEmpty();
+     }, 500);
+     
+
   }  
 
   formalNeg(){
-    
-     this.hideEmpty();
-     this.showNotEmpty();
      this.informal = false;
      this.afirmativo = false;
+     setTimeout(() => {
+       this.hideEmpty();
+       this.showNotEmpty();
+     }, 500);
+     
+
   }
 
   showRule(regla){
@@ -110,13 +130,14 @@ export class VerboRegularPage {
         this.verboData = data["data"];
         this.verboKeys = Object.keys(this.verboData);
         loader.dismiss();
+        console.log(this.verboData);
       },error => {
         loader.dismiss();
         alert.present();    
       }, () => {
         setTimeout(() => {
          this.hideEmpty();
-        }, 1000);
+        }, 500);
       });
     }
 
@@ -170,7 +191,7 @@ export class VerboRegularPage {
     return loader;
   }
 
-showAlert() {
+  showAlert() {
 
     var errorTitle : string;
     var errorSubt  : string;
