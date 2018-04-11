@@ -23,13 +23,13 @@
   <ion-item *ngIf="afirmativo && informal && item.forma_verbal == 'Afirmativo informal' && !tenses">
   	<ion-row>
 
-    	<ion-col class="pronombre">
-        <span >{{item.pronombre}}</span>
+    	<ion-col class="pronombre" col-4>
+        {{item.pronombre}}
       </ion-col>
-      <ion-col class="pro_reflex">{{item.pronombre_reflex}}</ion-col>
-      <ion-col class="verbaux">{{item.verbo_auxiliar}}</ion-col>
-  		<ion-col>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
-      <ion-col>
+      <ion-col class="pro_reflex" col-2>{{item.pronombre_reflex}}</ion-col>
+      <ion-col class="verbaux" col-2 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
+  		<ion-col col-2>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+      <ion-col col-2>
         <button *ngIf="item.regla" ion-button icon-only color="light" item-end (click)="showRule(item.regla)">
           <ion-icon name="information"></ion-icon>
         </button>
@@ -40,12 +40,12 @@
     
   <ion-item *ngIf="!afirmativo && informal && item.forma_verbal == 'Negativo informal' && !tenses">
   <ion-row>  
-    <ion-col class="pronombre">{{item.pronombre}}</ion-col>
-    <ion-col style="color:darkred; forn-weight:bold;">no</ion-col>
-    <ion-col class="pro_reflex">{{item.pronombre_reflex}}</ion-col>
-    <ion-col class="verbaux">{{item.verbo_auxiliar}}</ion-col>
-    <ion-col>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
-    <ion-col>
+    <ion-col class="pronombre" col-4 *ngIf="item.pronombre">{{item.pronombre}}</ion-col>
+    <ion-col style="color:darkred; forn-weight:bold;" col-1>no</ion-col>
+    <ion-col class="pro_reflex" col-2>{{item.pronombre_reflex}}</ion-col>
+    <ion-col class="verbaux" col-2 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
+    <ion-col col-2>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col col-1>
       <button *ngIf="item.regla" ion-button icon-only color="light" item-end (click)="showRule(item.regla)">
         <ion-icon name="information"></ion-icon>
       </button>
@@ -55,11 +55,11 @@
 
   <ion-item *ngIf="afirmativo && !informal && item.forma_verbal == 'Afirmativo formal' && !tenses">
   <ion-row>  
-    <ion-col class="pronombre">{{item.pronombre_formal_id}}</ion-col>
-    <ion-col class="pro_reflex">{{item.pronombre_reflex}}</ion-col>
-    <ion-col class="verbaux">{{item.verbo_auxiliar}}</ion-col>
-    <ion-col>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
-    <ion-col>
+    <ion-col class="pronombre" col-4 *ngIf="item.pronombre_formal_id">{{item.pronombre_formal_id}}</ion-col>
+    <ion-col class="pro_reflex" col-2>{{item.pronombre_reflex}}</ion-col>
+    <ion-col class="verbaux" col-2 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
+    <ion-col col-2>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col col-2>
       <button *ngIf="item.regla" ion-button icon-only color="light" item-end (click)="showRule(item.regla)">
         <ion-icon name="information"></ion-icon>
       </button>
@@ -69,12 +69,12 @@
 
   <ion-item *ngIf="!afirmativo && !informal && item.forma_verbal == 'Negativo formal' && !tenses">
   <ion-row>  
-    <ion-col class="pronombre">{{item.pronombre_formal_id}}</ion-col>
-    <ion-col style="color:darkred; forn-weight:bold;">no</ion-col>
-    <ion-col class="pro_reflex">{{item.pronombre_reflex}}</ion-col>
-    <ion-col class="verbaux">{{item.verbo_auxiliar}}</ion-col>
-    <ion-col>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
-    <ion-col>
+    <ion-col class="pronombre" col-4 *ngIf="item.pronombre_formal_id">{{item.pronombre_formal_id}}</ion-col>
+    <ion-col style="color:darkred; forn-weight:bold;" col-1>no</ion-col>
+    <ion-col class="pro_reflex" col-2>{{item.pronombre_reflex}}</ion-col>
+    <ion-col class="verbaux" col-2 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
+    <ion-col col-2>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col col-1>
       <button *ngIf="item.regla" ion-button icon-only color="light" item-end (click)="showRule(item.regla)">
         <ion-icon name="information"></ion-icon>
       </button>
@@ -83,31 +83,28 @@
   </ion-item>  
 
   <ion-item *ngIf="afirmativo && informal && item.forma_verbal == 'Afirmativo reflexivo informal' && tenses">
-    <ion-row>
-
-      <ion-col class="pronombre">
-        <span >{{item.pronombre}}</span>
-      </ion-col>
-      <ion-col class="pro_reflex">{{item.pronombre_reflex}}</ion-col>
-      <ion-col class="verbaux">{{item.verbo_auxiliar}}</ion-col>
-      <ion-col>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
-      <ion-col>
-        <button *ngIf="item.regla" ion-button icon-only color="light" item-end (click)="showRule(item.regla)">
-          <ion-icon name="information"></ion-icon>
-        </button>
-      </ion-col>
-    </ion-row>
+  <ion-row>  
+    <ion-col class="pronombre" col-4 *ngIf="item.pronombre">{{item.pronombre}}</ion-col>
+    <ion-col class="pro_reflex" col-2>{{item.pronombre_reflex}}</ion-col>
+    <ion-col class="verbaux" col-2 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
+    <ion-col col-2>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col col-2>
+      <button *ngIf="item.regla" ion-button icon-only color="light" item-end (click)="showRule(item.regla)">
+        <ion-icon name="information"></ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>
 
   </ion-item>
     
   <ion-item *ngIf="!afirmativo && informal && item.forma_verbal == 'Negativo reflexivo informal' && tenses">
   <ion-row>  
-    <ion-col class="pronombre">{{item.pronombre}}</ion-col>
-    <ion-col style="color:darkred; forn-weight:bold;">no</ion-col>
-    <ion-col class="pro_reflex">{{item.pronombre_reflex}}</ion-col>
-    <ion-col class="verbaux">{{item.verbo_auxiliar}}</ion-col>
-    <ion-col>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
-    <ion-col>
+    <ion-col class="pronombre" col-4 *ngIf="item.pronombre">{{item.pronombre}}</ion-col>
+    <ion-col style="color:darkred; forn-weight:bold;" col-1>no</ion-col>
+    <ion-col class="pro_reflex" col-2>{{item.pronombre_reflex}}</ion-col>
+    <ion-col class="verbaux" col-2 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
+    <ion-col col-2>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col col-1>
       <button *ngIf="item.regla" ion-button icon-only color="light" item-end (click)="showRule(item.regla)">
         <ion-icon name="information"></ion-icon>
       </button>
@@ -117,11 +114,11 @@
 
   <ion-item *ngIf="afirmativo && !informal && item.forma_verbal == 'Afirmativo reflexivo formal' && tenses">
   <ion-row>  
-    <ion-col class="pronombre">{{item.pronombre_formal_id}}</ion-col>
-    <ion-col class="pro_reflex">{{item.pronombre_reflex}}</ion-col>
-    <ion-col class="verbaux">{{item.verbo_auxiliar}}</ion-col>
-    <ion-col>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
-    <ion-col>
+    <ion-col class="pronombre" col-4 *ngIf="item.pronombre_formal_id">{{item.pronombre_formal_id}}</ion-col>
+    <ion-col class="pro_reflex" col-2>{{item.pronombre_reflex}}</ion-col>
+    <ion-col class="verbaux" col-2 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
+    <ion-col col-2>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col col-2>
       <button *ngIf="item.regla" ion-button icon-only color="light" item-end (click)="showRule(item.regla)">
         <ion-icon name="information"></ion-icon>
       </button>
@@ -131,12 +128,12 @@
 
   <ion-item *ngIf="!afirmativo && !informal && item.forma_verbal == 'Negativo reflexivo formal' && tenses">
   <ion-row>  
-    <ion-col class="pronombre">{{item.pronombre_formal_id}}</ion-col>
-    <ion-col style="color:darkred; forn-weight:bold;">no</ion-col>
-    <ion-col class="pro_reflex">{{item.pronombre_reflex}}</ion-col>
-    <ion-col class="verbaux">{{item.verbo_auxiliar}}</ion-col>
-    <ion-col>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
-    <ion-col>
+    <ion-col class="pronombre" col-4 *ngIf="item.pronombre_formal_id">{{item.pronombre_formal_id}}</ion-col>
+    <ion-col style="color:darkred; forn-weight:bold;" col-1>no</ion-col>
+    <ion-col class="pro_reflex" col-2>{{item.pronombre_reflex}}</ion-col>
+    <ion-col class="verbaux" col-2 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
+    <ion-col col-2>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col col-1>
       <button *ngIf="item.regla" ion-button icon-only color="light" item-end (click)="showRule(item.regla)">
         <ion-icon name="information"></ion-icon>
       </button>
