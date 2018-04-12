@@ -33,17 +33,19 @@ export class ListVerbosPage {
 
   isFav(item){
     let f = JSON.parse(localStorage.getItem('favs'));
-    if (f.includes(item)) {
+    
+    if (this.myInclude(f, item)) {
       return true;
     }else{
       return false;
     }
+    
   }
 
   public addFav(item){
     let f = JSON.parse(localStorage.getItem('favs'));
     
-    if (f.includes(item)) {
+    if (this.myInclude(f, item)) {
       let i = f.indexOf(item);
       f.splice(i, 1);
     }else{
@@ -56,6 +58,15 @@ export class ListVerbosPage {
       console.log(res);
     });
     
+  }
+
+  public myInclude(a, v){
+    for(let i in a){
+      if (a[i] == v) {
+        return true;
+      }
+    }
+    return false;
   }
 
   public initializeItems(){

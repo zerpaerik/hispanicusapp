@@ -10,13 +10,13 @@ import { Globalization } from '@ionic-native/globalization';
 import {TranslateModule, TranslateLoader} from "@ngx-translate/core";
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
+
+//PAGES
+
 import { HomePage } from '../pages/home/home';
 
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
-import { MailValidator } from '../pages/register/email-validator';
 
 import { MenuVerboPage } from '../pages/menu-verbo/menu-verbo';
 import { ListVerbosPage } from '../pages/list-verbos/list-verbos';
@@ -42,8 +42,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
     LoginPage,
     MenuVerboPage,
@@ -68,8 +66,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
     LoginPage,
     MenuVerboPage,
@@ -86,7 +82,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     VerbosProvider,
     AuthProvider,
-    MailValidator,
     ConfigProvider
   ]
 })
