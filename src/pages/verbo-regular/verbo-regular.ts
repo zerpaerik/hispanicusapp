@@ -60,13 +60,13 @@ export class VerboRegularPage {
   }
 
   informalNeg(){
+
      this.informal = true;
      this.afirmativo = false;
      setTimeout(() => {
        this.hideEmpty();
        this.showNotEmpty();
      }, 500);
-     
 
   }
 
