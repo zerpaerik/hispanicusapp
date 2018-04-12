@@ -28,7 +28,11 @@
       </ion-col>
       <ion-col class="pro_reflex" col-1>{{item.pronombre_reflex}}</ion-col>
       <ion-col class="verbaux" col-3 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
-  		<ion-col col-4>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+  		<ion-col col-3>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+      <ion-col col-1>
+        <span *ngIf="!item.plural && item.pg" class="pgramatical2">[{{item.pg}}]</span>
+        <span *ngIf="item.plural && item.pg" class="pgramatical">({{item.pg}})</span>
+      </ion-col>
       <ion-col col-1>
       <ion-icon *ngIf="item.regla" (click)="showRule(item.regla)" name="information"></ion-icon>
       </ion-col>
@@ -42,7 +46,11 @@
     <ion-col style="color:darkred; forn-weight:bold;" col-1>no</ion-col>
     <ion-col class="pro_reflex" col-1>{{item.pronombre_reflex}}</ion-col>
     <ion-col class="verbaux" col-3 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
-    <ion-col col-4>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col col-3>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col col-1>
+      <span *ngIf="!item.plural && item.pg" class="pgramatical2">[{{item.pg}}]</span>
+      <span *ngIf="item.plural && item.pg" class="pgramatical">({{item.pg}})</span>
+    </ion-col>
     <!--<ion-col col-1>
     <ion-icon *ngIf="item.regla" (click)="showRule(item.regla)" name="information"></ion-icon>
     </ion-col>-->
@@ -54,7 +62,11 @@
     <ion-col class="pronombre" col-3 *ngIf="item.pronombre_formal_id">{{item.pronombre_formal_id}}</ion-col>
     <ion-col class="pro_reflex" col-1>{{item.pronombre_reflex}}</ion-col>
     <ion-col class="verbaux" col-3 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
-    <ion-col col-4>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col col-3>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col col-1>
+      <span *ngIf="!item.plural && item.pg" class="pgramatical2">[{{item.pg}}]</span>
+      <span *ngIf="item.plural && item.pg" class="pgramatical">({{item.pg}})</span>
+    </ion-col>
     <!--<ion-col col-1>
     <ion-icon *ngIf="item.regla" (click)="showRule(item.regla)" name="information"></ion-icon>
     </ion-col>-->
@@ -67,7 +79,11 @@
     <ion-col style="color:darkred; forn-weight:bold;" col-1>no</ion-col>
     <ion-col class="pro_reflex" col-1>{{item.pronombre_reflex}}</ion-col>
     <ion-col class="verbaux" col-3 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
-    <ion-col col-4>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col col-3>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col col-1>
+      <span *ngIf="!item.plural && item.pg" class="pgramatical2">[{{item.pg}}]</span>
+      <span *ngIf="item.plural && item.pg" class="pgramatical">({{item.pg}})</span>
+    </ion-col>
     <!--<ion-col col-1>
     <ion-icon *ngIf="item.regla" (click)="showRule(item.regla)" name="information"></ion-icon>
     </ion-col>-->
@@ -79,7 +95,11 @@
     <ion-col class="pronombre" col-3 *ngIf="item.pronombre">{{item.pronombre}}</ion-col>
     <ion-col class="pro_reflex" col-1>{{item.pronombre_reflex}}</ion-col>
     <ion-col class="verbaux" col-3 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
-    <ion-col col-4>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col col-3>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col col-1>
+      <span *ngIf="!item.plural && item.pg" class="pgramatical2">[{{item.pg}}]</span>
+      <span *ngIf="item.plural && item.pg" class="pgramatical">({{item.pg}})</span>
+    </ion-col>
     <!--<ion-col col-1>
     <ion-icon *ngIf="item.regla" (click)="showRule(item.regla)" name="information"></ion-icon>
     </ion-col>-->
@@ -93,7 +113,11 @@
     <ion-col style="color:darkred; forn-weight:bold;" col-1>no</ion-col>
     <ion-col class="pro_reflex" col-1>{{item.pronombre_reflex}}</ion-col>
     <ion-col class="verbaux" col-3 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
-    <ion-col col-4>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col col-3>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col col-1>
+      <span *ngIf="!item.plural && item.pg" class="pgramatical2">[{{item.pg}}]</span>
+      <span *ngIf="item.plural && item.pg" class="pgramatical">({{item.pg}})</span>
+    </ion-col>
     <!--<ion-col col-1>
     <ion-icon *ngIf="item.regla" (click)="showRule(item.regla)" name="information"></ion-icon>
     </ion-col>-->
@@ -105,7 +129,11 @@
     <ion-col class="pronombre" col-3 *ngIf="item.pronombre_formal_id">{{item.pronombre_formal_id}}</ion-col>
     <ion-col class="pro_reflex" col-1>{{item.pronombre_reflex}}</ion-col>
     <ion-col class="verbaux" col-3 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
-    <ion-col col-4>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col col-3>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col col-1>
+      <span *ngIf="!item.plural && item.pg" class="pgramatical2">[{{item.pg}}]</span>
+      <span *ngIf="item.plural && item.pg" class="pgramatical">({{item.pg}})</span>
+    </ion-col>
     <!--<ion-col col-1>
     <ion-icon *ngIf="item.regla" (click)="showRule(item.regla)" name="information"></ion-icon>
     </ion-col>-->
@@ -118,7 +146,11 @@
     <ion-col style="color:darkred; forn-weight:bold;" col-1>no</ion-col>
     <ion-col class="pro_reflex" col-1>{{item.pronombre_reflex}}</ion-col>
     <ion-col class="verbaux" col-3 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
-    <ion-col col-4>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col col-3>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+    <ion-col col-1>
+      <span *ngIf="!item.plural && item.pg" class="pgramatical2">[{{item.pg}}]</span>
+      <span *ngIf="item.plural && item.pg" class="pgramatical">({{item.pg}})</span>
+    </ion-col>
     <!--<ion-col col-1>
     <ion-icon *ngIf="item.regla" (click)="showRule(item.regla)" name="information"></ion-icon>
     </ion-col>-->
