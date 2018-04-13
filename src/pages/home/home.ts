@@ -23,6 +23,10 @@ export class HomePage {
     return true;    
   }
 
+  goFavs(){
+    this.navCtrl.push('FavoritesPage');
+  }
+
   next(){
   	this.navCtrl.push(MenuVerboPage);
   }

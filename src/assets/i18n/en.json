@@ -34,7 +34,8 @@
 	"HOME" : {
 		"MENU": {
 			"COMBINE_BUTTON" : "Combine",
-			"TITLE" 	     : "Menu"
+			"TITLE" 	     : "Menu",
+			"FAVS" : "Favorites"
 		}
 	},
 

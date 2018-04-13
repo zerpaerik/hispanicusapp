@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { VerbosProvider } from '../../providers/verbos/verbos';
 import { LoadingController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Platform } from 'ionic-angular';
 
+@IonicPage()
 @Component({
   selector: 'page-verbo-regular',
   templateUrl: 'verbo-regular.html',
 })
+
 export class VerboRegularPage {
 
 	verbo : any;

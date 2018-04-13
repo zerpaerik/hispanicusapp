@@ -33,7 +33,8 @@
 	"HOME" : {
 		"MENU": {
 			"COMBINE_BUTTON" : "Conjugar",
-			"TITLE" 	     : "Menu"
+			"TITLE" 	     : "Menu",
+			"FAVS" : "Favoritos"			
 		}
 	},
 

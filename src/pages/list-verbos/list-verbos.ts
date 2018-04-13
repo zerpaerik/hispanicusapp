@@ -3,7 +3,6 @@ import { NavController, NavParams, Content } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { DiccionarioPage } from '../../modals/diccionario/diccionario';
-import { VerboRegularPage } from '../verbo-regular/verbo-regular';
 import { VerbosProvider } from '../../providers/verbos/verbos';
 import { ConfigProvider } from '../../providers/config/config';
 import { LoadingController } from 'ionic-angular';
@@ -95,7 +94,7 @@ export class ListVerbosPage {
   }
 
   public selectVerbo(xverbo){
-    this.navCtrl.push(VerboRegularPage, {verbo : xverbo});
+    this.navCtrl.push('VerboRegularPage', {verbo : xverbo});
   }
 
   public openModal(data){

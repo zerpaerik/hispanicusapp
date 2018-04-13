@@ -20,7 +20,6 @@ import { RegisterPage } from '../pages/register/register';
 
 import { MenuVerboPage } from '../pages/menu-verbo/menu-verbo';
 import { ListVerbosPage } from '../pages/list-verbos/list-verbos';
-import { VerboRegularPage } from '../pages/verbo-regular/verbo-regular';
 
 //MODALS
 
@@ -47,7 +46,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MenuVerboPage,
     ListVerbosPage,
     DiccionarioPage,
-    VerboRegularPage,
     ConfigPage,
     RegisterPage
   ],
@@ -71,7 +69,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MenuVerboPage,
     ListVerbosPage,
     DiccionarioPage,
-    VerboRegularPage,
     ConfigPage,
     RegisterPage
   ],
