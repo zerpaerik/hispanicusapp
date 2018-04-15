@@ -35,7 +35,8 @@
 		"MENU": {
 			"COMBINE_BUTTON" : "Combine",
 			"TITLE" 	     : "Menu",
-			"FAVS" : "Favorites"
+			"FAVS" : "Favorites",
+			"DICT" : "Dictionary"
 		}
 	},
 
@@ -45,8 +46,8 @@
 		"IRREGULAR" : "Irregular Verbs",
 		"ORTH_CHANGE" : "Regular Verbs (Orthographic Change)",
 		"ALL" : "All",
-		"START" : "Go",
-		"INFO"  : "Info",
+		"START" : "GO",
+		"INFO"  : "INFO",
 		"SIMPLE_TENSES" : "Simple Tenses",
 		"COMPOUND_TENSES" : "Compound Tenses"
 	},
@@ -58,6 +59,7 @@
 		"EMAIL_TAKEN" : "This email is not available",
 		"PASS_MISMATCH" : "Password must match",
 		"UNKNOW" : "An unknow error has ocurred",
-		"CHECK_CREDS" : "Wrong email or password"
+		"CHECK_CREDS" : "Wrong email or password",
+		"NO_TUTO" : "There are not tutorials yet for this verb."
 	}
 }

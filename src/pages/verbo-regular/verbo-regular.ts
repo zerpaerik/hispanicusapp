@@ -21,16 +21,21 @@ export class VerboRegularPage {
   informal : boolean;
   afirmativo : boolean;
   condition : any;
+  forma : string;
 
   tenses : boolean;
   tenseMsgs : any;
   tense : string;
 
+  formaVerbal : string;
+
   constructor(public plt : Platform, public translateServ : TranslateService, public alertCtrl: AlertController, public loadingCtrl : LoadingController, public navCtrl: NavController, public navParams: NavParams, public vp : VerbosProvider) {
   	
     this.informal = true;
     this.afirmativo = true;
-    this.condition = "item.negativo == '0' && !item.pronombre_reflex && !item.pronombre_formal_id";
+    this.forma = 'Afirmativo informal';
+    this.formaVerbal = 'todos';
+    this.tenses = false;
     this.verbo = navParams.get('verbo');
     this.tenseMsgs = [];
 
@@ -39,70 +44,91 @@ export class VerboRegularPage {
       this.tense = verb.SIMPLE_TENSES;
     });
 
+    this.condition = ['Presente de subjuntivo', 'Presente de indicativo', 'Futuro de indicativo', 'Futuro perfecto de indicativo', 'Pretérito perfecto de indicativo', 'Pretérito perfecto de subjuntivo', 'Pretérito imperfecto', 'Pretérito imperfecto (1)'
+        , 'Pretérito imperfecto (2)', 'Pretérito pluscuamperfecto', 'Pretérito pluscuamperfecto (1)', 'Pretérito pluscuamperfecto (2)', 'Futuro de subjuntivo',
+        'Futuro perfecto de subjuntivo', 'Imperativo ', 'Gerundio presente', 'Gerundio compuesto', 'Participio', 'Infinitivo compuesto ', 'Condicional perfecto', 'Pretérito anterior', 'Pretérito perfecto simple', 'Condicional'];
+  }
+
+  setVerbalTime(){
+    switch (this.formaVerbal) {
+      case "fnp":
+        this.condition = ['Gerundio presente', 'Gerundio compuesto', 'Participio', 'Infinitivo compuesto '];
+        break;
+      case "indicativo":
+        this.condition = ['Presente de indicativo', 'Condicional','Condicional perfecto', 'Futuro de indicativo', 'Futuro perfecto de indicativo', 'Pretérito perfecto de indicativo', 'Pretérito anterior','Pretérito perfecto simple', 'Pretérito imperfecto'];
+        break;
+      case "subjuntivo":
+        this.condition = ['Presente de subjuntivo', 'Pretérito perfecto de subjuntivo', 'Pretérito imperfecto', 'Pretérito imperfecto (1)'
+        , 'Pretérito imperfecto (2)', 'Pretérito pluscuamperfecto', 'Pretérito pluscuamperfecto (1)', 'Pretérito pluscuamperfecto (2)', 'Futuro de subjuntivo',
+        'Futuro perfecto de subjuntivo'];
+        break;
+      case "imperativo":
+        this.condition = ['Imperativo '];
+        break;
+      default:
+        this.condition = ['Presente de subjuntivo', 'Presente de indicativo', 'Futuro de indicativo', 'Futuro perfecto de indicativo', 'Pretérito perfecto de indicativo', 'Pretérito perfecto de subjuntivo', 'Pretérito imperfecto', 'Pretérito imperfecto (1)'
+        , 'Pretérito imperfecto (2)', 'Pretérito pluscuamperfecto', 'Pretérito pluscuamperfecto (1)', 'Pretérito pluscuamperfecto (2)', 'Futuro de subjuntivo',
+        'Futuro perfecto de subjuntivo', 'Imperativo ', 'Gerundio presente', 'Gerundio compuesto', 'Participio', 'Infinitivo compuesto ', 'Condicional perfecto', 'Pretérito anterior', 'Pretérito perfecto simple', 'Condicional'];  
+        break;
+    }
+     setTimeout(() => {
+       this.hideEmpty();
+       this.showNotEmpty();
+     }, 1);
+  }
+
+  public myInclude(a, v){
+
+    if (a[0] == '*') {
+       return true;
+    }
+
+    for(let i in a){
+      if (a[i] == v) {
+        return true;
+      }
+    }
+    return false;
+  }  
+
+  public goTuto(xverbo){
+    this.navCtrl.push('TutorialPage', {verbo : xverbo});
   }
 
   setTense(){
+
     if (this.tenses) {
       this.tense = this.tenseMsgs[1];
-       setTimeout(() => {
-       this.hideEmpty();
-       this.showNotEmpty();
-     }, 500);
+      if (this.forma == 'Afirmativo informal') {
+        this.forma = 'Afirmativo reflexivo informal';
+      }else if(this.forma == 'Afirmativo formal'){
+        this.forma = 'Afirmativo reflexivo formal';
+      }else if(this.forma == 'Negativo informal'){
+        this.forma = 'Negativo reflexivo informal';
+      }else if(this.forma == 'Negativo formal'){
+        this.forma = 'Negativo reflexivo formal';
+      }
     }else{
       this.tense = this.tenseMsgs[0];
-      setTimeout(() => {
-       this.hideEmpty();
-       this.showNotEmpty();
-     }, 500);
+      if (this.forma == 'Afirmativo reflexivo informal') {
+        this.forma = 'Afirmativo informal';
+      }else if(this.forma == 'Negativo reflexivo informal'){
+        this.forma = 'Negativo informal';
+      }else if(this.forma == 'Afirmativo reflexivo formal'){
+        this.forma = 'Afirmativo formal';
+      }else if(this.forma == 'Negativo reflexivo formal'){
+        this.forma = 'Negativo formal';
+      }
     }
+    setTimeout(() => {
+      this.hideEmpty();
+      this.showNotEmpty();
+     }, 1);
+
   }
 
   ionViewDidLoad(){
     this.initData();
-  }
-
-  informalNeg(){
-
-     this.informal = true;
-     this.afirmativo = false;
-     setTimeout(() => {
-       this.hideEmpty();
-       this.showNotEmpty();
-     }, 500);
-
-  }
-
-  informalAfmt(){
-     this.informal = true;
-     this.afirmativo = true;
-     setTimeout(() => {
-       this.hideEmpty();
-       this.showNotEmpty();
-     }, 500);
-     
-
-  }
-
-  formalAfmt(){
-     this.informal = false;
-     this.afirmativo = true;
-     setTimeout(() => {
-       this.hideEmpty();
-       this.showNotEmpty();
-     }, 500);
-     
-
-  }  
-
-  formalNeg(){
-     this.informal = false;
-     this.afirmativo = false;
-     setTimeout(() => {
-       this.hideEmpty();
-       this.showNotEmpty();
-     }, 500);
-     
-
   }
 
   showRule(regla){
@@ -117,7 +143,6 @@ export class VerboRegularPage {
       title: rule,
       subTitle: regla,
       buttons : ["OK"]
-
     });
    alert.present();
   }        
@@ -132,14 +157,13 @@ export class VerboRegularPage {
         this.verboData = data["data"];
         this.verboKeys = Object.keys(this.verboData);
         loader.dismiss();
-        console.log(this.verboData);
       },error => {
         loader.dismiss();
         alert.present();    
       }, () => {
         setTimeout(() => {
          this.hideEmpty();
-        }, 500);
+        }, 1);
       });
     }
 
@@ -239,4 +263,74 @@ export class VerboRegularPage {
       return;
     }    
   }
+
+  informalNeg(){
+
+     this.informal = true;
+     this.afirmativo = false;
+     if (!this.tenses) {
+       this.forma = 'Negativo informal';
+     }else{
+       this.forma = 'Negativo reflexivo informal';
+     }
+     
+     setTimeout(() => {
+       this.hideEmpty();
+       this.showNotEmpty();
+     }, 1);
+
+  }
+
+  informalAfmt(){
+     this.informal = true;
+     this.afirmativo = true;
+     if (!this.tenses) {
+       this.forma = 'Afirmativo informal';
+     }else{
+       this.forma = 'Afirmativo reflexivo informal';
+     }
+     
+     setTimeout(() => {
+       this.hideEmpty();
+       this.showNotEmpty();
+     }, 1);
+     
+
+  }
+
+  formalAfmt(){
+     this.informal = false;
+     this.afirmativo = true;
+
+     if (!this.tenses) {
+       this.forma = 'Afirmativo formal';
+     }else{
+       this.forma = 'Afirmativo reflexivo formal';
+     }
+     
+     setTimeout(() => {
+       this.hideEmpty();
+       this.showNotEmpty();
+     }, 1);
+     
+
+  }  
+
+  formalNeg(){
+     this.informal = false;
+     this.afirmativo = false;
+     if (!this.tenses) {
+       this.forma = 'Negativo formal'; 
+     }else{
+       this.forma = 'Negativo reflexivo formal'; 
+     }
+     
+     setTimeout(() => {
+       this.hideEmpty();
+       this.showNotEmpty();
+     }, 1);
+     
+
+  }
+
 }

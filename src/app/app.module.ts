@@ -51,7 +51,10 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      pageTransition: 'ios-transition',
+      backButtonText: '',
+    }),
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {

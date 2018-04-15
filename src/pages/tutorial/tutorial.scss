@@ -1,0 +1,23 @@
+page-tutorial {
+	.card-header, .cardfooter{
+		background-color:#367a99;
+		color:white;
+		font-weight: bold;
+	}
+
+	.card-content{
+		margin-top:12px;
+		text-align: justify;
+	}
+
+	.tuto{
+		font-size: 1.7rem;
+		color:#96948b;
+		font-weight: bold;
+	}
+
+	#def{
+		color:white;
+		font-weight: bold;
+	}
+}

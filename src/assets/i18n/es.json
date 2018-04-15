@@ -34,7 +34,8 @@
 		"MENU": {
 			"COMBINE_BUTTON" : "Conjugar",
 			"TITLE" 	     : "Menu",
-			"FAVS" : "Favoritos"			
+			"FAVS" : "Favoritos",
+			"DICT" : "Diccionario"			
 		}
 	},
 
@@ -57,6 +58,7 @@
 		"EMAIL_TAKEN" : "Email no disponible",
 		"PASS_MISMATCH" : "La contraseña debe coincidir",
 		"UNKNOW" : "Ha ocurrido un error inesperado",
-		"CHECK_CREDS" : "Email o Contraseña erronea"				
+		"CHECK_CREDS" : "Email o Contraseña erronea",
+		"NO_TUTO" : "No hay tutoriales para este verbo aun."
 	}
 }

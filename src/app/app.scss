@@ -29,6 +29,26 @@ ion-item{
 	background: linear-gradient(to bottom, rgba(226,226,226,0.4) 0%, rgba(219,219,219,0.4) 57%, rgba(221,221,221,0.4) 59%, rgba(254,254,254,0.4) 100%);
 }
 
+.toolbar-background {
+  background: linear-gradient(to right, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
+}
+
+.toolbar-title{
+	color:white;
+	text-shadow: 2px 0px 5px rgba(150, 150, 150, 1);
+}
+
+ion-navbar{
+	ion-buttons{
+		color:white;
+	}
+}
+
+.back-button{
+	color:white;
+	text-shadow: 2px 0px 5px rgba(150, 150, 150, 1);
+}
+
 ion-item-divider{
 	background: linear-gradient(to right, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
 	ion-label{

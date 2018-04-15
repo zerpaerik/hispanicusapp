@@ -5,12 +5,6 @@ page-verbo-regular {
 	#negado{
 		color: darkred;
 	}
-	.grid-buttons{
-		background-color: rgba(18,99,115,0.9);
-		.grdnt{
-			font-weight: bold;
-		}
-	}
 	.pro_reflex{
 		color: #02857c;
 	}
@@ -22,7 +16,7 @@ page-verbo-regular {
 	}
 	
 	ion-col{
-		font-size:1.5rem;
+		font-size:1.2rem;
 	}
 	.pgramatical{
 		font-weight:bold;
@@ -30,7 +24,14 @@ page-verbo-regular {
 	}
 	.pgramatical2{
 		font-weight:bold;
-		color:#0b03ff;
+		color:#367a99;
 	}
 
+	ion-icon{
+		color:white;
+	}
+
+	ion-segment-button{
+		padding:3px;
+	}
 }

@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{verbo.infinitivo}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-card>
+	  <ion-card-header>
+	    Tutorial
+	  </ion-card-header>
+	  <ion-card-content>
+	    <p *ngIf="tutorial; else not_found" justify="justify" class="tuto">{{tutorial}}</p>
+	    <ng-template #not_found class="tuto">{{'ERROR.NO_TUTO' | translate}}</ng-template>
+	  </ion-card-content>
+    <ion-row class="cardfooter">
+      <ion-col>
+      	<p id="def">{{verbo.def}}</p>
+      </ion-col>
+    </ion-row>
+	</ion-card>
+</ion-content>

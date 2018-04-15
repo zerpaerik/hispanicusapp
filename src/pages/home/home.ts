@@ -27,6 +27,10 @@ export class HomePage {
     this.navCtrl.push('FavoritesPage');
   }
 
+  goDict(){
+    this.navCtrl.push('DictsPage');
+  }  
+
   next(){
   	this.navCtrl.push(MenuVerboPage);
   }

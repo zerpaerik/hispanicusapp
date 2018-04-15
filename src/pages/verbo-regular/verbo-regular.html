@@ -3,183 +3,85 @@
   <ion-navbar>
     <ion-title>{{verbo.infinitivo}}</ion-title>
     <ion-buttons right>
-      <button ion-button icon-only (click)="hideEmpty()"><ion-icon name="alert"></ion-icon></button>
+      <button ion-button icon-only (click)="goTuto(verbo)"><ion-icon name="alert"></ion-icon></button>
     </ion-buttons>    
   </ion-navbar>
 
 </ion-header>
 
 <ion-content block>
+
 <ion-item id="tense">
   <ion-label>{{tense}}</ion-label>
   <ion-toggle checked="true" [(ngModel)]="tenses" (ionChange)="setTense()"></ion-toggle>  
 </ion-item>
+
+<div block>
+  <ion-segment [(ngModel)]="formaVerbal" mode="ios" color="danger" (ionChange)="setVerbalTime()">
+    <ion-segment-button value="indicativo">
+      Indicativo
+    </ion-segment-button>
+    <ion-segment-button value="subjuntivo">
+      Subjuntivo
+    </ion-segment-button>
+    <ion-segment-button value="imperativo">
+      Imperativo
+    </ion-segment-button>
+    <ion-segment-button value="fnp">
+      F.N.P
+    </ion-segment-button>
+    <ion-segment-button value="todos">
+      Todos
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
 <ion-item-group *ngFor="let key of verboKeys" class="verbitem">
   <ion-item-divider color="primary">
     <b>{{key}}</b> <ion-icon item-end name="alert"></ion-icon>
   </ion-item-divider>
 
   <div *ngFor="let item of verboData[key]">
-  <ion-item *ngIf="afirmativo && informal && item.forma_verbal == 'Afirmativo informal' && !tenses">
-  	<ion-row>
 
-    	<ion-col class="pronombre" col-3>
-        {{item.pronombre}}
+  <ion-item *ngIf="item.forma_verbal == forma && myInclude(condition, key)">
+    <ion-row wrap-reverse >
+      <ion-col col-3>
+        <span class="pronombre" *ngIf="item.pronombre">{{item.pronombre}}</span> 
+        <span class="pronombre" *ngIf="item.pronombre_formal_id">{{item.pronombre_formal_id}}</span>
       </ion-col>
-      <ion-col class="pro_reflex" col-1>{{item.pronombre_reflex}}</ion-col>
-      <ion-col class="verbaux" col-3 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
-  		<ion-col col-3>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
-      <ion-col col-1>
-        <span *ngIf="!item.plural && item.pg" class="pgramatical2">[{{item.pg}}]</span>
-        <span *ngIf="item.plural && item.pg" class="pgramatical">({{item.pg}})</span>
+      <ion-col col-1 class="negado"><span *ngIf="item.negativo != '0'">no</span></ion-col>
+      <ion-col col-1 class="pro_reflex"><span>{{item.pronombre_reflex}}</span></ion-col>
+      <ion-col col-2 class="verbaux"><span>{{item.verbo_auxiliar}}</span></ion-col>
+      <ion-col col-4>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+      <ion-col col-1 align="right">
+        <span *ngIf="!item.plural && item.pg" class="pgramatical2">[{{item.pg}}º]</span>
+        <span *ngIf="item.plural && item.pg" class="pgramatical">({{item.pg}}º)</span>
       </ion-col>
-      <ion-col col-1>
+      <!--<ion-col col-1>
       <ion-icon *ngIf="item.regla" (click)="showRule(item.regla)" name="information"></ion-icon>
-      </ion-col>
-  	</ion-row>
-
+      </ion-col>-->
+    </ion-row>
   </ion-item>
-    
-  <ion-item *ngIf="!afirmativo && informal && item.forma_verbal == 'Negativo informal' && !tenses">
-  <ion-row>  
-    <ion-col class="pronombre" col-3 *ngIf="item.pronombre">{{item.pronombre}}</ion-col>
-    <ion-col style="color:darkred; forn-weight:bold;" col-1>no</ion-col>
-    <ion-col class="pro_reflex" col-1>{{item.pronombre_reflex}}</ion-col>
-    <ion-col class="verbaux" col-3 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
-    <ion-col col-3>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
-    <ion-col col-1>
-      <span *ngIf="!item.plural && item.pg" class="pgramatical2">[{{item.pg}}]</span>
-      <span *ngIf="item.plural && item.pg" class="pgramatical">({{item.pg}})</span>
-    </ion-col>
-    <!--<ion-col col-1>
-    <ion-icon *ngIf="item.regla" (click)="showRule(item.regla)" name="information"></ion-icon>
-    </ion-col>-->
-  </ion-row>
-  </ion-item>
-
-  <ion-item *ngIf="afirmativo && !informal && item.forma_verbal == 'Afirmativo formal' && !tenses">
-  <ion-row>  
-    <ion-col class="pronombre" col-3 *ngIf="item.pronombre_formal_id">{{item.pronombre_formal_id}}</ion-col>
-    <ion-col class="pro_reflex" col-1>{{item.pronombre_reflex}}</ion-col>
-    <ion-col class="verbaux" col-3 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
-    <ion-col col-3>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
-    <ion-col col-1>
-      <span *ngIf="!item.plural && item.pg" class="pgramatical2">[{{item.pg}}]</span>
-      <span *ngIf="item.plural && item.pg" class="pgramatical">({{item.pg}})</span>
-    </ion-col>
-    <!--<ion-col col-1>
-    <ion-icon *ngIf="item.regla" (click)="showRule(item.regla)" name="information"></ion-icon>
-    </ion-col>-->
-  </ion-row>
-  </ion-item>  
-
-  <ion-item *ngIf="!afirmativo && !informal && item.forma_verbal == 'Negativo formal' && !tenses">
-  <ion-row>  
-    <ion-col class="pronombre" col-3 *ngIf="item.pronombre_formal_id">{{item.pronombre_formal_id}}</ion-col>
-    <ion-col style="color:darkred; forn-weight:bold;" col-1>no</ion-col>
-    <ion-col class="pro_reflex" col-1>{{item.pronombre_reflex}}</ion-col>
-    <ion-col class="verbaux" col-3 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
-    <ion-col col-3>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
-    <ion-col col-1>
-      <span *ngIf="!item.plural && item.pg" class="pgramatical2">[{{item.pg}}]</span>
-      <span *ngIf="item.plural && item.pg" class="pgramatical">({{item.pg}})</span>
-    </ion-col>
-    <!--<ion-col col-1>
-    <ion-icon *ngIf="item.regla" (click)="showRule(item.regla)" name="information"></ion-icon>
-    </ion-col>-->
-  </ion-row>
-  </ion-item>  
-
-  <ion-item *ngIf="afirmativo && informal && item.forma_verbal == 'Afirmativo reflexivo informal' && tenses">
-  <ion-row>  
-    <ion-col class="pronombre" col-3 *ngIf="item.pronombre">{{item.pronombre}}</ion-col>
-    <ion-col class="pro_reflex" col-1>{{item.pronombre_reflex}}</ion-col>
-    <ion-col class="verbaux" col-3 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
-    <ion-col col-3>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
-    <ion-col col-1>
-      <span *ngIf="!item.plural && item.pg" class="pgramatical2">[{{item.pg}}]</span>
-      <span *ngIf="item.plural && item.pg" class="pgramatical">({{item.pg}})</span>
-    </ion-col>
-    <!--<ion-col col-1>
-    <ion-icon *ngIf="item.regla" (click)="showRule(item.regla)" name="information"></ion-icon>
-    </ion-col>-->
-  </ion-row>
-
-  </ion-item>
-    
-  <ion-item *ngIf="!afirmativo && informal && item.forma_verbal == 'Negativo reflexivo informal' && tenses">
-  <ion-row>  
-    <ion-col class="pronombre" col-3 *ngIf="item.pronombre">{{item.pronombre}}</ion-col>
-    <ion-col style="color:darkred; forn-weight:bold;" col-1>no</ion-col>
-    <ion-col class="pro_reflex" col-1>{{item.pronombre_reflex}}</ion-col>
-    <ion-col class="verbaux" col-3 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
-    <ion-col col-3>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
-    <ion-col col-1>
-      <span *ngIf="!item.plural && item.pg" class="pgramatical2">[{{item.pg}}]</span>
-      <span *ngIf="item.plural && item.pg" class="pgramatical">({{item.pg}})</span>
-    </ion-col>
-    <!--<ion-col col-1>
-    <ion-icon *ngIf="item.regla" (click)="showRule(item.regla)" name="information"></ion-icon>
-    </ion-col>-->
-  </ion-row>
-  </ion-item>
-
-  <ion-item *ngIf="afirmativo && !informal && item.forma_verbal == 'Afirmativo reflexivo formal' && tenses">
-  <ion-row>  
-    <ion-col class="pronombre" col-3 *ngIf="item.pronombre_formal_id">{{item.pronombre_formal_id}}</ion-col>
-    <ion-col class="pro_reflex" col-1>{{item.pronombre_reflex}}</ion-col>
-    <ion-col class="verbaux" col-3 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
-    <ion-col col-3>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
-    <ion-col col-1>
-      <span *ngIf="!item.plural && item.pg" class="pgramatical2">[{{item.pg}}]</span>
-      <span *ngIf="item.plural && item.pg" class="pgramatical">({{item.pg}})</span>
-    </ion-col>
-    <!--<ion-col col-1>
-    <ion-icon *ngIf="item.regla" (click)="showRule(item.regla)" name="information"></ion-icon>
-    </ion-col>-->
-  </ion-row>
-  </ion-item>  
-
-  <ion-item *ngIf="!afirmativo && !informal && item.forma_verbal == 'Negativo reflexivo formal' && tenses">
-  <ion-row>  
-    <ion-col class="pronombre" col-3 *ngIf="item.pronombre_formal_id">{{item.pronombre_formal_id}}</ion-col>
-    <ion-col style="color:darkred; forn-weight:bold;" col-1>no</ion-col>
-    <ion-col class="pro_reflex" col-1>{{item.pronombre_reflex}}</ion-col>
-    <ion-col class="verbaux" col-3 *ngIf="item.verbo_auxiliar">{{item.verbo_auxiliar}}</ion-col>
-    <ion-col col-3>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
-    <ion-col col-1>
-      <span *ngIf="!item.plural && item.pg" class="pgramatical2">[{{item.pg}}]</span>
-      <span *ngIf="item.plural && item.pg" class="pgramatical">({{item.pg}})</span>
-    </ion-col>
-    <!--<ion-col col-1>
-    <ion-icon *ngIf="item.regla" (click)="showRule(item.regla)" name="information"></ion-icon>
-    </ion-col>-->
-  </ion-row>
-  </ion-item>  
-
   </div>
   
-  <ion-grid class="grid-buttons">
-    <ion-row>
-      <ion-col col-6>
-        <button ion-button block class="grdnt" (click)="informalAfmt()">Afirmativo Informal</button>
-      </ion-col>
-      <ion-col col-6>
-        <button ion-button block class="grdnt" (click)="informalNeg()">Negativo Informal</button>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-6>
-        <button ion-button block class="grdnt" (click)="formalAfmt()">Afirmativo Formal</button>
-      </ion-col>
-      <ion-col col-6>
-        <button ion-button block class="grdnt" (click)="formalNeg()">Negativo Formal</button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>  
 </ion-item-group>	
 
-<ion-fab bottom left edge>
-  <button (click)="goTop()" ion-fab><ion-icon name="arrow-round-up"></ion-icon></button>
-</ion-fab>
 </ion-content>
+<ion-footer no-border>
+  <ion-toolbar  block>
+    <ion-segment color="light" mode="md">
+      <ion-segment-button value="" (ionSelect)="informalAfmt()">
+        <ion-icon name="ios-thumbs-up-outline"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="" (ionSelect)="informalNeg()">
+        <ion-icon name="ios-thumbs-down-outline"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="" (ionSelect)="formalAfmt()">
+        <ion-icon name="ios-thumbs-up"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="" (ionSelect)="formalNeg()">
+        <ion-icon name="ios-thumbs-down"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-footer>
