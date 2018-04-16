@@ -23,7 +23,7 @@ export class DictsPage {
     
     var loader = this.presentLoading();
     loader.present();
-    this.vp.listVerbs().subscribe(data => {
+    this.vp.listVerbs(0).subscribe(data => {
       this.keys = Object.keys(data);
       this.verbs = data;
       console.log(data);

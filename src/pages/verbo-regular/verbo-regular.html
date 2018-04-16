@@ -38,7 +38,8 @@
 
 <ion-item-group *ngFor="let key of verboKeys" class="verbitem">
   <ion-item-divider color="primary">
-    <b>{{key}}</b> <ion-icon item-end name="alert"></ion-icon>
+    <b>{{key}}</b> 
+    <ion-icon mode="ios" item-end name="arrow-up" (click)="hideShowItem($event)"></ion-icon>
   </ion-item-divider>
 
   <div *ngFor="let item of verboData[key]">
@@ -54,8 +55,8 @@
       <ion-col col-2 class="verbaux"><span>{{item.verbo_auxiliar}}</span></ion-col>
       <ion-col col-4>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
       <ion-col col-1 align="right">
-        <span *ngIf="!item.plural && item.pg" class="pgramatical2">[{{item.pg}}º]</span>
-        <span *ngIf="item.plural && item.pg" class="pgramatical">({{item.pg}}º)</span>
+        <span *ngIf="!item.plural && item.pg" class="pgramatical2">{{item.pg}}º</span>
+        <span *ngIf="item.plural && item.pg" class="pgramatical">{{item.pg}}º</span>
       </ion-col>
       <!--<ion-col col-1>
       <ion-icon *ngIf="item.regla" (click)="showRule(item.regla)" name="information"></ion-icon>

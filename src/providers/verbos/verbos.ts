@@ -28,8 +28,8 @@ export class VerbosProvider {
     });
   }
 
-  listVerbs(){
-  	return this.http.get('http://104.236.57.198/api/v1/verbos');
+  listVerbs(tipo){
+  	return this.http.get('http://104.236.57.198/api/v1/verbos/' + tipo);
   }
 
   getVerb(id){

@@ -21,7 +21,7 @@
 
   <ion-row class="rows grdnt">
     <ion-col>
-      <button ion-button icon-left color="light" clear small (tap)="next()">
+      <button ion-button icon-left color="light" clear small (tap)="next(1)">
         <ion-icon name="paper"></ion-icon>
         <div class="foot-text">{{'VERBS_MENU.START' | translate}}</div>
       </button>
@@ -45,7 +45,7 @@
 
   <ion-row class="rows grdnt">
     <ion-col>
-      <button ion-button icon-left color="light" clear small>
+      <button ion-button icon-left color="light" clear small (tap)="next(2)">
         <ion-icon name="paper"></ion-icon>
         <div class="foot-text">{{'VERBS_MENU.START' | translate}}</div>
       </button>
@@ -69,7 +69,7 @@
 
   <ion-row class="rows grdnt">
     <ion-col>
-      <button ion-button icon-left color="light" clear small>
+      <button ion-button icon-left color="light" clear small (tap)="next(3)">
         <ion-icon name="paper"></ion-icon>
         <div class="foot-text">{{'VERBS_MENU.START' | translate}}</div>
       </button>
@@ -93,7 +93,7 @@
 
   <ion-row class="rows grdnt">
     <ion-col>
-      <button ion-button icon-left color="light" clear small block>
+      <button ion-button icon-left color="light" clear small block (tap)="next(0)">
         <ion-icon name="paper"></ion-icon>
         <div class="foot-text">{{'VERBS_MENU.START' | translate}}</div>
       </button>

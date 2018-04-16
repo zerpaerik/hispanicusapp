@@ -21,11 +21,12 @@ export class ListVerbosPage {
   public searching : boolean;
   public searchQuery: string = '';
   public isLoading : boolean = false;
-
+  public type : number;
   constructor(public configProvider : ConfigProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public modalCtrl : ModalController, public vp : VerbosProvider) {
 
      this.items = [];
      this.searching = false;
+     this.type = navParams.get('type');
      this.initializeItems();
 
   }
@@ -72,7 +73,7 @@ export class ListVerbosPage {
     
     var loader = this.presentLoading();
     loader.present();
-    this.vp.listVerbs().subscribe(data => {
+    this.vp.listVerbs(this.type).subscribe(data => {
       this.keys = Object.keys(data);
       this.verbs = data;
       console.log(data);

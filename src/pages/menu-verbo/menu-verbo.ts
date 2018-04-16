@@ -11,8 +11,8 @@ export class MenuVerboPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  next(){
-		this.navCtrl.push(ListVerbosPage);
+  next(t){
+		this.navCtrl.push(ListVerbosPage, {type : t});
 	}
 
 }

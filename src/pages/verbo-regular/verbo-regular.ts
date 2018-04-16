@@ -27,17 +27,21 @@ export class VerboRegularPage {
   tenseMsgs : any;
   tense : string;
 
+  hsitem : boolean;
+
   formaVerbal : string;
 
   constructor(public plt : Platform, public translateServ : TranslateService, public alertCtrl: AlertController, public loadingCtrl : LoadingController, public navCtrl: NavController, public navParams: NavParams, public vp : VerbosProvider) {
   	
     this.informal = true;
     this.afirmativo = true;
+    this.hsitem = false;
     this.forma = 'Afirmativo informal';
     this.formaVerbal = 'todos';
     this.tenses = false;
     this.verbo = navParams.get('verbo');
     this.tenseMsgs = [];
+
 
     this.translateServ.get('VERBS_MENU').subscribe(verb => {
       this.tenseMsgs = [verb.SIMPLE_TENSES, verb.COMPOUND_TENSES];
@@ -47,6 +51,15 @@ export class VerboRegularPage {
     this.condition = ['Presente de subjuntivo', 'Presente de indicativo', 'Futuro de indicativo', 'Futuro perfecto de indicativo', 'Pretérito perfecto de indicativo', 'Pretérito perfecto de subjuntivo', 'Pretérito imperfecto', 'Pretérito imperfecto (1)'
         , 'Pretérito imperfecto (2)', 'Pretérito pluscuamperfecto', 'Pretérito pluscuamperfecto (1)', 'Pretérito pluscuamperfecto (2)', 'Futuro de subjuntivo',
         'Futuro perfecto de subjuntivo', 'Imperativo ', 'Gerundio presente', 'Gerundio compuesto', 'Participio', 'Infinitivo compuesto ', 'Condicional perfecto', 'Pretérito anterior', 'Pretérito perfecto simple', 'Condicional'];
+  }
+
+  hideShowItem(evt){
+    this.hsitem = !this.hsitem;
+    if (!this.hsitem) {
+            
+    }else{
+
+    }
   }
 
   setVerbalTime(){
