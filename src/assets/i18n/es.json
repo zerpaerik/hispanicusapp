@@ -1,55 +1,55 @@
 {
 	"GENERAL": {	
 		"SELECT" : "Seleccione",
-		"BACK"   : "Atras",
+		"BACK"   : "Anterior",
 		"SETTINGS" : "Ajustes",
 		"EXIT" : "Salir",
-		"MODE" : "Modo de Conjugación",
-		"LOG_OUT" : "Cerrar Sesión",
+		"MODE" : "Modo de conjugación",
+		"LOG_OUT" : "Cerrar sesión",
 		"ACCOUNT" : "Cuenta",
-		"CHANGE_PSW" : "Cambiar Contraseña",
+		"CHANGE_PSW" : "Cambiar contraseña",
 		"RULE" : "Regla",
 		"SIGN_IN" : "Acceder",
-		"SIGN_UP" : "Regitrarse",
-		"EMAIL" : "Email",
+		"SIGN_UP" : "Registrarse",
+		"EMAIL" : "E-mail",
 		"PASSWORD" : "Contraseña",
 		"NAME" : "Usuario",
-		"CPASSWORD" : "Confirmar password",
+		"CPASSWORD" : "Confirmar contraseña",
 		"CONFIG_CHANGED" : "Los cambios han sido guardados",
 		"CHANGE_FAIL" : "Ha ocurrido un error al intentar actualizar la configuración"
 	},
 
 	"LANG" : {
-		"LANG" : "Lenguaje",
+		"LANG" : "Idioma",
 		"ES" : "Español",
 		"EN" : "English",
 		"CN" : "Chino",
 		"PT" : "Português",
 		"SP"   : "España",
-		"LAN"  : "Latino America",
-		"LAS"  : "Argentina/Uruguay"		
+		"LAN"  : "Latino americano",
+		"LAS"  : "Argentina/Uruguay (voseo)"		
 	},
 
 	"HOME" : {
 		"MENU": {
 			"COMBINE_BUTTON" : "Conjugar",
-			"TITLE" 	     : "Menu",
+			"TITLE" 	     : "Menú",
 			"FAVS" : "Favoritos",
 			"DICT" : "Diccionario"			
 		}
 	},
 
 	"VERBS_MENU" : {
-		"TITLE" : "Selecciona un grupo",
-		"REGULAR" : "Verbos Regulares",	
-		"IRREGULAR" : "Verbos Irregulares",
-		"ORTH_CHANGE" : "Verbos Regulares (Cambio Ortografico)",
-		"ALL" : "Todo",
+		"TITLE" : "Seleccione un grupo",
+		"REGULAR" : "Verbos regulares",	
+		"IRREGULAR" : "Verbos irregulares",
+		"ORTH_CHANGE" : "Verbos regulares (cambio ortográfico)",
+		"ALL" : "Todos",
 		"START" : "Empezar",
 		"INFO"  : "Info",
-		"SIMPLE_TENSES" : "Tiempos Simples",
-		"COMPOUND_TENSES" : "Tiempos Compuestos",
-		"REFLEX_PRONOUN" : "Pronombre Reflexivo"		
+		"SIMPLE_TENSES" : "Tiempos simples",
+		"COMPOUND_TENSES" : "Tiempos compuestos",
+		"REFLEX_PRONOUN" : "Pronombre reflexivo"		
 	},
 	
 	"ERROR" : {
@@ -59,7 +59,7 @@
 		"EMAIL_TAKEN" : "Email no disponible",
 		"PASS_MISMATCH" : "La contraseña debe coincidir",
 		"UNKNOW" : "Ha ocurrido un error inesperado",
-		"CHECK_CREDS" : "Email o Contraseña erronea",
+		"CHECK_CREDS" : "Email o Contraseña errónea",
 		"NO_TUTO" : "No hay tutoriales para este verbo aun."
 	}
 }

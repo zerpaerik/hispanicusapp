@@ -3,7 +3,7 @@
   <ion-navbar>
     <ion-title>{{verbo.infinitivo}}</ion-title>
     <ion-buttons right>
-      <button ion-button icon-only (click)="goTuto(verbo)"><ion-icon name="alert"></ion-icon></button>
+      <button ion-button icon-only (click)="goTuto(verbo)"><ion-icon name="alert" color="info"></ion-icon></button>
     </ion-buttons>    
   </ion-navbar>
 
@@ -37,14 +37,14 @@
 </div>
 
   <ion-item-group *ngFor="let key of verboKeys;  let idx = index " id="{{key}}">
-    <ion-item-divider color="primary">
-      <b>{{key}}</b> 
-      <button ion-button icon-only item-end (click)="goTuto(verbo)" color="danger"><ion-icon name="alert"></ion-icon></button>
+    <ion-item-divider class="fdivider" color="primary">
+      <b class="capi">{{key}}</b> 
+      <button ion-button icon-only item-end (click)="goTuto(verbo)" color="info"><ion-icon name="alert"></ion-icon></button>
     </ion-item-divider>
     <div *ngFor="let t of getKeys(verboData[key])">
     
     <ion-item-divider *ngIf="idx < 2" color="primary">
-      <b>{{t}}</b> 
+      <b class="capi">{{t}}</b> 
     </ion-item-divider>
 
     <div *ngFor="let f of getKeys(verboData[key][t])" class="verbitem">
@@ -63,7 +63,7 @@
         <ion-col col-1 class="negado"><span *ngIf="item.negativo != '0'">no</span></ion-col>
         <ion-col col-1 class="pro_reflex"><span>{{item.pronombre_reflex}}</span></ion-col>
         <ion-col col-2 class="verbaux"><span>{{item.verbo_auxiliar}}</span></ion-col>
-        <ion-col col-4>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+        <ion-col col-4><span [innerHTML]="item.raiz"></span><span [innerHTML]="item.desinencia"></span></ion-col>
         <ion-col col-1 align="right">
           <span *ngIf="!item.plural && item.pg" class="pgramatical2">{{item.pg}}º</span>
           <span *ngIf="item.plural && item.pg" class="pgramatical">{{item.pg}}º</span>
