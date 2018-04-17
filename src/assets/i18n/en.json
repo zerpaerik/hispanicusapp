@@ -22,10 +22,10 @@
 
 	"LANG" : {
 		"LANG" : "Language",
-		"ES"   : "Spanish",
+		"ES"   : "Español",
 		"EN"   : "English",
 		"CN"   : "Chinese",
-		"PT"   : "Portuguese",
+		"PT"   : "Português",
 		"SP"   : "Spain",
 		"LAN"  : "Latin America",
 		"LAS"  : "Argentina/Uruguay"
@@ -48,8 +48,7 @@
 		"ALL" : "All",
 		"START" : "GO",
 		"INFO"  : "INFO",
-		"SIMPLE_TENSES" : "Simple Tenses",
-		"COMPOUND_TENSES" : "Compound Tenses"
+		"REFLEX_PRONOUN" : "Reflexive Pronoun"
 	},
 
 	"ERROR" : {

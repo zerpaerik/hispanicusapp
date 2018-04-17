@@ -17,6 +17,8 @@ export class VerboRegularPage {
 	verbo : any;
 	verboData: any;
   verboKeys : any;
+  timeKeys : any = ["simple", "compuesto"];
+  finalKeys : any; 
 
   informal : boolean;
   afirmativo : boolean;
@@ -42,46 +44,44 @@ export class VerboRegularPage {
     this.verbo = navParams.get('verbo');
     this.tenseMsgs = [];
 
-
     this.translateServ.get('VERBS_MENU').subscribe(verb => {
       this.tenseMsgs = [verb.SIMPLE_TENSES, verb.COMPOUND_TENSES];
       this.tense = verb.SIMPLE_TENSES;
     });
 
-    this.condition = ['Presente de subjuntivo', 'Presente de indicativo', 'Futuro de indicativo', 'Futuro perfecto de indicativo', 'Pretérito perfecto de indicativo', 'Pretérito perfecto de subjuntivo', 'Pretérito imperfecto', 'Pretérito imperfecto (1)'
-        , 'Pretérito imperfecto (2)', 'Pretérito pluscuamperfecto', 'Pretérito pluscuamperfecto (1)', 'Pretérito pluscuamperfecto (2)', 'Futuro de subjuntivo',
-        'Futuro perfecto de subjuntivo', 'Imperativo ', 'Gerundio presente', 'Gerundio compuesto', 'Participio', 'Infinitivo compuesto ', 'Condicional perfecto', 'Pretérito anterior', 'Pretérito perfecto simple', 'Condicional'];
-  }
-
-  hideShowItem(evt){
-    this.hsitem = !this.hsitem;
-    if (!this.hsitem) {
-            
-    }else{
-
-    }
   }
 
   setVerbalTime(){
     switch (this.formaVerbal) {
       case "fnp":
-        this.condition = ['Gerundio presente', 'Gerundio compuesto', 'Participio', 'Infinitivo compuesto '];
+        document.getElementById("fnp")['hidden'] = false;
+        document.getElementById("indicativo")['hidden'] = true;
+        document.getElementById("subjuntivo")['hidden'] = true;
+        document.getElementById("imperativo")['hidden'] = true;
         break;
       case "indicativo":
-        this.condition = ['Presente de indicativo', 'Condicional','Condicional perfecto', 'Futuro de indicativo', 'Futuro perfecto de indicativo', 'Pretérito perfecto de indicativo', 'Pretérito anterior','Pretérito perfecto simple', 'Pretérito imperfecto'];
+        document.getElementById("fnp")['hidden'] = true;
+        document.getElementById("indicativo")['hidden'] = false;
+        document.getElementById("subjuntivo")['hidden'] = true;
+        document.getElementById("imperativo")['hidden'] = true;
         break;
       case "subjuntivo":
-        this.condition = ['Presente de subjuntivo', 'Pretérito perfecto de subjuntivo', 'Pretérito imperfecto', 'Pretérito imperfecto (1)'
-        , 'Pretérito imperfecto (2)', 'Pretérito pluscuamperfecto', 'Pretérito pluscuamperfecto (1)', 'Pretérito pluscuamperfecto (2)', 'Futuro de subjuntivo',
-        'Futuro perfecto de subjuntivo'];
+        document.getElementById("fnp")['hidden'] = true;
+        document.getElementById("indicativo")['hidden'] = true;
+        document.getElementById("subjuntivo")['hidden'] = false;
+        document.getElementById("imperativo")['hidden'] = true;
         break;
       case "imperativo":
-        this.condition = ['Imperativo '];
+        document.getElementById("fnp")['hidden'] = true;
+        document.getElementById("indicativo")['hidden'] = true;
+        document.getElementById("subjuntivo")['hidden'] = true;
+        document.getElementById("imperativo")['hidden'] = false;
         break;
       default:
-        this.condition = ['Presente de subjuntivo', 'Presente de indicativo', 'Futuro de indicativo', 'Futuro perfecto de indicativo', 'Pretérito perfecto de indicativo', 'Pretérito perfecto de subjuntivo', 'Pretérito imperfecto', 'Pretérito imperfecto (1)'
-        , 'Pretérito imperfecto (2)', 'Pretérito pluscuamperfecto', 'Pretérito pluscuamperfecto (1)', 'Pretérito pluscuamperfecto (2)', 'Futuro de subjuntivo',
-        'Futuro perfecto de subjuntivo', 'Imperativo ', 'Gerundio presente', 'Gerundio compuesto', 'Participio', 'Infinitivo compuesto ', 'Condicional perfecto', 'Pretérito anterior', 'Pretérito perfecto simple', 'Condicional'];  
+        document.getElementById("fnp")['hidden'] = false;
+        document.getElementById("indicativo")['hidden'] = false;
+        document.getElementById("subjuntivo")['hidden'] = false;
+        document.getElementById("imperativo")['hidden'] = false;
         break;
     }
      setTimeout(() => {
@@ -167,8 +167,11 @@ export class VerboRegularPage {
     loader.present();
     this.vp.getVerb(this.verbo.id)
       .subscribe(data => {
+
         this.verboData = data["data"];
         this.verboKeys = Object.keys(this.verboData);
+        console.log(this.verboData);
+        
         loader.dismiss();
       },error => {
         loader.dismiss();
@@ -179,6 +182,10 @@ export class VerboRegularPage {
         }, 1);
       });
     }
+
+  getKeys(o){
+    return Object.keys(o);
+  }
 
   showNotEmpty(){
     

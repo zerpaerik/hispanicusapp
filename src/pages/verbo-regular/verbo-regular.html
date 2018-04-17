@@ -12,7 +12,7 @@
 <ion-content block>
 
 <ion-item id="tense">
-  <ion-label>{{tense}}</ion-label>
+  <ion-label>{{'VERBS_MENU.REFLEX_PRONOUN' | translate}}</ion-label>
   <ion-toggle checked="true" [(ngModel)]="tenses" (ionChange)="setTense()"></ion-toggle>  
 </ion-item>
 
@@ -28,44 +28,60 @@
       Imperativo
     </ion-segment-button>
     <ion-segment-button value="fnp">
-      F.N.P
+      F.N.P.
     </ion-segment-button>
     <ion-segment-button value="todos">
-      Todos
+      Todo
     </ion-segment-button>
   </ion-segment>
 </div>
 
-<ion-item-group *ngFor="let key of verboKeys" class="verbitem">
-  <ion-item-divider color="primary">
-    <b>{{key}}</b> 
-    <ion-icon mode="ios" item-end name="arrow-up" (click)="hideShowItem($event)"></ion-icon>
-  </ion-item-divider>
+  <ion-item-group *ngFor="let key of verboKeys;  let idx = index " id="{{key}}">
+    <ion-item-divider color="primary">
+      <b>{{key}}</b> 
+      <button ion-button icon-only item-end (click)="goTuto(verbo)" color="danger"><ion-icon name="alert"></ion-icon></button>
+    </ion-item-divider>
+    <div *ngFor="let t of getKeys(verboData[key])">
+    
+    <ion-item-divider *ngIf="idx < 2" color="primary">
+      <b>{{t}}</b> 
+    </ion-item-divider>
 
-  <div *ngFor="let item of verboData[key]">
+    <div *ngFor="let f of getKeys(verboData[key][t])" class="verbitem">
+    
+    <ion-item-divider color="primary">
+      <b>{{f}}</b> 
+    </ion-item-divider>
 
-  <ion-item *ngIf="item.forma_verbal == forma && myInclude(condition, key)">
-    <ion-row wrap-reverse >
-      <ion-col col-3>
-        <span class="pronombre" *ngIf="item.pronombre">{{item.pronombre}}</span> 
-        <span class="pronombre" *ngIf="item.pronombre_formal_id">{{item.pronombre_formal_id}}</span>
-      </ion-col>
-      <ion-col col-1 class="negado"><span *ngIf="item.negativo != '0'">no</span></ion-col>
-      <ion-col col-1 class="pro_reflex"><span>{{item.pronombre_reflex}}</span></ion-col>
-      <ion-col col-2 class="verbaux"><span>{{item.verbo_auxiliar}}</span></ion-col>
-      <ion-col col-4>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
-      <ion-col col-1 align="right">
-        <span *ngIf="!item.plural && item.pg" class="pgramatical2">{{item.pg}}º</span>
-        <span *ngIf="item.plural && item.pg" class="pgramatical">{{item.pg}}º</span>
-      </ion-col>
-      <!--<ion-col col-1>
-      <ion-icon *ngIf="item.regla" (click)="showRule(item.regla)" name="information"></ion-icon>
-      </ion-col>-->
-    </ion-row>
-  </ion-item>
+    <div *ngFor="let item of verboData[key][t][f]">
+    <ion-item *ngIf="item.forma_verbal == forma">
+      <ion-row wrap-reverse >
+        <ion-col col-3>
+          <span class="pronombre" *ngIf="item.pronombre">{{item.pronombre}}</span> 
+          <span class="pronombre" *ngIf="item.pronombre_formal_id">{{item.pronombre_formal_id}}</span>
+        </ion-col>
+        <ion-col col-1 class="negado"><span *ngIf="item.negativo != '0'">no</span></ion-col>
+        <ion-col col-1 class="pro_reflex"><span>{{item.pronombre_reflex}}</span></ion-col>
+        <ion-col col-2 class="verbaux"><span>{{item.verbo_auxiliar}}</span></ion-col>
+        <ion-col col-4>{{item.raiz}}<b style="color:blue;">{{item.desinencia}}</b></ion-col>
+        <ion-col col-1 align="right">
+          <span *ngIf="!item.plural && item.pg" class="pgramatical2">{{item.pg}}º</span>
+          <span *ngIf="item.plural && item.pg" class="pgramatical">{{item.pg}}º</span>
+        </ion-col>
+        <!--
+        <ion-col col-1>
+        <ion-icon *ngIf="item.regla" (click)="showRule(item.regla)" name="information"></ion-icon>
+        </ion-col>
+      -->
+      </ion-row>
+    </ion-item>
+    </div>
+
   </div>
-  
-</ion-item-group>	
+
+  </div>
+  </ion-item-group>	
+
 
 </ion-content>
 <ion-footer no-border>

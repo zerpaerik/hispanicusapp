@@ -22,9 +22,9 @@
 	"LANG" : {
 		"LANG" : "Lenguaje",
 		"ES" : "Español",
-		"EN" : "Ingles",
+		"EN" : "English",
 		"CN" : "Chino",
-		"PT" : "Portugues",
+		"PT" : "Português",
 		"SP"   : "España",
 		"LAN"  : "Latino America",
 		"LAS"  : "Argentina/Uruguay"		
@@ -48,7 +48,8 @@
 		"START" : "Empezar",
 		"INFO"  : "Info",
 		"SIMPLE_TENSES" : "Tiempos Simples",
-		"COMPOUND_TENSES" : "Tiempos Compuestos"		
+		"COMPOUND_TENSES" : "Tiempos Compuestos",
+		"REFLEX_PRONOUN" : "Pronombre Reflexivo"		
 	},
 	
 	"ERROR" : {
