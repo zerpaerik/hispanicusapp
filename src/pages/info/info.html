@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>info</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<div [ngSwitch]="type">
+		<div *ngSwitchCase="1">
+			<ion-item-group>
+				<ion-item-divider color="light"><b>{{"INFO.PERSONAL_PRONOUN.TITLE" | translate}}</b></ion-item-divider>
+				<ion-item>
+					<p>{{'INFO.PERSONAL_PRONOUN.CONTENT' | translate}}</p>
+				</ion-item>
+			</ion-item-group>
+		</div>
+	</div>
+</ion-content>
