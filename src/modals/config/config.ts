@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { AuthProvider } from '../../providers/auth/auth';
 import { LoginPage } from '../../pages/login/login';
 import { ConfigProvider } from '../../providers/config/config';
+import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
 import { ToastController } from 'ionic-angular';
 
 @Component({
@@ -16,7 +17,7 @@ export class ConfigPage {
   mode   : string;
   region : any;
 
-  constructor(public toastCtrl : ToastController, public configProvider : ConfigProvider, public authProvider : AuthProvider, public navCtrl: NavController, public navParams: NavParams, private translate : TranslateService,  public viewCtrl: ViewController) {
+  constructor(public smartAudio : SmartAudioProvider, public toastCtrl : ToastController, public configProvider : ConfigProvider, public authProvider : AuthProvider, public navCtrl: NavController, public navParams: NavParams, private translate : TranslateService,  public viewCtrl: ViewController) {
     this.mode = localStorage.getItem("rmode") ||  '1';
     this.lang = localStorage.getItem("lang")  ||  'en';
     this.region = localStorage.getItem("region") || [0, 1, 2];
@@ -90,6 +91,7 @@ export class ConfigPage {
   }
 
   close(e){
+    this.smartAudio.play('tapped');
   	let callbackData : any = (e.target.innerText != 'Volver') ? e.target.innerText : false;
   	this.viewCtrl.dismiss(callbackData);
   }

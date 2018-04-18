@@ -4,19 +4,24 @@ import { DiccionarioPage } from '../../modals/diccionario/diccionario';
 import { VerbosProvider } from '../../providers/verbos/verbos';
 import { LoadingController } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
+import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
+
 
 @IonicPage()
 @Component({
   selector: 'page-dicts',
   templateUrl: 'dicts.html',
 })
+
 export class DictsPage {
 
   public verbs;
   public keys;
 
-  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public modalCtrl : ModalController, public vp : VerbosProvider) {
+  constructor(public smartAudio : SmartAudioProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public modalCtrl : ModalController, public vp : VerbosProvider) {
   	this.initializeItems();
+    smartAudio.preload('tapped', 'assets/audio/waterdroplet.mp3');
+    smartAudio.preload('fav', 'assets/audio/fav.mp3');
   }
 
   public initializeItems(){
@@ -37,6 +42,7 @@ export class DictsPage {
   }
 
   public selectVerbo(xverbo){
+    this.smartAudio.play('tapped');
     this.navCtrl.push('TutorialPage', {verbo : xverbo});
   }
 
@@ -49,6 +55,7 @@ export class DictsPage {
   }
 
   public openModal(data){
+    this.smartAudio.play('tapped');
   	let modal = this.modalCtrl.create(DiccionarioPage, {data : this.keys});
     modal.onDidDismiss(data => {
     	if (data) {
@@ -59,6 +66,7 @@ export class DictsPage {
   }
 
   public goTo(value){
+    this.smartAudio.play('tapped');
     let val = value.toString();
   	let el = document.getElementById(val.toLowerCase());
 

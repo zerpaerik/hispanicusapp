@@ -1,4 +1,8 @@
 page-verbo-regular {
+	ion-item-divider{
+		border-bottom:1px solid gray;
+		border-top:1px solid gray;
+	}
 	.pronombre{
 		color: green;
 	}
@@ -42,7 +46,10 @@ page-verbo-regular {
 	}
 	.fdivider{
 		b{
-			color:white;
+			color:#ff2600;
 		}
+	}
+	.hasrule{
+		border-left: 8px solid orange;
 	}
 }

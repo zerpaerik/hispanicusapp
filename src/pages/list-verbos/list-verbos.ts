@@ -5,6 +5,7 @@ import { ViewChild } from '@angular/core';
 import { DiccionarioPage } from '../../modals/diccionario/diccionario';
 import { VerbosProvider } from '../../providers/verbos/verbos';
 import { ConfigProvider } from '../../providers/config/config';
+import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
 import { LoadingController } from 'ionic-angular';
 
 @Component({
@@ -22,7 +23,8 @@ export class ListVerbosPage {
   public searchQuery: string = '';
   public isLoading : boolean = false;
   public type : number;
-  constructor(public configProvider : ConfigProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public modalCtrl : ModalController, public vp : VerbosProvider) {
+
+  constructor(public smartAudio : SmartAudioProvider, public configProvider : ConfigProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public modalCtrl : ModalController, public vp : VerbosProvider) {
 
      this.items = [];
      this.searching = false;
@@ -44,6 +46,7 @@ export class ListVerbosPage {
 
   public addFav(item){
     let f = JSON.parse(localStorage.getItem('favs'));
+    this.smartAudio.play('fav');
     
     if (this.myInclude(f, item)) {
       let i = f.indexOf(item);
@@ -95,10 +98,12 @@ export class ListVerbosPage {
   }
 
   public selectVerbo(xverbo){
+    this.smartAudio.play('tapped');
     this.navCtrl.push('VerboRegularPage', {verbo : xverbo});
   }
 
   public openModal(data){
+    this.smartAudio.play('tapped');
   	let modal = this.modalCtrl.create(DiccionarioPage, {data : this.keys});
     modal.onDidDismiss(data => {
     	if (data) {
@@ -123,6 +128,7 @@ export class ListVerbosPage {
   }
 
   public goTo(value){
+
     let val = value.toString();
   	let el = document.getElementById(val.toLowerCase());
 

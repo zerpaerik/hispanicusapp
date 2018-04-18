@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { VerbosProvider } from '../../providers/verbos/verbos'; 
 import { ConfigProvider } from '../../providers/config/config'; 
+import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
 
 @IonicPage()
 @Component({
@@ -12,13 +13,16 @@ export class FavoritesPage {
 
 	public verbs;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public verbosProvider : VerbosProvider, public configProvider : ConfigProvider) {
+  constructor(public smartAudio : SmartAudioProvider, public navCtrl: NavController, public navParams: NavParams, public verbosProvider : VerbosProvider, public configProvider : ConfigProvider) {
   	this.verbosProvider.getFavs().subscribe(res => {
     	this.verbs = res;
     });
+    smartAudio.preload('tapped', 'assets/audio/waterdroplet.mp3');
+    smartAudio.preload('fav', 'assets/audio/fav.mp3');
   }
 
 	public selectVerbo(xverbo){
+    this.smartAudio.play('tapped');
     this.navCtrl.push('VerboRegularPage', {verbo : xverbo});
   }
 
@@ -34,6 +38,7 @@ export class FavoritesPage {
   }
 
   public addFav(item){
+    this.smartAudio.play('fav');
     let f = JSON.parse(localStorage.getItem('favs'));
     
     if (this.myInclude(f, item)) {

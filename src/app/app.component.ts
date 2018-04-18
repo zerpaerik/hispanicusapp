@@ -3,6 +3,7 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
+import { SmartAudioProvider } from '../providers/smart-audio/smart-audio';
 
 import { LoginPage } from '../pages/login/login';
 
@@ -12,7 +13,7 @@ import { LoginPage } from '../pages/login/login';
 export class MyApp {
   rootPage:any = LoginPage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private translate: TranslateService) {
+  constructor(smartAudio: SmartAudioProvider, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private translate: TranslateService) {
     let lang = localStorage.getItem('lang') || 'en';
     translate.setDefaultLang(lang);
     
@@ -21,6 +22,8 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+      smartAudio.preload('tapped', 'assets/audio/waterdroplet.mp3');
+      smartAudio.preload('fav', 'assets/audio/fav.mp3');
     });
     
   }

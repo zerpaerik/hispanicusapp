@@ -5,6 +5,7 @@ import { LoadingController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Platform } from 'ionic-angular';
+import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
 
 @IonicPage()
 @Component({
@@ -33,7 +34,7 @@ export class VerboRegularPage {
 
   formaVerbal : string;
 
-  constructor(public plt : Platform, public translateServ : TranslateService, public alertCtrl: AlertController, public loadingCtrl : LoadingController, public navCtrl: NavController, public navParams: NavParams, public vp : VerbosProvider) {
+  constructor(public smartAudio : SmartAudioProvider, public plt : Platform, public translateServ : TranslateService, public alertCtrl: AlertController, public loadingCtrl : LoadingController, public navCtrl: NavController, public navParams: NavParams, public vp : VerbosProvider) {
   	
     this.informal = true;
     this.afirmativo = true;
@@ -49,9 +50,11 @@ export class VerboRegularPage {
       this.tense = verb.SIMPLE_TENSES;
     });
 
+    smartAudio.preload('tapped', 'assets/audio/waterdroplet.mp3');
   }
 
   setVerbalTime(){
+    this.smartAudio.play('tapped');
     switch (this.formaVerbal) {
       case "fnp":
         document.getElementById("fnp")['hidden'] = false;
@@ -146,6 +149,11 @@ export class VerboRegularPage {
 
   showRule(regla){
 
+    if (!regla) {
+      return;
+    }
+    
+    this.smartAudio.play('tapped');
     var rule : string;
 
     this.translateServ.get('GENERAL').subscribe( general => {
@@ -209,7 +217,7 @@ export class VerboRegularPage {
   }
 
   hideEmpty(){
-    
+    this.smartAudio.play('tapped');    
     var items = document.getElementsByClassName('verbitem');
 
     for (var i = 0; i < items.length; i++) {

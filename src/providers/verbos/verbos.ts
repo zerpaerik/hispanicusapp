@@ -11,7 +11,7 @@ export class VerbosProvider {
   }
 
   getFavs(){
-    return this.http.get('http://localhost:8000/api/v1/verbos/favs', {
+    return this.http.get('http://localhost:8000/api/v1/favoritos', {
       headers: {
         'Authorization' : 'Bearer ' + localStorage.getItem('token'),
         'Accept' : 'application/json'

@@ -33,6 +33,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { VerbosProvider } from '../providers/verbos/verbos';
 import { AuthProvider } from '../providers/auth/auth';
 import { ConfigProvider } from '../providers/config/config';
+import { SmartAudioProvider } from '../providers/smart-audio/smart-audio';
+import { NativeAudio } from '@ionic-native/native-audio';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
     return new TranslateHttpLoader(httpClient, "./assets/i18n/", ".json");
@@ -82,7 +84,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     VerbosProvider,
     AuthProvider,
-    ConfigProvider
+    NativeAudio,
+    ConfigProvider,
+    SmartAudioProvider
   ]
 })
 

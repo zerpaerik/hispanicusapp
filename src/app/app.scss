@@ -56,13 +56,10 @@ ion-item-divider{
 		color : #5703ff;
 	}
 }
-.logo{
-    position: absolute;
-    top: 0;
-    bottom: 0;
+.titleicon {
+    position: relative;
+    width: 100%;
     left: 0;
-    right: 0;
-    display: flex; /* add */
-    justify-content: center; /* add to align horizontal */
-    align-items: center; /* add to align vertical */
+    top: 0;
+    text-align:center;
 }

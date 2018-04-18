@@ -5,7 +5,7 @@
 		"BACK"   : "Back",
 		"SETTINGS" : "Settings",
 		"EXIT" : "Exit",
-		"MODE" : "Combine Mode",
+		"MODE" : "Combine mode",
 		"LOG_OUT" : "Log out",
 		"ACCOUNT" : "Account",
 		"CHANGE_PSW" : "Change Password",
@@ -15,9 +15,10 @@
 		"EMAIL" : "Email",
 		"PASSWORD" : "Password",
 		"NAME" : "Name",
-		"CPASSWORD" : "Confirm Password",
-		"CHANGE_SUCCESS" : "Changes Saved",
-		"CHANGE_FAIL" : "An error has occurred when trying to update settings"
+		"CPASSWORD" : "Confirm password",
+		"CHANGE_SUCCESS" : "Changes saved",
+		"CHANGE_FAIL" : "An error has occurred when trying to update settings",
+		"CREATE_USER" : "Create user"
 	},
 
 	"LANG" : {
@@ -42,13 +43,13 @@
 
 	"VERBS_MENU" : {
 		"TITLE" : "Select a group",
-		"REGULAR" : "Regular Verbs",	
-		"IRREGULAR" : "Irregular Verbs",
-		"ORTH_CHANGE" : "Regular Verbs (Orthographic Change)",
+		"REGULAR" : "Regular verbs",	
+		"IRREGULAR" : "Irregular verbs",
+		"ORTH_CHANGE" : "Regular verbs (orthographic change)",
 		"ALL" : "All",
 		"START" : "GO",
 		"INFO"  : "INFO",
-		"REFLEX_PRONOUN" : "Reflexive Pronoun"
+		"REFLEX_PRONOUN" : "Reflexive pronoun"
 	},
 
 	"ERROR" : {

@@ -13,7 +13,7 @@
 
 <ion-item id="tense">
   <ion-label>{{'VERBS_MENU.REFLEX_PRONOUN' | translate}}</ion-label>
-  <ion-toggle checked="true" [(ngModel)]="tenses" (ionChange)="setTense()"></ion-toggle>  
+  <ion-toggle checked="true" [(ngModel)]="tenses" (ionChange)="setTense()" color="info"></ion-toggle>  
 </ion-item>
 
 <div block>
@@ -44,18 +44,20 @@
     <div *ngFor="let t of getKeys(verboData[key])">
     
     <ion-item-divider *ngIf="idx < 2" color="primary">
-      <b class="capi">{{t}}</b> 
+      <b class="capi" style="color:#ff592b;">{{t}}</b> 
+      <button ion-button icon-only item-end (click)="goTuto(verbo)" color="info"><ion-icon name="alert"></ion-icon></button>
     </ion-item-divider>
 
     <div *ngFor="let f of getKeys(verboData[key][t])" class="verbitem">
     
     <ion-item-divider color="primary">
-      <b>{{f}}</b> 
+      <b>{{f}}</b>
+      <button ion-button icon-only item-end (click)="goTuto(verbo)" color="info"><ion-icon name="alert"></ion-icon></button> 
     </ion-item-divider>
 
     <div *ngFor="let item of verboData[key][t][f]">
-    <ion-item *ngIf="item.forma_verbal == forma">
-      <ion-row wrap-reverse >
+    <ion-item *ngIf="item.forma_verbal == forma" [class.hasrule]="item.regla">
+      <ion-row (click)="showRule(item.regla)">
         <ion-col col-3>
           <span class="pronombre" *ngIf="item.pronombre">{{item.pronombre}}</span> 
           <span class="pronombre" *ngIf="item.pronombre_formal_id">{{item.pronombre_formal_id}}</span>
@@ -68,11 +70,6 @@
           <span *ngIf="!item.plural && item.pg" class="pgramatical2">{{item.pg}}º</span>
           <span *ngIf="item.plural && item.pg" class="pgramatical">{{item.pg}}º</span>
         </ion-col>
-        <!--
-        <ion-col col-1>
-        <ion-icon *ngIf="item.regla" (click)="showRule(item.regla)" name="information"></ion-icon>
-        </ion-col>
-      -->
       </ion-row>
     </ion-item>
     </div>
@@ -81,7 +78,6 @@
 
   </div>
   </ion-item-group>	
-
 
 </ion-content>
 <ion-footer no-border>
@@ -99,6 +95,9 @@
       <ion-segment-button value="" (ionSelect)="formalNeg()">
         <ion-icon name="ios-thumbs-down"></ion-icon>
       </ion-segment-button>
+    <ion-segment-button value="" (ionSelect)="formalNeg()">
+      <ion-icon (click)="goTuto(verbo)" color="info" name="alert"></ion-icon>
+    </ion-segment-button>    
     </ion-segment>
   </ion-toolbar>
 </ion-footer>
