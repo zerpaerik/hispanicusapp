@@ -61,5 +61,11 @@
 		"UNKNOW" : "An unknow error has ocurred",
 		"CHECK_CREDS" : "Wrong email or password",
 		"NO_TUTO" : "There are not tutorials yet for this verb."
+	},
+	"INFO" : {
+		"PERSONAL_PRONOUN" : {
+			"TITLE" : "Personal pronoun",
+			"CONTENT" : "Esta Representado con el color <ion-icon name='disc' style='color:green;'></ion-icon>. Los pronombres personales son las palabras que sirven para hacer referencia a las personas o sujetos que intervienen en un enunciado. Su función es sustituir al sustantivo cuando este ha sido omitido."
+		}
 	}
 }

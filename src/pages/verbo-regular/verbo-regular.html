@@ -31,7 +31,7 @@
       F.N.P.
     </ion-segment-button>
     <ion-segment-button value="todos">
-      Todo
+      Todos
     </ion-segment-button>
   </ion-segment>
 </div>
@@ -39,7 +39,7 @@
   <ion-item-group *ngFor="let key of verboKeys;  let idx = index " id="{{key}}">
     <ion-item-divider class="fdivider" color="primary">
       <b class="capi">{{key}}</b> 
-      <button ion-button icon-only item-end (click)="goTuto(verbo)" color="info"><ion-icon name="alert"></ion-icon></button>
+      <button ion-button icon-only item-end (click)="goInfo(1)" color="info"><ion-icon name="alert"></ion-icon></button>
     </ion-item-divider>
     <div *ngFor="let t of getKeys(verboData[key])">
     

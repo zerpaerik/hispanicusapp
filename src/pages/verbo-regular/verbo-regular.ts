@@ -357,8 +357,10 @@ export class VerboRegularPage {
        this.hideEmpty();
        this.showNotEmpty();
      }, 1);
-     
+  }
 
+  goInfo(t){
+    this.navCtrl.push('InfoPage', { type:t });
   }
 
 }

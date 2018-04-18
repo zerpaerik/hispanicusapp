@@ -10,7 +10,6 @@ import { Globalization } from '@ionic-native/globalization';
 import {TranslateModule, TranslateLoader} from "@ngx-translate/core";
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-
 //PAGES
 
 import { HomePage } from '../pages/home/home';
