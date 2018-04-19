@@ -3,18 +3,7 @@ page-verbo-regular {
 		border-bottom:1px solid gray;
 		border-top:1px solid gray;
 	}
-	.pronombre{
-		color: green;
-	}
-	#negado{
-		color: darkred;
-	}
-	.pro_reflex{
-		color: #02857c;
-	}
-	.verbaux{
-		color: #b218ff;
-	}
+
 	.fab{
 		background-color: rgba(0,0,0,0.4);
 	}
@@ -50,6 +39,7 @@ page-verbo-regular {
 		}
 	}
 	.hasrule{
-		border-left: 8px solid orange;
+		border-top:3px groove #ff0400;
+		background-color: rgba(255, 128, 49, 0.8);
 	}
 }

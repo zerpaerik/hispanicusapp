@@ -5,7 +5,7 @@
 		"BACK"   : "Back",
 		"SETTINGS" : "Settings",
 		"EXIT" : "Exit",
-		"MODE" : "Combine mode",
+		"MODE" : "Conjugate mode",
 		"LOG_OUT" : "Log out",
 		"ACCOUNT" : "Account",
 		"CHANGE_PSW" : "Change Password",
@@ -34,7 +34,7 @@
 
 	"HOME" : {
 		"MENU": {
-			"COMBINE_BUTTON" : "Combine",
+			"COMBINE_BUTTON" : "Conjugate",
 			"TITLE" 	     : "Menu",
 			"FAVS" : "Favorites",
 			"DICT" : "Dictionary"
@@ -49,7 +49,9 @@
 		"ALL" : "All",
 		"START" : "GO",
 		"INFO"  : "INFO",
-		"REFLEX_PRONOUN" : "Reflexive pronoun"
+		"REFLEX_PRONOUN" : "Reflexive pronoun",
+		"FORMAL" : "Formal",
+		"INFORMAL" : "Informal"			
 	},
 
 	"ERROR" : {
@@ -65,7 +67,7 @@
 	"INFO" : {
 		"PERSONAL_PRONOUN" : {
 			"TITLE" : "Personal pronoun",
-			"CONTENT" : "Esta Representado con el color <ion-icon name='disc' style='color:green;'></ion-icon>. Los pronombres personales son las palabras que sirven para hacer referencia a las personas o sujetos que intervienen en un enunciado. Su función es sustituir al sustantivo cuando este ha sido omitido."
+			"CONTENT" : "Esta representado con el <b style='color:green;'>color verde</b>. Los pronombres personales son las palabras que sirven para hacer referencia a las personas o sujetos que intervienen en un enunciado. Su función es sustituir al sustantivo cuando este ha sido omitido."
 		}
 	}
 }

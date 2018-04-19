@@ -57,31 +57,31 @@ export class VerboRegularPage {
     this.smartAudio.play('tapped');
     switch (this.formaVerbal) {
       case "fnp":
-        document.getElementById("fnp")['hidden'] = false;
+        document.getElementById("F.N.P.")['hidden'] = false;
         document.getElementById("indicativo")['hidden'] = true;
         document.getElementById("subjuntivo")['hidden'] = true;
         document.getElementById("imperativo")['hidden'] = true;
         break;
       case "indicativo":
-        document.getElementById("fnp")['hidden'] = true;
+        document.getElementById("F.N.P.")['hidden'] = true;
         document.getElementById("indicativo")['hidden'] = false;
         document.getElementById("subjuntivo")['hidden'] = true;
         document.getElementById("imperativo")['hidden'] = true;
         break;
       case "subjuntivo":
-        document.getElementById("fnp")['hidden'] = true;
+        document.getElementById("F.N.P.")['hidden'] = true;
         document.getElementById("indicativo")['hidden'] = true;
         document.getElementById("subjuntivo")['hidden'] = false;
         document.getElementById("imperativo")['hidden'] = true;
         break;
       case "imperativo":
-        document.getElementById("fnp")['hidden'] = true;
+        document.getElementById("F.N.P.")['hidden'] = true;
         document.getElementById("indicativo")['hidden'] = true;
         document.getElementById("subjuntivo")['hidden'] = true;
         document.getElementById("imperativo")['hidden'] = false;
         break;
       default:
-        document.getElementById("fnp")['hidden'] = false;
+        document.getElementById("F.N.P.")['hidden'] = false;
         document.getElementById("indicativo")['hidden'] = false;
         document.getElementById("subjuntivo")['hidden'] = false;
         document.getElementById("imperativo")['hidden'] = false;

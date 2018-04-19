@@ -23,6 +23,7 @@ export class ListVerbosPage {
   public searchQuery: string = '';
   public isLoading : boolean = false;
   public type : number;
+  public title : string;
 
   constructor(public smartAudio : SmartAudioProvider, public configProvider : ConfigProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public modalCtrl : ModalController, public vp : VerbosProvider) {
 
@@ -30,6 +31,20 @@ export class ListVerbosPage {
      this.searching = false;
      this.type = navParams.get('type');
      this.initializeItems();
+     switch (this.type) {
+       case 1:
+         this.title = "Regular";
+         break;
+       case 2:
+         this.title = "Regular (cambio ortografico)";
+         break;
+       case 3:
+         this.title = "Irregular";
+         break; 
+       default:
+         this.title = "Todos";
+         break;
+     }
 
   }
 
