@@ -50,12 +50,12 @@
 
     <div *ngFor="let f of getKeys(verboData[key][t]); let ff = first " class="verbitem">
     
-    <ion-item-divider color="primary">
+    <ion-item-divider color="primary" *ngIf="key != 'imperativo'">
       <b>{{f}}</b>
       <ion-icon name="alert" item-end (click)="goTuto(verbo)" color="info"></ion-icon>
     </ion-item-divider>
 
-    <div *ngFor="let item of verboData[key][t][f]; let first = first ">
+    <div *ngFor="let item of verboData[key][t][f]; let first = first">
 
     <ion-item *ngIf="first && item.raiz ">
       <ion-row>
@@ -72,12 +72,11 @@
         <ion-col col-2 align="center">
           <ion-icon (click)="goInfo(5)" name="alert" color="info" *ngIf="item.verbo_auxiliar"></ion-icon>
         </ion-col>
-        <ion-col col-4 align="center">
+        <ion-col col-4 align="right">
           <ion-icon (click)="goInfo(6)" name="alert" color="info"></ion-icon>
         </ion-col>
-        <ion-col col-1 align="right" align="right">
-          <ion-icon (click)="goInfo(7)" name="alert" color="info" *ngIf="!item.plural && item.pg"></ion-icon>
-          <ion-icon (click)="goInfo(7)" name="alert" color="info" *ngIf="item.plural && item.pg"></ion-icon>
+        <ion-col col-1 align="right">
+          <ion-icon (click)="goInfo(7)" name="alert" color="info" *ngIf="item.pg"></ion-icon>
         </ion-col>
       </ion-row>
     </ion-item>
@@ -91,7 +90,7 @@
         <ion-col col-1 ><span *ngIf="item.negativo != '0'">no</span></ion-col>
         <ion-col col-1 ><span>{{item.pronombre_reflex}}</span></ion-col>
         <ion-col col-2 align="center"><span>{{item.verbo_auxiliar}}</span></ion-col>
-        <ion-col col-4 align="center"><span [innerHTML]="item.raiz"></span><span *ngIf="item.desinencia" [innerHTML]="item.desinencia"></span></ion-col>
+        <ion-col col-4 align="right"><span [innerHTML]="item.raiz"></span><span class="desinencia" *ngIf="item.desinencia" [innerHTML]="item.desinencia"></span></ion-col>
         <ion-col col-1 align="right">
           <span *ngIf="!item.plural && item.pg" class="pgramatical2">{{item.pg}}ª</span>
           <span *ngIf="item.plural && item.pg" class="pgramatical">{{item.pg}}ª</span>
@@ -120,7 +119,7 @@
       <ion-segment-button value="" (ionSelect)="formalNeg()">
         <ion-icon name="ios-thumbs-down"></ion-icon>
       </ion-segment-button>
-    <ion-segment-button value="" (ionSelect)="formalNeg()">
+    <ion-segment-button value="">
       <ion-icon (click)="goTuto(verbo)" color="info" name="alert"></ion-icon>
     </ion-segment-button>    
     </ion-segment>

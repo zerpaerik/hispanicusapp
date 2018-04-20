@@ -17,11 +17,46 @@ export class DictsPage {
 
   public verbs;
   public keys;
+  public myInput : string;
+  public unsorted;
+  public sortedItems;
 
   constructor(public smartAudio : SmartAudioProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public modalCtrl : ModalController, public vp : VerbosProvider) {
-  	this.initializeItems();
+    this.myInput = '';
     smartAudio.preload('tapped', 'assets/audio/waterdroplet.mp3');
     smartAudio.preload('fav', 'assets/audio/fav.mp3');
+  }
+
+  onInput(e){
+    
+    if (e.target.value && e.target.value != '') {
+      this.sortedItems = this.getMatches(e.target.value);
+    }
+  }
+
+ checkValues(){
+   console.log(this.myInput);
+   console.log(this.sortedItems);
+   console.log(this.sortedItems);
+
+ }
+
+  public getMatches(val){
+    var ar = [];
+    for(let item of this.unsorted[0]){
+      if (this.contain(item["infinitivo"], val) || this.contain(item["def"], val)) {
+        ar.push(item);
+      }
+    }
+    return ar;
+  }
+
+  contain(s : string, m : string){
+    return (s.indexOf(m) >= 0);
+  }
+
+  public ionViewDidLoad(){
+    this.initializeItems();
   }
 
   public initializeItems(){
@@ -31,14 +66,21 @@ export class DictsPage {
     this.vp.listVerbs(0).subscribe(data => {
       this.keys = Object.keys(data);
       this.verbs = data;
-      console.log(data);
     }, error => {
       console.log(error);
       loader.dismiss();
     }, () => {
       loader.dismiss();
+      for (var i in this.verbs) {
+         this.unsorted = [];
+         this.unsorted.push(this.verbs[i]);
+      }
     });
 
+  }
+
+  public getKeys(o){
+    return Object.keys(o);
   }
 
   public selectVerbo(xverbo){

@@ -7,6 +7,9 @@ import { VerbosProvider } from '../../providers/verbos/verbos';
 import { ConfigProvider } from '../../providers/config/config';
 import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
 import { LoadingController } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
+import { AlertController } from 'ionic-angular';
+import { Platform } from 'ionic-angular';
 
 @Component({
   selector: 'page-list-verbos',
@@ -25,7 +28,7 @@ export class ListVerbosPage {
   public type : number;
   public title : string;
 
-  constructor(public smartAudio : SmartAudioProvider, public configProvider : ConfigProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public modalCtrl : ModalController, public vp : VerbosProvider) {
+  constructor(public plt : Platform, public alertCtrl: AlertController, public translateServ : TranslateService, public smartAudio : SmartAudioProvider, public configProvider : ConfigProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public modalCtrl : ModalController, public vp : VerbosProvider) {
 
      this.items = [];
      this.searching = false;
@@ -96,7 +99,7 @@ export class ListVerbosPage {
       this.verbs = data;
       console.log(data);
     }, error => {
-      console.log(error);
+      this.showAlert();
       loader.dismiss();
     }, () => {
       loader.dismiss();
@@ -160,6 +163,44 @@ export class ListVerbosPage {
       showBackdrop : false
     });
     return loader;
+  }
+
+  showAlert() {
+
+    var errorTitle : string;
+    var errorSubt  : string;
+    var errorTryAgain : string;
+    var exit : string;
+
+    this.translateServ.get('ERROR').subscribe(error => {
+      errorTitle = error.TITLE;
+      errorSubt  = error.SUBTITLE;
+      errorTryAgain = error.TRY_AGAIN;
+    });
+
+    this.translateServ.get('GENERAL').subscribe(general => {
+      exit = general.EXIT;
+    });
+
+    let alert = this.alertCtrl.create({
+      title: errorTitle,
+      subTitle: errorSubt,
+      buttons : [{
+        text : errorTryAgain,
+        handler : () => {
+          this.initializeItems();
+        }
+      },
+      {
+        text : exit,
+        handler : () => {
+          this.plt.exitApp();
+        }
+      }
+      ],
+      enableBackdropDismiss: false
+    });
+    return alert;
   }
 
 }

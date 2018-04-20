@@ -3,15 +3,48 @@
   <ion-navbar>
     <ion-title>{{'HOME.MENU.DICT' | translate}}</ion-title>
   </ion-navbar>
-
+<ion-searchbar
+  mode="ios"
+  [(ngModel)]="myInput"
+  (ionInput)="onInput($event)"
+  animated="true"
+  debounce=200
+  placeholder="{{'GENERAL.SEARCH' | translate}}"
+  type="text"
+  (focusout)="checkValues()">
+</ion-searchbar>
 </ion-header>
 
 <ion-content>
-	<ion-list *ngFor="let i of keys" >
-    <ion-item-divider color="light" (tap)="openModal()" id="{{i}}"><b>{{i}}</b></ion-item-divider>
-    <ion-item *ngFor="let it of verbs[i]">
-    	<h2 (click)="selectVerbo(it)"><b>{{it.infinitivo}}</b></h2>
-      <p style="color:gray;" (click)="selectVerbo(it)" >{{it.def}}</p>
-    </ion-item>
-  </ion-list>
+  <div *ngIf="!myInput || myInput == ''; else normalList">
+  	<ion-list *ngFor="let i of keys">
+      <ion-item-divider color="light" (tap)="openModal()" id="{{i}}"><b>{{i}}</b></ion-item-divider>
+      <ion-item *ngFor="let it of verbs[i]">
+      	<h2 (click)="selectVerbo(it)"><b>{{it.infinitivo}}</b></h2>
+        <p style="color:gray;" (click)="selectVerbo(it)" >{{it.def}}</p>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <ng-template #normalList>
+    <ion-list>
+      <ion-item *ngFor="let item of sortedItems">
+        <h2 (click)="selectVerbo(item)"><b>{{item.infinitivo}}</b></h2>
+        <p style="color:gray;" (click)="selectVerbo(item)" >{{item.def}}</p>        
+      </ion-item>
+    </ion-list>
+  </ng-template>
 </ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar block>
+    <ion-buttons>
+      <button ion-button mode="ios"><b>á</b></button>
+      <button ion-button mode="ios"><b>é</b></button>
+      <button ion-button mode="ios"><b>í</b></button>
+      <button ion-button mode="ios"><b>ó</b></button>
+      <button ion-button mode="ios"><b>ú</b></button>
+      <button ion-button mode="ios"><b>ñ</b></button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

@@ -18,7 +18,8 @@
 		"CPASSWORD" : "Confirm password",
 		"CHANGE_SUCCESS" : "Changes saved",
 		"CHANGE_FAIL" : "An error has occurred when trying to update settings",
-		"CREATE_USER" : "Create user"
+		"CREATE_USER" : "Create user",
+		"SEARCH" : "Search"
 	},
 
 	"LANG" : {
