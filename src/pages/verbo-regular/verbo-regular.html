@@ -38,20 +38,20 @@
 
   <ion-item-group *ngFor="let key of verboKeys;  let idx = index " id="{{key}}">
     <ion-item-divider class="fdivider" color="primary">
-      <b class="capi">{{key}}</b> 
+      <b>{{capit(key)}}</b> 
       <ion-icon name="alert" item-end (click)="goInfo(1)" color="info"></ion-icon>
     </ion-item-divider>
     <div *ngFor="let t of getKeys(verboData[key])">
     
     <ion-item-divider *ngIf="idx < 2" color="primary">
-      <b class="capi" style="color:#ff592b;">{{t}}</b> 
+      <b style="color:#ff592b;">{{capit(t)}}</b> 
       <ion-icon name="alert" item-end (click)="goTuto(verbo)" color="info"></ion-icon>
     </ion-item-divider>
 
     <div *ngFor="let f of getKeys(verboData[key][t]); let ff = first " class="verbitem">
     
     <ion-item-divider color="primary" *ngIf="key != 'imperativo'">
-      <b>{{f}}</b>
+      <b>{{capit(f)}}</b>
       <ion-icon name="alert" item-end (click)="goTuto(verbo)" color="info"></ion-icon>
     </ion-item-divider>
 

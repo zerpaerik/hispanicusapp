@@ -34,16 +34,9 @@ export class DictsPage {
     }
   }
 
- checkValues(){
-   console.log(this.myInput);
-   console.log(this.sortedItems);
-   console.log(this.sortedItems);
-
- }
-
   public getMatches(val){
     var ar = [];
-    for(let item of this.unsorted[0]){
+    for(let item of this.unsorted){
       if (this.contain(item["infinitivo"], val) || this.contain(item["def"], val)) {
         ar.push(item);
       }
@@ -71,9 +64,11 @@ export class DictsPage {
       loader.dismiss();
     }, () => {
       loader.dismiss();
+      this.unsorted = [];
       for (var i in this.verbs) {
-         this.unsorted = [];
-         this.unsorted.push(this.verbs[i]);
+         for (var j in this.verbs[i]) {
+           this.unsorted.push(this.verbs[i][j]);
+         }
       }
     });
 
@@ -105,6 +100,26 @@ export class DictsPage {
     	}
     });
     modal.present();
+  }
+
+  type(l){
+    this.smartAudio.play('tapped');
+    this.myInput += l;
+    this.setFocus();
+  }
+
+  setFocus(){
+    var search = document.getElementsByClassName('searchbar-input');
+    search[0].setAttribute('id', "searchbar");
+    document.getElementById('searchbar').focus();
+  }
+
+  delete(){
+    if (this.myInput == '') {
+      return;
+    }
+    this.myInput = this.myInput.slice(0, -1);
+    this.setFocus();
   }
 
   public goTo(value){

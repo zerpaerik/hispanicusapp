@@ -326,6 +326,10 @@ export class VerboRegularPage {
 
   }
 
+  capit(w:string){
+    return w[0].toUpperCase() + w.substring(1);
+  }
+
   formalAfmt(){
      this.informal = false;
      this.afirmativo = true;

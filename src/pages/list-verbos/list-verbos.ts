@@ -22,19 +22,19 @@ export class ListVerbosPage {
   public verbs;
   public keys;
   public items;
-  public searching : boolean;
-  public searchQuery: string = '';
   public isLoading : boolean = false;
-  public type : number;
+  public types : number;
   public title : string;
+  public myInput : string = '';
+  public unsorted;
+  public sortedItems;  
 
   constructor(public plt : Platform, public alertCtrl: AlertController, public translateServ : TranslateService, public smartAudio : SmartAudioProvider, public configProvider : ConfigProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public modalCtrl : ModalController, public vp : VerbosProvider) {
 
      this.items = [];
-     this.searching = false;
-     this.type = navParams.get('type');
+     this.types = navParams.get('types');
      this.initializeItems();
-     switch (this.type) {
+     switch (this.types) {
        case 1:
          this.title = "Regular";
          break;
@@ -49,6 +49,27 @@ export class ListVerbosPage {
          break;
      }
 
+  }
+
+  onInput(e){
+    
+    if (e.target.value && e.target.value != '') {
+      this.sortedItems = this.getMatches(e.target.value);
+    }
+  }
+
+  public getMatches(val){
+    var ar = [];
+    for(let item of this.unsorted){
+      if (this.contain(item["infinitivo"], val) || this.contain(item["def"], val)) {
+        ar.push(item);
+      }
+    }
+    return ar;
+  }
+
+  contain(s : string, m : string){
+    return (s.indexOf(m) >= 0);
   }
 
   isFav(item){
@@ -94,7 +115,7 @@ export class ListVerbosPage {
     
     var loader = this.presentLoading();
     loader.present();
-    this.vp.listVerbs(this.type).subscribe(data => {
+    this.vp.listVerbs(this.types).subscribe(data => {
       this.keys = Object.keys(data);
       this.verbs = data;
       console.log(data);
@@ -103,6 +124,14 @@ export class ListVerbosPage {
       loader.dismiss();
     }, () => {
       loader.dismiss();
+      for (var i in this.verbs) {
+         this.unsorted = [];
+        for (var i in this.verbs) {
+           for (var j in this.verbs[i]) {
+             this.unsorted.push(this.verbs[i][j]);
+           }
+        }
+      }      
     });
 
   }
@@ -202,5 +231,26 @@ export class ListVerbosPage {
     });
     return alert;
   }
+
+  type(l){
+    this.smartAudio.play('tapped');
+    this.myInput += l;
+    this.setFocus();
+  }
+
+  setFocus(){
+    var search = document.getElementsByClassName('searchbar-input');
+    search[0].setAttribute('id', "searchbar");
+    document.getElementById('searchbar').focus();
+  }
+
+  delete(){
+    if (this.myInput == '') {
+      return;
+    }
+    this.myInput = this.myInput.slice(0, -1);
+    this.setFocus();
+  }
+
 
 }

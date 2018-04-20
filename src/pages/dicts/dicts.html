@@ -11,7 +11,8 @@
   debounce=200
   placeholder="{{'GENERAL.SEARCH' | translate}}"
   type="text"
-  (focusout)="checkValues()">
+  id="search"
+  >
 </ion-searchbar>
 </ion-header>
 
@@ -38,13 +39,10 @@
 
 <ion-footer no-border>
   <ion-toolbar block>
-    <ion-buttons>
-      <button ion-button mode="ios"><b>á</b></button>
-      <button ion-button mode="ios"><b>é</b></button>
-      <button ion-button mode="ios"><b>í</b></button>
-      <button ion-button mode="ios"><b>ó</b></button>
-      <button ion-button mode="ios"><b>ú</b></button>
-      <button ion-button mode="ios"><b>ñ</b></button>
+    <ion-buttons align="center">
+      <button ion-button class="extrakeys" mode="ios" (click)="type('í')"><b>í</b></button>
+      <button ion-button class="extrakeys" mode="ios" (click)="type('ñ')"><b>ñ</b></button>
+      <button ion-button class="extrakeys" mode="ios" (click)="delete()"><b><ion-icon mode="md" name="arrow-back"></ion-icon></b></button>
     </ion-buttons>
   </ion-toolbar>
 </ion-footer>
