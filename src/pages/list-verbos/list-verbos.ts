@@ -124,14 +124,12 @@ export class ListVerbosPage {
       loader.dismiss();
     }, () => {
       loader.dismiss();
-      for (var i in this.verbs) {
-         this.unsorted = [];
+       this.unsorted = [];
         for (var i in this.verbs) {
            for (var j in this.verbs[i]) {
              this.unsorted.push(this.verbs[i][j]);
            }
         }
-      }      
     });
 
   }
