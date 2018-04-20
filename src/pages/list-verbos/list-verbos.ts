@@ -32,7 +32,7 @@ export class ListVerbosPage {
   constructor(public plt : Platform, public alertCtrl: AlertController, public translateServ : TranslateService, public smartAudio : SmartAudioProvider, public configProvider : ConfigProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public modalCtrl : ModalController, public vp : VerbosProvider) {
 
      this.items = [];
-     this.types = navParams.get('types');
+     this.types = navParams.get('type');
      this.initializeItems();
      switch (this.types) {
        case 1:
@@ -158,20 +158,6 @@ export class ListVerbosPage {
     	}
     });
     modal.present();
-  }
-
-  public getItems(ev: any) {
-
-    this.initItems(this.verbs);
-    let val = ev.target.value;
-
-    if (val && val.trim() != '') {
-      this.items = this.items.filter((item) => {
-        this.searching = true;
-        return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
-      })
-    }
-    this.searching = false;
   }
 
   public goTo(value){
