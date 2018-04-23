@@ -46,11 +46,11 @@
 		"TITLE" : "Select a group",
 		"REGULAR" : "Regular verbs",	
 		"IRREGULAR" : "Irregular verbs",
-		"ORTH_CHANGE" : "Regular verbs (orthographic change)",
+		"ORTH_CHANGE" : "Regular verbs <br>(with spelling change)",
 		"ALL" : "All",
 		"START" : "GO",
 		"INFO"  : "INFO",
-		"REFLEX_PRONOUN" : "Reflexive pronoun",
+		"REFLEX_PRONOUN" : "Reflexive form",
 		"FORMAL" : "Formal",
 		"INFORMAL" : "Informal"			
 	},

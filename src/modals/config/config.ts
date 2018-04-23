@@ -18,8 +18,8 @@ export class ConfigPage {
   region : any;
 
   constructor(public smartAudio : SmartAudioProvider, public toastCtrl : ToastController, public configProvider : ConfigProvider, public authProvider : AuthProvider, public navCtrl: NavController, public navParams: NavParams, private translate : TranslateService,  public viewCtrl: ViewController) {
-    this.mode = localStorage.getItem("rmode") ||  '1';
-    this.lang = localStorage.getItem("lang")  ||  'en';
+    this.mode   = localStorage.getItem("rmode") ||  '1';
+    this.lang   = localStorage.getItem("lang")  ||  'en';
     this.region = localStorage.getItem("region") || [0, 1, 2];
   }
 
@@ -45,22 +45,22 @@ export class ConfigPage {
     switch (xmode) {
          case '1':
            localStorage.setItem('rmode', '1');
-           localStorage.setItem("region", JSON.stringify([0, 1, 2]));
+           localStorage.setItem("region", JSON.stringify([0, 2, 4]));
            break;
          
          case '2':
            localStorage.setItem('rmode', '2');
-           localStorage.setItem("region", JSON.stringify([0, 2]));
+           localStorage.setItem("region", JSON.stringify([0, 1, 4]));
            break;  
 
          case '3':
            localStorage.setItem('rmode', '3');
-           localStorage.setItem("region", JSON.stringify([0, 2]));
+           localStorage.setItem("region", JSON.stringify([0, 1, 3]));
            break;
 
          default:
            localStorage.setItem('rmode', '1');
-           localStorage.setItem("region", JSON.stringify([0, 1, 2]));           
+           localStorage.setItem("region", JSON.stringify([0, 2, 4]));           
            break;
     }
 

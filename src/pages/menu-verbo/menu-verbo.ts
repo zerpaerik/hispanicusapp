@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {ListVerbosPage} from '../list-verbos/list-verbos';
 import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'page-menu-verbo',
@@ -9,7 +10,12 @@ import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
 })
 export class MenuVerboPage {
 
-  constructor(public smartAudio : SmartAudioProvider, public navCtrl: NavController, public navParams: NavParams) {
+	spelling : string;
+
+  constructor(public translate : TranslateService, public smartAudio : SmartAudioProvider, public navCtrl: NavController, public navParams: NavParams) {
+  	this.translate.get('VERBS_MENU').subscribe(res => {
+  		this.spelling = res.ORTH_CHANGE;
+  	});
   }
 
   next(t){

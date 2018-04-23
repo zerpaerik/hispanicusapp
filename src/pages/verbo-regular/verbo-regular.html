@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{verbo.infinitivo}}</ion-title>
+    <ion-title>{{verbo.infinitivo}}<span *ngIf="tenses">se</span></ion-title>
     <ion-buttons right>
       <button ion-button icon-only (click)="goTuto(verbo)"><ion-icon name="alert" color="info"></ion-icon></button>
     </ion-buttons>    
@@ -31,7 +31,7 @@
       F.N.P.
     </ion-segment-button>
     <ion-segment-button value="todos">
-      Todos
+      {{'VERBS_MENU.ALL' | translate}}
     </ion-segment-button>
   </ion-segment>
 </div>
@@ -73,16 +73,17 @@
           <ion-icon (click)="goInfo(5)" name="alert" color="info" *ngIf="item.verbo_auxiliar"></ion-icon>
         </ion-col>
         <ion-col col-4 align="right">
-          <ion-icon (click)="goInfo(6)" name="alert" color="info"></ion-icon>
+          <ion-icon style="text-align:center;" (click)="goInfo(6)" name="alert" color="info"></ion-icon>
+          <ion-icon (click)="goInfo(7)" name="alert" color="info"></ion-icon>
         </ion-col>
         <ion-col col-1 align="right">
-          <ion-icon (click)="goInfo(7)" name="alert" color="info" *ngIf="item.pg"></ion-icon>
+          <ion-icon (click)="goInfo(8)" name="alert" color="info" *ngIf="item.pg"></ion-icon>
         </ion-col>
       </ion-row>
     </ion-item>
 
     <ion-item *ngIf="item.forma_verbal == forma" [class.hasrule]="item.regla">
-      <ion-row (click)="showRule(item.regla)">
+      <ion-row (click)="showRule(item.regla)" [class.unique]="(item.region > 0 && item.region < 4)">
         <ion-col col-3>
           <span *ngIf="item.pronombre">{{item.pronombre}}</span> 
           <span *ngIf="item.pronombre_formal_id">{{item.pronombre_formal_id}}</span>
