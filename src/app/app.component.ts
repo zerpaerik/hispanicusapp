@@ -25,6 +25,5 @@ export class MyApp {
       smartAudio.preload('tapped', 'assets/audio/waterdroplet.mp3');
       smartAudio.preload('fav', 'assets/audio/fav.mp3');
     });
-    
   }
 }

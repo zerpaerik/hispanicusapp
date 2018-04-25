@@ -11,7 +11,7 @@ export class VerbosProvider {
   }
 
   getFavs(){
-    return this.http.get('http://localhost:8000/api/v1/favoritos', {
+    return this.http.get('http://104.236.57.198/api/v1/favoritos', {
       headers: {
         'Authorization' : 'Bearer ' + localStorage.getItem('token'),
         'Accept' : 'application/json'
@@ -20,7 +20,7 @@ export class VerbosProvider {
   }
 
   getTuto(id){
-    return this.http.get('http://localhost:8000/api/v1/tutorial/' + id, {
+    return this.http.get('http://104.236.57.198/api/v1/tutorial/' + id, {
       headers: {
         'Authorization' : 'Bearer ' + localStorage.getItem('token'),
         'Accept' : 'application/json'
@@ -29,14 +29,14 @@ export class VerbosProvider {
   }
 
   listVerbs(tipo){
-  	return this.http.get('http://localhost:8000/api/v1/verbos/' + tipo);
+  	return this.http.get('http://104.236.57.198/api/v1/verbos/' + tipo);
   }
 
   getVerb(id){
   	let reg = localStorage.getItem('region') || JSON.stringify([0, 1, 2]);
     let l = localStorage.getItem('lang') || "es";
   	
-  	return this.http.post('http://localhost:8000/api/v1/verbo/'+id, {region : reg, lang : l}, {
+  	return this.http.post('http://104.236.57.198/api/v1/verbo/'+id, {region : reg, lang : l}, {
   		headers : {'Accept' : 'appliacation/json'}
   	});
   }
