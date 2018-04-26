@@ -12,7 +12,7 @@ export class ConfigProvider {
     
     let lang = {'lang' : xlang};
 
-    return this.http.post('http://localhost:8000/api/v1/lang', lang, {
+    return this.http.post('http://104.236.57.198/api/v1/lang', lang, {
       headers : {
         'Accept' : 'application/json',
         'Authorization' : 'Bearer ' + localStorage.getItem('token')
@@ -23,7 +23,7 @@ export class ConfigProvider {
 
   getLang(){
 
-    return this.http.get('http://localhost:8000/api/v1/lang', {
+    return this.http.get('http://104.236.57.198/api/v1/lang', {
       headers : {
         'Accept' : 'application/json',
         'Authorization' : 'Bearer ' + localStorage.getItem('token')
@@ -36,7 +36,7 @@ export class ConfigProvider {
   	
   	let favs = {'favs' : xfavs};
 
-  	return this.http.post('http://localhost:8000/api/v1/favs', favs, {
+  	return this.http.post('http://104.236.57.198/api/v1/favs', favs, {
   		headers : {
         'Accept' : 'application/json',
         'Authorization' : 'Bearer ' + localStorage.getItem('token')
@@ -47,7 +47,7 @@ export class ConfigProvider {
 
   getFavs(){
 
-  	return this.http.get('http://localhost:8000/api/v1/favs', {
+  	return this.http.get('http://104.236.57.198/api/v1/favs', {
   		headers : {
         'Accept' : 'application/json',
         'Authorization' : 'Bearer ' + localStorage.getItem('token')
@@ -60,7 +60,7 @@ export class ConfigProvider {
 
     let region = {'modo' : xregion};
 
-    return this.http.post('http://localhost:8000/api/v1/region', region, {
+    return this.http.post('http://104.236.57.198/api/v1/region', region, {
       headers : {
         'Accept' : 'application/json',
         'Authorization' : 'Bearer ' + localStorage.getItem('token')
@@ -71,7 +71,7 @@ export class ConfigProvider {
 
   getRegion(){
 
-    return this.http.get('http://localhost:8000/api/v1/region', {
+    return this.http.get('http://104.236.57.198/api/v1/region', {
       headers : {
         'Accept' : 'application/json',
         'Authorization' : 'Bearer ' + localStorage.getItem('token')
