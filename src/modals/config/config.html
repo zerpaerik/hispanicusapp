@@ -17,7 +17,7 @@
 	<ion-list>
 	  <ion-item>
 	  	<ion-label>{{'GENERAL.SELECT' | translate}}</ion-label>
-			<ion-select [(ngModel)]="lang" (ngModelChange)="changeLang()" block>
+			<ion-select okText="{{'GENERAL.OK' | translate}}" cancelText="{{'GENERAL.CANCEL' | translate}}" [(ngModel)]="lang" (ngModelChange)="changeLang()" block>
 	      <ion-option value="en">{{'LANG.EN' | translate}}</ion-option>
 	      <ion-option value="es">{{'LANG.ES' | translate}}</ion-option>
 	      <!--<ion-option value="pt" disabled>{{'LANG.PT' | translate}}</ion-option>
@@ -31,13 +31,13 @@
 	<ion-list>
 	  <ion-item>
 	  	<ion-label>{{'GENERAL.SELECT' | translate}}</ion-label>
-			<ion-select [(ngModel)]="mode" (ngModelChange)="changeMode()" block>
+			<ion-select okText="{{'GENERAL.OK' | translate}}" cancelText="{{'GENERAL.CANCEL' | translate}}" [(ngModel)]="mode" (ngModelChange)="changeMode()" block>
 	      <ion-option value="1">{{'LANG.SP' | translate}}</ion-option>
 	      <ion-option value="2">{{'LANG.LAN' | translate}}</ion-option>
 	      <ion-option value="3">{{'LANG.LAS' | translate}}</ion-option>
 	    </ion-select>
-	    <button ion-button color="light" icon-only item-end>
-      <ion-icon name="alert"></ion-icon>
+	    <button ion-button icon-only item-end>
+      <ion-icon color="info" name="alert"></ion-icon>
     </button>
 	  </ion-item> 
 	</ion-list>	

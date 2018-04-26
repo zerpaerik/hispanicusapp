@@ -18,7 +18,9 @@
 		"CONFIG_CHANGED" : "Los cambios han sido guardados",
 		"CHANGE_FAIL" : "Ha ocurrido un error al intentar actualizar la configuración",
 		"CREATE_USER" : "Crear usuario",
-		"SEARCH" : "Buscar"
+		"SEARCH" : "Buscar",
+		"OK" : "Aceptar",
+		"CANCEL" : "Cancelar"		
 	},
 
 	"LANG" : {

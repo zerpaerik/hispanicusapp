@@ -18,7 +18,6 @@ export class VerboRegularPage {
 	verbo : any;
 	verboData: any;
   verboKeys : any;
-  timeKeys : any = ["simple", "compuesto"];
   finalKeys : any; 
 
   informal : boolean;
@@ -175,7 +174,7 @@ export class VerboRegularPage {
     loader.present();
     this.vp.getVerb(this.verbo.id)
       .subscribe(data => {
-
+        console.log(data);
         this.verboData = data["data"];
         this.verboKeys = Object.keys(this.verboData);
         console.log(this.verboData);

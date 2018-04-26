@@ -3,6 +3,7 @@
   <ion-navbar>
     <ion-title>{{verbo.infinitivo}}<span *ngIf="tenses">se</span></ion-title>
     <ion-buttons right>
+      <button ion-button icon-only><ion-icon name="school" color="info"></ion-icon></button>
       <button ion-button icon-only (click)="goTuto(verbo)"><ion-icon name="alert" color="info"></ion-icon></button>
     </ion-buttons>    
   </ion-navbar>
@@ -82,8 +83,8 @@
       </ion-row>
     </ion-item>
 
-    <ion-item *ngIf="item.forma_verbal == forma" [class.hasrule]="item.regla">
-      <ion-row (click)="showRule(item.regla)" [class.unique]="(item.region > 0 && item.region < 4)">
+    <ion-item *ngIf="item.forma_verbal == forma">
+      <ion-row [class.unique]="(item.region > 0 && item.region < 4)">
         <ion-col col-3>
           <span *ngIf="item.pronombre">{{item.pronombre}}</span> 
           <span *ngIf="item.pronombre_formal_id">{{item.pronombre_formal_id}}</span>

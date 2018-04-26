@@ -19,7 +19,9 @@
 		"CHANGE_SUCCESS" : "Changes saved",
 		"CHANGE_FAIL" : "An error has occurred when trying to update settings",
 		"CREATE_USER" : "Create user",
-		"SEARCH" : "Search"
+		"SEARCH" : "Search",
+		"OK" : "Ok",
+		"CANCEL" : "Cancel"
 	},
 
 	"LANG" : {
