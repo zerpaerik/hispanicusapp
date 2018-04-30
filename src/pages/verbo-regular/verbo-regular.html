@@ -84,7 +84,7 @@
     </ion-item>
 
     <ion-item *ngIf="item.forma_verbal == forma" block>
-      <ion-row [class.unique]="(item.region > 2 && item.region < 4 || item.region == 1)">
+      <ion-row>
         <ion-col col-3>
           <span *ngIf="item.pronombre">{{item.pronombre}}</span> 
           <span *ngIf="item.pronombre_formal_id">{{item.pronombre_formal_id}}</span>

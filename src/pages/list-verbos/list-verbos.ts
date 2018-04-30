@@ -139,7 +139,7 @@ export class ListVerbosPage {
       this.verbs = data;
       console.log(data);
     }, error => {
-      this.showAlert();
+      this.showAlert().present();
       loader.dismiss();
     }, () => {
       loader.dismiss();
