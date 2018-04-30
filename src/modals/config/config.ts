@@ -20,7 +20,7 @@ export class ConfigPage {
   constructor(public smartAudio : SmartAudioProvider, public toastCtrl : ToastController, public configProvider : ConfigProvider, public authProvider : AuthProvider, public navCtrl: NavController, public navParams: NavParams, private translate : TranslateService,  public viewCtrl: ViewController) {
     this.mode   = localStorage.getItem("rmode") ||  '1';
     this.lang   = localStorage.getItem("lang")  ||  'en';
-    this.region = localStorage.getItem("region") || [0, 1, 2];
+    this.region = localStorage.getItem("region") || [0, 2, 4];
   }
 
   changeLang(){
@@ -28,7 +28,7 @@ export class ConfigPage {
     localStorage.setItem('lang', xlang);
   	this.translate.use(xlang);
     this.configProvider.setLang(xlang).subscribe(res => {
-      console.log(res);
+      
       if (res['success']) {
         this.presentToast(true);
       }else{
@@ -82,9 +82,6 @@ export class ConfigPage {
       localStorage.clear();
       this.navCtrl.setRoot(LoginPage);      
     }, error => {
-      localStorage.clear();
-      this.navCtrl.setRoot(LoginPage);      
-    }, () => {
       localStorage.clear();
       this.navCtrl.setRoot(LoginPage);      
     });

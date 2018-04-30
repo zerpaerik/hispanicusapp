@@ -1,5 +1,4 @@
 {
-
 	"GENERAL": {	
 		"SELECT" : "Select",
 		"BACK"   : "Back",
@@ -21,7 +20,10 @@
 		"CREATE_USER" : "Create user",
 		"SEARCH" : "Search",
 		"OK" : "Ok",
-		"CANCEL" : "Cancel"
+		"CANCEL" : "Cancel",
+		"GRAMATICAL_1" : "st",
+		"GRAMATICAL_2" : "nd",
+		"GRAMATICAL_3" : "rd"
 	},
 
 	"LANG" : {
@@ -32,7 +34,7 @@
 		"PT"   : "Português",
 		"SP"   : "Spain",
 		"LAN"  : "Latin America",
-		"LAS"  : "Argentina/Uruguay"
+		"LAS"  : "Argentina/Uruguay (voseo)"
 	},
 
 	"HOME" : {

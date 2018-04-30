@@ -20,7 +20,10 @@
 		"CREATE_USER" : "Crear usuario",
 		"SEARCH" : "Buscar",
 		"OK" : "Aceptar",
-		"CANCEL" : "Cancelar"		
+		"CANCEL" : "Cancelar",
+		"GRAMATICAL_1" : "ª",
+		"GRAMATICAL_2" : "ª",
+		"GRAMATICAL_3" : "ª"
 	},
 
 	"LANG" : {

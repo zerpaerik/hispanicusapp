@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {HOST} from '../globals';
 
 @Injectable()
 export class VerbosProvider {
@@ -11,7 +12,7 @@ export class VerbosProvider {
   }
 
   getFavs(){
-    return this.http.get('http://104.236.57.198/api/v1/favoritos', {
+    return this.http.get(HOST + '/api/v1/favoritos', {
       headers: {
         'Authorization' : 'Bearer ' + localStorage.getItem('token'),
         'Accept' : 'application/json'
@@ -20,7 +21,7 @@ export class VerbosProvider {
   }
 
   getTuto(id){
-    return this.http.get('http://104.236.57.198/api/v1/tutorial/' + id, {
+    return this.http.get(HOST + '/api/v1/tutorial/' + id, {
       headers: {
         'Authorization' : 'Bearer ' + localStorage.getItem('token'),
         'Accept' : 'application/json'
@@ -29,15 +30,15 @@ export class VerbosProvider {
   }
 
   listVerbs(tipo){
-  	return this.http.get('http://104.236.57.198/api/v1/verbos/' + tipo);
+  	return this.http.get(HOST + '/api/v1/verbos/' + tipo);
   }
 
   getVerb(id){
-  	let reg = localStorage.getItem('region') || JSON.stringify([0, 1, 2]);
+  	let reg = localStorage.getItem('region') || JSON.stringify([0, 2, 4]);
     let m = localStorage.getItem('rmode') || 1;
     let l = localStorage.getItem('lang') || "es";
   	
-  	return this.http.post('http://104.236.57.198/api/v1/verbo/'+id, {region : reg, lang : l, modo : m}, {
+  	return this.http.post(HOST + '/api/v1/verbo/'+id, {region : reg, lang : l, modo : m}, {
   		headers : {'Accept' : 'appliacation/json'}
   	});
   }

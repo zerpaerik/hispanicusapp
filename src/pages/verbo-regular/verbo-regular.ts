@@ -19,6 +19,7 @@ export class VerboRegularPage {
 	verboData: any;
   verboKeys : any;
   finalKeys : any; 
+  rules : any;
 
   informal : boolean;
   afirmativo : boolean;
@@ -146,27 +147,6 @@ export class VerboRegularPage {
     this.initData();
   }
 
-  showRule(regla){
-
-    if (!regla) {
-      return;
-    }
-    
-    this.smartAudio.play('tapped');
-    var rule : string;
-
-    this.translateServ.get('GENERAL').subscribe( general => {
-      rule = general.RULE;
-    });
-
-    let alert = this.alertCtrl.create({
-      title: rule,
-      subTitle: regla,
-      buttons : ["OK"]
-    });
-   alert.present();
-  }        
-
   initData(){
     var loader = this.presentLoading();
     var alert = this.showAlert();
@@ -174,10 +154,9 @@ export class VerboRegularPage {
     loader.present();
     this.vp.getVerb(this.verbo.id)
       .subscribe(data => {
-        console.log(data);
+        this.rules = data["reglas"];
         this.verboData = data["data"];
         this.verboKeys = Object.keys(this.verboData);
-        console.log(this.verboData);
         
         loader.dismiss();
       },error => {
@@ -197,7 +176,7 @@ export class VerboRegularPage {
   showNotEmpty(){
     
     var items = document.getElementsByClassName('verbitem');
-
+    
     for (var i = 0; i < items.length; i++) {
       var empty = true;
 
@@ -218,10 +197,8 @@ export class VerboRegularPage {
   hideEmpty(){
     this.smartAudio.play('tapped');    
     var items = document.getElementsByClassName('verbitem');
-
     for (var i = 0; i < items.length; i++) {
       var empty = false;
-
       for (var j = 1; j < items[i].children.length - 1; j++) {
         if (items[i].children[j].childElementCount > 0) {
           empty = false;
@@ -362,8 +339,35 @@ export class VerboRegularPage {
      }, 1);
   }
 
+  getGramatical(value){
+
+    switch (value) {
+      case 1:
+        if (localStorage.getItem("lang") == "en") {
+          return (value+"st");            
+        }
+        return (value+"ª");
+      case 2:
+        if (localStorage.getItem("lang") == "en") {
+          return (value+"nd");            
+        }
+          return (value+"ª");
+      case 3:
+        if (localStorage.getItem("lang") == "en") {
+          return (value+"rd");    
+        }
+          return (value+"ª");
+      default:
+        return (value+"ª");  
+    }
+  }
+
   goInfo(t){
     this.navCtrl.push('InfoPage', { type:t });
+  }
+
+  goRule(rule){
+    this.navCtrl.push('RulePage', {rules : rule})
   }
 
 }

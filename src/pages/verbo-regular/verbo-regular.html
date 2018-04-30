@@ -3,7 +3,6 @@
   <ion-navbar>
     <ion-title>{{verbo.infinitivo}}<span *ngIf="tenses">se</span></ion-title>
     <ion-buttons right>
-      <button ion-button icon-only><ion-icon name="school" color="info"></ion-icon></button>
       <button ion-button icon-only (click)="goTuto(verbo)"><ion-icon name="alert" color="info"></ion-icon></button>
     </ion-buttons>    
   </ion-navbar>
@@ -49,10 +48,11 @@
       <ion-icon name="alert" item-end (click)="goTuto(verbo)" color="info"></ion-icon>
     </ion-item-divider>
 
-    <div *ngFor="let f of getKeys(verboData[key][t]); let ff = first " class="verbitem">
+    <div *ngFor="let f of getKeys(verboData[key][t]); let ff = first " class="verbitem {{key}}">
     
-    <ion-item-divider color="primary" *ngIf="key != 'imperativo'">
+    <ion-item-divider color="primary">
       <b>{{capit(f)}}</b>
+      <ion-icon name="school" item-end *ngIf="myInclude(getKeys(rules), capit(f))" (click)="goRule(rules[capit(f)])" color="info"></ion-icon>
       <ion-icon name="alert" item-end (click)="goTuto(verbo)" color="info"></ion-icon>
     </ion-item-divider>
 
@@ -70,7 +70,7 @@
         <ion-col col-1>
           <ion-icon (click)="goInfo(4)" name="alert" color="info" *ngIf="tenses"></ion-icon>
         </ion-col>
-        <ion-col col-2 align="center">
+        <ion-col col-2 align="left">
           <ion-icon (click)="goInfo(5)" name="alert" color="info" *ngIf="item.verbo_auxiliar"></ion-icon>
         </ion-col>
         <ion-col col-4 align="right">
@@ -83,19 +83,19 @@
       </ion-row>
     </ion-item>
 
-    <ion-item *ngIf="item.forma_verbal == forma">
-      <ion-row [class.unique]="(item.region > 0 && item.region < 4)">
+    <ion-item *ngIf="item.forma_verbal == forma" block>
+      <ion-row [class.unique]="(item.region > 2 && item.region < 4 || item.region == 1)">
         <ion-col col-3>
           <span *ngIf="item.pronombre">{{item.pronombre}}</span> 
           <span *ngIf="item.pronombre_formal_id">{{item.pronombre_formal_id}}</span>
         </ion-col>
         <ion-col col-1 ><span *ngIf="item.negativo != '0'">no</span></ion-col>
         <ion-col col-1 ><span>{{item.pronombre_reflex}}</span></ion-col>
-        <ion-col col-2 align="center"><span>{{item.verbo_auxiliar}}</span></ion-col>
+        <ion-col col-2 align="left"><span>{{item.verbo_auxiliar}}</span></ion-col>
         <ion-col col-4 align="right"><span [innerHTML]="item.raiz"></span><span class="desinencia" *ngIf="item.desinencia" [innerHTML]="item.desinencia"></span></ion-col>
         <ion-col col-1 align="right">
-          <span *ngIf="!item.plural && item.pg" class="pgramatical2">{{item.pg}}ª</span>
-          <span *ngIf="item.plural && item.pg" class="pgramatical">{{item.pg}}ª</span>
+          <span *ngIf="!item.plural && item.pg" class="pgramatical2">{{getGramatical(item.pg)}}</span>
+          <span *ngIf="item.plural && item.pg" class="pgramatical">{{getGramatical(item.pg)}}</span>
         </ion-col>
       </ion-row>
     </ion-item>
