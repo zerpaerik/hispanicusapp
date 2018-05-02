@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {HOST} from '../globals';
 
 @Injectable()
 export class AuthProvider {
@@ -14,7 +15,7 @@ export class AuthProvider {
   	
   	let authData = {'email' : xemail, 'password' : xpasword};
 
-  	return this.http.post('http://104.236.57.198/api/v1/login', authData, {
+  	return this.http.post(HOST + '/api/v1/login', authData, {
   		headers : {'Accept' : 'application/json'}
   	});
   
@@ -24,7 +25,7 @@ export class AuthProvider {
 
   	let regData = {'name' : xname, 'email' : xemail, 'password' : xpassword, 'confirm_password' : xconfirm};
   	
-  	return this.http.post('http://104.236.57.198/api/v1/register', regData, {
+  	return this.http.post(HOST + '/api/v1/register', regData, {
   		headers : {'Accept' : 'application/json'}
   	});
     
@@ -35,7 +36,7 @@ export class AuthProvider {
   	let token = localStorage.getItem('token');
   	if (!token) { return; }
 
-  	return this.http.post('http://104.236.57.198/api/v1/logout', {}, {
+  	return this.http.post(HOST + '/api/v1/logout', {}, {
   		headers : {
   			'Authorization' : "Bearer " + token,
   			'Accept' : 'application/json'
@@ -45,7 +46,7 @@ export class AuthProvider {
 
   checkEmailNotTaken(xemail){
     let email = {'email' : xemail};
-    return this.http.post('http://104.236.57.198/api/v1/checkemail', email, {
+    return this.http.post(HOST + '/api/v1/checkemail', email, {
       headers : {
         'Accept' : 'application/json'
       }

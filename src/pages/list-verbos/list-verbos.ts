@@ -29,26 +29,45 @@ export class ListVerbosPage {
   public unsorted;
   public sortedItems;  
 
-  constructor(public plt : Platform, public alertCtrl: AlertController, public translateServ : TranslateService, public smartAudio : SmartAudioProvider, public configProvider : ConfigProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public modalCtrl : ModalController, public vp : VerbosProvider) {
+  constructor(public plt : Platform, public alertCtrl: AlertController, public translateServ : TranslateService,
+              public smartAudio : SmartAudioProvider, public configProvider : ConfigProvider, public loadingCtrl: LoadingController,
+              public navCtrl: NavController, public navParams: NavParams, public modalCtrl : ModalController, public vp : VerbosProvider) {
 
      this.items = [];
      this.types = navParams.get('type');
      this.initializeItems();
-     switch (this.types) {
+     this.translateServ.get('VERBS_MENU').subscribe(word => {
+      switch (this.types) {
+       case 1:
+         this.title = word.REGULAR;
+         break;
+       case 2:
+         this.title = word.ORTH_CHANGE;
+         break;
+       case 3:
+         this.title = word.IRREGULAR;
+         break; 
+       default:
+         this.title = word.ALL;
+         break;
+      }
+     }, error => {
+      switch (this.types) {
        case 1:
          this.title = "Regular";
          break;
        case 2:
-         this.title = "Regular (cambio ortografico)";
+         this.title = "Regular <br> (With spelling change)";
          break;
        case 3:
          this.title = "Irregular";
          break; 
        default:
-         this.title = "Todos";
+         this.title = "All";
          break;
-     }
-
+      }
+    });
+     
   }
 
   onInput(e){
@@ -120,7 +139,7 @@ export class ListVerbosPage {
       this.verbs = data;
       console.log(data);
     }, error => {
-      this.showAlert();
+      this.showAlert().present();
       loader.dismiss();
     }, () => {
       loader.dismiss();

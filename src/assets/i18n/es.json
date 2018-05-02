@@ -9,6 +9,7 @@
 		"ACCOUNT" : "Cuenta",
 		"CHANGE_PSW" : "Cambiar contraseña",
 		"RULE" : "Regla",
+		"RULES" : "Reglas",
 		"SIGN_IN" : "Acceder",
 		"SIGN_UP" : "Registrarse",
 		"EMAIL" : "E-mail",
@@ -20,7 +21,10 @@
 		"CREATE_USER" : "Crear usuario",
 		"SEARCH" : "Buscar",
 		"OK" : "Aceptar",
-		"CANCEL" : "Cancelar"		
+		"CANCEL" : "Cancelar",
+		"GRAMATICAL_1" : "ª",
+		"GRAMATICAL_2" : "ª",
+		"GRAMATICAL_3" : "ª"
 	},
 
 	"LANG" : {

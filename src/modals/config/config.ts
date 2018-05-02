@@ -28,7 +28,7 @@ export class ConfigPage {
     localStorage.setItem('lang', xlang);
   	this.translate.use(xlang);
     this.configProvider.setLang(xlang).subscribe(res => {
-      console.log(res);
+      
       if (res['success']) {
         this.presentToast(true);
       }else{
@@ -82,9 +82,6 @@ export class ConfigPage {
       localStorage.clear();
       this.navCtrl.setRoot(LoginPage);      
     }, error => {
-      localStorage.clear();
-      this.navCtrl.setRoot(LoginPage);      
-    }, () => {
       localStorage.clear();
       this.navCtrl.setRoot(LoginPage);      
     });

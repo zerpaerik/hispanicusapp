@@ -13,9 +13,9 @@ import { LoginPage } from '../pages/login/login';
 export class MyApp {
   rootPage:any = LoginPage;
 
-  constructor(smartAudio: SmartAudioProvider, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private translate: TranslateService) {
+  constructor(smartAudio: SmartAudioProvider, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public translate: TranslateService) {
     let lang = localStorage.getItem('lang') || 'en';
-    translate.setDefaultLang(lang);
+    this.translate.setDefaultLang(lang);
     
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

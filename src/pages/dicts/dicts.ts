@@ -5,7 +5,7 @@ import { VerbosProvider } from '../../providers/verbos/verbos';
 import { LoadingController } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
 import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
-
+import { ConfigProvider } from '../../providers/config/config';
 
 @IonicPage()
 @Component({
@@ -21,7 +21,10 @@ export class DictsPage {
   public unsorted;
   public sortedItems;
 
-  constructor(public smartAudio : SmartAudioProvider, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public modalCtrl : ModalController, public vp : VerbosProvider) {
+  constructor(public smartAudio : SmartAudioProvider, public configProvider : ConfigProvider,
+              public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams,
+              public modalCtrl : ModalController, public vp : VerbosProvider) {
+   
     this.myInput = '';
     smartAudio.preload('tapped', 'assets/audio/waterdroplet.mp3');
     smartAudio.preload('fav', 'assets/audio/fav.mp3');
@@ -42,10 +45,6 @@ export class DictsPage {
       }
     }
     return ar;
-  }
-
-  contain(s : string, m : string){
-    return (s.indexOf(m) >= 0);
   }
 
   public ionViewDidLoad(){
@@ -74,15 +73,17 @@ export class DictsPage {
 
   }
 
+
+
   public getKeys(o){
     return Object.keys(o);
   }
 
   public selectVerbo(xverbo){
     this.smartAudio.play('tapped');
-    this.navCtrl.push('TutorialPage', {verbo : xverbo});
+    this.navCtrl.push('VerboRegularPage', {verbo : xverbo});
   }
-
+  
   presentLoading() {
     let loader = this.loadingCtrl.create({
       spinner : 'crescent',
@@ -132,6 +133,49 @@ export class DictsPage {
   	}else{
   		return;
   	}
+  }
+
+  contain(s : string, m : string){
+    return (s.indexOf(m) >= 0);
+  }
+
+  isFav(item){
+    let f = JSON.parse(localStorage.getItem('favs'));
+    
+    if (this.myInclude(f, item)) {
+      return true;
+    }else{
+      return false;
+    }
+    
+  }
+
+  public addFav(item){
+    let f = JSON.parse(localStorage.getItem('favs'));
+    this.smartAudio.play('fav');
+    
+    if (this.myInclude(f, item)) {
+      let i = f.indexOf(item);
+      f.splice(i, 1);
+    }else{
+      f.push(item);
+    }
+
+    localStorage.setItem('favs', JSON.stringify(f));
+    
+    this.configProvider.setFavs(f).subscribe(res => {
+      console.log(res);
+    });
+    
+  }
+
+  public myInclude(a, v){
+    for(let i in a){
+      if (a[i] == v) {
+        return true;
+      }
+    }
+    return false;
   }
 
 }
