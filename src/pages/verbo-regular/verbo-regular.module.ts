@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
 import { NativeAudio } from '@ionic-native/native-audio';
-
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
     return new TranslateHttpLoader(httpClient, "./assets/i18n/", ".json");
@@ -27,6 +27,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       }
     })    
   ],
-  providers : [VerbosProvider, NativeAudio, SmartAudioProvider]
+  providers : [VerbosProvider, NativeAudio, SmartAudioProvider, ScreenOrientation]
 })
 export class FavoritesPageModule {}

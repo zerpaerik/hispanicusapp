@@ -4,14 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
+
 //NATIVES
 import { Globalization } from '@ionic-native/globalization';
-
 import {TranslateModule, TranslateLoader} from "@ngx-translate/core";
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 //PAGES
-
 import { HomePage } from '../pages/home/home';
 
 import { LoginPage } from '../pages/login/login';
@@ -21,7 +20,6 @@ import { MenuVerboPage } from '../pages/menu-verbo/menu-verbo';
 import { ListVerbosPage } from '../pages/list-verbos/list-verbos';
 
 //MODALS
-
 import { DiccionarioPage } from '../modals/diccionario/diccionario';
 import { ConfigPage } from '../modals/config/config';
 
@@ -34,6 +32,9 @@ import { AuthProvider } from '../providers/auth/auth';
 import { ConfigProvider } from '../providers/config/config';
 import { SmartAudioProvider } from '../providers/smart-audio/smart-audio';
 import { NativeAudio } from '@ionic-native/native-audio';
+
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TimeoutInterceptor } from '../providers/interceptor';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
     return new TranslateHttpLoader(httpClient, "./assets/i18n/", ".json");
@@ -85,7 +86,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AuthProvider,
     NativeAudio,
     ConfigProvider,
-    SmartAudioProvider
+    SmartAudioProvider,
+    [{ provide: HTTP_INTERCEPTORS, useClass: TimeoutInterceptor, multi: true }]
   ]
 })
 

@@ -6,6 +6,7 @@ import { AlertController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Platform } from 'ionic-angular';
 import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @IonicPage()
 @Component({
@@ -34,7 +35,7 @@ export class VerboRegularPage {
 
   formaVerbal : string;
 
-  constructor(public smartAudio : SmartAudioProvider, public plt : Platform, public translateServ : TranslateService, public alertCtrl: AlertController, public loadingCtrl : LoadingController, public navCtrl: NavController, public navParams: NavParams, public vp : VerbosProvider) {
+  constructor(private screenOrientation: ScreenOrientation, public smartAudio : SmartAudioProvider, public plt : Platform, public translateServ : TranslateService, public alertCtrl: AlertController, public loadingCtrl : LoadingController, public navCtrl: NavController, public navParams: NavParams, public vp : VerbosProvider) {
   	
     this.informal = true;
     this.afirmativo = true;
@@ -44,6 +45,12 @@ export class VerboRegularPage {
     this.tenses = false;
     this.verbo = navParams.get('verbo');
     this.tenseMsgs = [];
+    if (this.plt.is('cordova')) {
+      let currentOrientation = this.screenOrientation.type;
+      console.log(currentOrientation);
+      console.log(this.verbo);
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    }
 
     this.translateServ.get('VERBS_MENU').subscribe(verb => {
       this.tenseMsgs = [verb.SIMPLE_TENSES, verb.COMPOUND_TENSES];
@@ -51,6 +58,12 @@ export class VerboRegularPage {
     });
 
     smartAudio.preload('tapped', 'assets/audio/waterdroplet.mp3');
+  }
+
+  ionViewWillLeave(){
+    if (this.plt.is('cordova')) {
+      this.screenOrientation.unlock();
+    }
   }
 
   setVerbalTime(){

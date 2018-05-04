@@ -3,7 +3,7 @@
   <ion-navbar>
     <ion-title>{{verbo.infinitivo}}<span *ngIf="tenses">se</span></ion-title>
     <ion-buttons right>
-      <button ion-button icon-only (click)="goTuto(verbo)"><ion-icon name="alert" color="info"></ion-icon></button>
+      <button tappable ion-button icon-only (click)="goTuto(verbo)"><ion-icon name="alert" color="info"></ion-icon></button>
     </ion-buttons>    
   </ion-navbar>
 
@@ -18,19 +18,19 @@
 
 <div block>
   <ion-segment [(ngModel)]="formaVerbal" mode="ios" color="danger" (ionChange)="setVerbalTime()">
-    <ion-segment-button value="indicativo">
+    <ion-segment-button tappable value="indicativo">
       Indicativo
     </ion-segment-button>
-    <ion-segment-button value="subjuntivo">
+    <ion-segment-button tappable value="subjuntivo">
       Subjuntivo
     </ion-segment-button>
-    <ion-segment-button value="imperativo">
+    <ion-segment-button tappable value="imperativo">
       Imperativo
     </ion-segment-button>
-    <ion-segment-button value="fnp">
+    <ion-segment-button tappable value="fnp">
       F.N.P.
     </ion-segment-button>
-    <ion-segment-button value="todos">
+    <ion-segment-button tappable value="todos">
       {{'VERBS_MENU.ALL' | translate}}
     </ion-segment-button>
   </ion-segment>
@@ -59,26 +59,26 @@
     <div *ngFor="let item of verboData[key][t][f]; let first = first">
 
     <ion-item *ngIf="first && item.raiz ">
-      <ion-row>
+      <ion-row no-margin>
         <ion-col col-3 align="left">
-          <ion-icon (click)="goInfo(1)" name="alert" color="info" *ngIf="item.pronombre"></ion-icon>
-          <ion-icon (click)="goInfo(2)" name="alert" color="info" *ngIf="item.pronombre_formal_id"></ion-icon>
+          <ion-icon (click)="goInfo(1)" tappable name="alert" color="info" *ngIf="item.pronombre"></ion-icon>
+          <ion-icon (click)="goInfo(2)" tappable name="alert" color="info" *ngIf="item.pronombre_formal_id"></ion-icon>
         </ion-col>
         <ion-col col-1 align="left">
-          <ion-icon (click)="goInfo(3)" name="alert" color="info" *ngIf="!afirmativo"></ion-icon>
+          <ion-icon (click)="goInfo(3)" tappable name="alert" color="info" *ngIf="!afirmativo"></ion-icon>
         </ion-col>
         <ion-col col-1>
-          <ion-icon (click)="goInfo(4)" name="alert" color="info" *ngIf="tenses"></ion-icon>
+          <ion-icon (click)="goInfo(4)" tappable name="alert" color="info" *ngIf="tenses"></ion-icon>
         </ion-col>
         <ion-col col-2 align="left">
-          <ion-icon (click)="goInfo(5)" name="alert" color="info" *ngIf="item.verbo_auxiliar"></ion-icon>
+          <ion-icon (click)="goInfo(5)" tappable name="alert" color="info" *ngIf="item.verbo_auxiliar"></ion-icon>
         </ion-col>
         <ion-col col-4 align="right">
-          <ion-icon style="text-align:center;" (click)="goInfo(6)" name="alert" color="info"></ion-icon>
-          <ion-icon (click)="goInfo(7)" name="alert" color="info"></ion-icon>
+          <ion-icon (click)="goInfo(6)" class="mover" tappable name="alert" color="info"></ion-icon>
+          <ion-icon (click)="goInfo(7)" tappable name="alert" color="info"></ion-icon>
         </ion-col>
         <ion-col col-1 align="right">
-          <ion-icon (click)="goInfo(8)" name="alert" color="info" *ngIf="item.pg"></ion-icon>
+          <ion-icon (click)="goInfo(8)" tappable name="alert" color="info" *ngIf="item.pg"></ion-icon>
         </ion-col>
       </ion-row>
     </ion-item>
@@ -109,19 +109,19 @@
 <ion-footer no-border>
   <ion-toolbar  block>
     <ion-segment color="light" mode="md">
-      <ion-segment-button value="" (ionSelect)="informalAfmt()">
+      <ion-segment-button tappable value="" (ionSelect)="informalAfmt()">
         <ion-icon name="ios-thumbs-up-outline"></ion-icon>
       </ion-segment-button>
-      <ion-segment-button value="" (ionSelect)="informalNeg()">
+      <ion-segment-button tappable value="" (ionSelect)="informalNeg()">
         <ion-icon name="ios-thumbs-down-outline"></ion-icon>
       </ion-segment-button>
-      <ion-segment-button value="" (ionSelect)="formalAfmt()">
+      <ion-segment-button tappable value="" (ionSelect)="formalAfmt()">
         <ion-icon name="ios-thumbs-up"></ion-icon>
       </ion-segment-button>
-      <ion-segment-button value="" (ionSelect)="formalNeg()">
+      <ion-segment-button tappable value="" (ionSelect)="formalNeg()">
         <ion-icon name="ios-thumbs-down"></ion-icon>
       </ion-segment-button>
-    <ion-segment-button value="">
+    <ion-segment-button tappable value="">
       <ion-icon (click)="goTuto(verbo)" color="info" name="alert"></ion-icon>
     </ion-segment-button>    
     </ion-segment>
