@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'GENERAL.RULES' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+		<div *ngFor="let rule of rules; let index = index ">
+			<ion-card>
+		  <ion-card-header>
+		    {{'GENERAL.RULE' | translate}} {{index + 1}}
+		  </ion-card-header>
+		  <ion-card-content>
+				<p>
+					{{rule.regla}}
+				</p>	  	
+		  </ion-card-content>
+		</ion-card>
+	</div>
+</ion-content>
