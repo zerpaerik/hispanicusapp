@@ -43,7 +43,11 @@
 			"COMBINE_BUTTON" : "Conjugate",
 			"TITLE" 	     : "Menu",
 			"FAVS" : "Favorites",
-			"DICT" : "Dictionary"
+			"DICT" : "Dictionary",
+			"CONTACT" : "Contact"
+		},
+		"CONTACT" : {
+			"SEND" : "Send"
 		}
 	},
 

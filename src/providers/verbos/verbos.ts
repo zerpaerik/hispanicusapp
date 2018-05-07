@@ -30,7 +30,8 @@ export class VerbosProvider {
   }
 
   listVerbs(tipo){
-  	return this.http.get(HOST + '/api/v1/verbos/' + tipo);
+    let xlang = localStorage.getItem('lang') || "en";
+  	return this.http.get(HOST + '/api/v1/verbos/' + tipo + '/' + xlang);
   }
 
   getVerb(id){

@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { VerboRegularPage } from './verbo-regular';
-import { VerbosProvider } from '../../providers/verbos/verbos';
-import {TranslateModule, TranslateLoader} from "@ngx-translate/core";
+import { ContactPage } from './contact';
+import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
 import { NativeAudio } from '@ionic-native/native-audio';
-//import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { AuthProvider } from '../../providers/auth/auth';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
     return new TranslateHttpLoader(httpClient, "./assets/i18n/", ".json");
@@ -15,10 +14,10 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 
 @NgModule({
   declarations: [
-    VerboRegularPage,
+    ContactPage,
   ],
   imports: [
-    IonicPageModule.forChild(VerboRegularPage),
+    IonicPageModule.forChild(ContactPage),
     TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,
@@ -27,6 +26,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       }
     })    
   ],
-  providers : [VerbosProvider, NativeAudio, SmartAudioProvider]//ScreenOrientation
+  providers : [NativeAudio, SmartAudioProvider, AuthProvider]
 })
-export class FavoritesPageModule {}
+export class ContactPageModule {}

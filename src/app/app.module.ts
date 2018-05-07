@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-
 //NATIVES
 import { Globalization } from '@ionic-native/globalization';
 import {TranslateModule, TranslateLoader} from "@ngx-translate/core";
@@ -34,7 +33,7 @@ import { SmartAudioProvider } from '../providers/smart-audio/smart-audio';
 import { NativeAudio } from '@ionic-native/native-audio';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TimeoutInterceptor } from '../providers/interceptor';
+//import { TimeoutInterceptor } from '../providers/interceptor';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
     return new TranslateHttpLoader(httpClient, "./assets/i18n/", ".json");
@@ -87,7 +86,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     NativeAudio,
     ConfigProvider,
     SmartAudioProvider,
-    [{ provide: HTTP_INTERCEPTORS, useClass: TimeoutInterceptor, multi: true }]
+   // [{ provide: HTTP_INTERCEPTORS, useClass: TimeoutInterceptor, multi: true }]
   ]
 })
 

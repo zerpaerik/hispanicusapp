@@ -4,9 +4,10 @@ page-verbo-regular {
 		margin-right: 10px;
 	}
 
-	ion-row{
-		border:1px solid black;
-		margin-left:0px;
+	.item-md.item-block .item-inner{
+		padding-left:1px;
+		padding-right:1px;
+		margin:0;
 	}
 
 	ion-item-divider{

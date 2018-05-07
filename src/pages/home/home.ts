@@ -32,7 +32,12 @@ export class HomePage {
   goDict(){
     this.smartAudio.play('tapped');
     this.navCtrl.push('DictsPage');
-  }  
+  }
+
+  goContact(){
+    this.smartAudio.play('tapped');
+    this.navCtrl.push('ContactPage');
+  }
 
   next(){
   	this.smartAudio.play('tapped');

@@ -38,11 +38,24 @@ export class AuthProvider {
 
   	return this.http.post(HOST + '/api/v1/logout', {}, {
   		headers : {
-  			'Authorization' : "Bearer " + token,
+  			'Authorization' : "Bearer " + localStorage.getItem('token'),
   			'Accept' : 'application/json'
   		}
   	});
   }
+
+  sendMessage(message){
+
+    let token = localStorage.getItem('token');
+    if (!token) { return; }
+
+    return this.http.post(HOST + '/api/v1/sendmessage', {msg : message}, {
+      headers : {
+        'Authorization' : "Bearer " + localStorage.getItem('token'),
+        'Accept' : 'application/json'
+      }
+    });
+  }  
 
   checkEmailNotTaken(xemail){
     let email = {'email' : xemail};
@@ -52,5 +65,7 @@ export class AuthProvider {
       }
     });
   }
+
+
 
 }

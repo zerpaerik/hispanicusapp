@@ -58,32 +58,32 @@
 
     <div *ngFor="let item of verboData[key][t][f]; let first = first">
 
-    <ion-item *ngIf="first && item.raiz ">
+    <ion-item *ngIf="first && item.raiz " no-padding>
       <ion-row no-margin>
         <ion-col col-3 align="left">
-          <ion-icon (click)="goInfo(1)" tappable name="alert" color="info" *ngIf="item.pronombre"></ion-icon>
-          <ion-icon (click)="goInfo(2)" tappable name="alert" color="info" *ngIf="item.pronombre_formal_id"></ion-icon>
+          <ion-icon (click)="goInfo('p_informal')" tappable name="alert" color="info" *ngIf="item.pronombre"></ion-icon>
+          <ion-icon (click)="goInfo('p_formal')" tappable name="alert" color="info" *ngIf="item.pronombre_formal_id"></ion-icon>
         </ion-col>
         <ion-col col-1 align="left">
-          <ion-icon (click)="goInfo(3)" tappable name="alert" color="info" *ngIf="!afirmativo"></ion-icon>
+          <ion-icon (click)="goInfo('negacion')" tappable name="alert" color="info" *ngIf="!afirmativo"></ion-icon>
         </ion-col>
         <ion-col col-1>
-          <ion-icon (click)="goInfo(4)" tappable name="alert" color="info" *ngIf="tenses"></ion-icon>
+          <ion-icon (click)="goInfo('reflex')" tappable name="alert" color="info" *ngIf="tenses"></ion-icon>
         </ion-col>
         <ion-col col-2 align="left">
-          <ion-icon (click)="goInfo(5)" tappable name="alert" color="info" *ngIf="item.verbo_auxiliar"></ion-icon>
+          <ion-icon (click)="goInfo('auxiliar')" tappable name="alert" color="info" *ngIf="item.verbo_auxiliar"></ion-icon>
         </ion-col>
         <ion-col col-4 align="right">
-          <ion-icon (click)="goInfo(6)" class="mover" tappable name="alert" color="info"></ion-icon>
-          <ion-icon (click)="goInfo(7)" tappable name="alert" color="info"></ion-icon>
+          <ion-icon (click)="goInfo('raiz')" class="mover" tappable name="alert" color="info"></ion-icon>
+          <ion-icon (click)="goInfo('desinencia')" tappable name="alert" color="info"></ion-icon>
         </ion-col>
         <ion-col col-1 align="right">
-          <ion-icon (click)="goInfo(8)" tappable name="alert" color="info" *ngIf="item.pg"></ion-icon>
+          <ion-icon (click)="goInfo('p_gramatical')" tappable name="alert" color="info" *ngIf="item.pg"></ion-icon>
         </ion-col>
       </ion-row>
     </ion-item>
 
-    <ion-item *ngIf="item.forma_verbal == forma" block>
+    <ion-item *ngIf="item.forma_verbal == forma" no-padding>
       <ion-row>
         <ion-col col-3>
           <span *ngIf="item.pronombre">{{item.pronombre}}</span> 
@@ -122,7 +122,7 @@
         <ion-icon name="ios-thumbs-down"></ion-icon>
       </ion-segment-button>
     <ion-segment-button tappable value="">
-      <ion-icon (click)="goTuto(verbo)" color="info" name="alert"></ion-icon>
+      <ion-icon (click)="goInfo('dedos')" color="info" name="alert"></ion-icon>
     </ion-segment-button>    
     </ion-segment>
   </ion-toolbar>

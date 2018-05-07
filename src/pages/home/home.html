@@ -10,8 +10,6 @@
     <button ion-fab class="grdnt"><ion-icon name="settings" ></ion-icon></button>
   </ion-fab>
   
-  <br><br>
-
 <div class="titleicon">
    <img src="assets/imgs/logo.png" width="250px" height="220px" />
 </div>
@@ -31,6 +29,11 @@
     <ion-icon name="star"></ion-icon>
     {{'HOME.MENU.FAVS' | translate}}
   </button>  
+
+  <button class="grdnt" ion-button tappable icon-start block (tap)="goContact()" translate>
+    <ion-icon name="person"></ion-icon>
+    {{'HOME.MENU.CONTACT' | translate}}
+  </button>    
   
   <br>
 
