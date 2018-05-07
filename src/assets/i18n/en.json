@@ -47,7 +47,10 @@
 			"CONTACT" : "Contact"
 		},
 		"CONTACT" : {
-			"SEND" : "Send"
+			"SEND" : "Send",
+			"SENDING" : "Sending",
+			"SENT" : "Your message has been sent.",
+			"MESSAGE" : "Message"
 		}
 	},
 
