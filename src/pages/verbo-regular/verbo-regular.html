@@ -61,8 +61,8 @@
     <ion-item *ngIf="first && item.raiz " no-padding>
       <ion-row no-margin>
         <ion-col col-3 align="left">
-          <ion-icon (click)="goInfo('p_informal')" tappable name="alert" color="info" *ngIf="item.pronombre"></ion-icon>
-          <ion-icon (click)="goInfo('p_formal')" tappable name="alert" color="info" *ngIf="item.pronombre_formal_id"></ion-icon>
+          <ion-icon (click)="goInfo('p_informal')" tappable name="alert" color="info" *ngIf="item.pronombre && capit(key) != 'Imperativo'"></ion-icon>
+          <ion-icon (click)="goInfo('p_formal')" tappable name="alert" color="info" *ngIf="item.pronombre_formal_id && capit(key) != 'Imperativo'"></ion-icon>
         </ion-col>
         <ion-col col-1 align="left">
           <ion-icon (click)="goInfo('negacion')" tappable name="alert" color="info" *ngIf="!afirmativo"></ion-icon>
@@ -85,13 +85,13 @@
 
     <ion-item *ngIf="item.forma_verbal == forma" no-padding>
       <ion-row>
-        <ion-col col-3>
-          <span *ngIf="item.pronombre">{{item.pronombre}}</span> 
-          <span *ngIf="item.pronombre_formal_id">{{item.pronombre_formal_id}}</span>
+        <ion-col col-3 align="left">
+          <span *ngIf="item.pronombre && capit(key) != 'Imperativo'" [innerHTML]="item.pronombre"></span> 
+          <span *ngIf="item.pronombre_formal_id && capit(key) != 'Imperativo'" [innerHTML]="item.pronombre_formal_id"></span>
         </ion-col>
         <ion-col col-1 ><span *ngIf="item.negativo != '0'">no</span></ion-col>
-        <ion-col col-1 ><span>{{item.pronombre_reflex}}</span></ion-col>
-        <ion-col col-2 align="left"><span>{{item.verbo_auxiliar}}</span></ion-col>
+        <ion-col col-1 ><span [innerHTML]="item.pronombre_reflex"></span></ion-col>
+        <ion-col col-2 align="left"><span [innerHTML]="item.verbo_auxiliar"></span></ion-col>
         <ion-col col-4 align="right"><span [innerHTML]="item.raiz"></span><span class="desinencia" *ngIf="item.desinencia" [innerHTML]="item.desinencia"></span></ion-col>
         <ion-col col-1 align="right">
           <span *ngIf="!item.plural && item.pg" class="pgramatical2">{{getGramatical(item.pg)}}</span>
