@@ -168,6 +168,7 @@ export class VerboRegularPage {
     this.vp.getVerb(this.verbo.id)
       .subscribe(data => {
         this.rules = data["reglas"];
+        console.log(data);
         this.verboData = data["data"];
         this.verboKeys = Object.keys(this.verboData);
         
