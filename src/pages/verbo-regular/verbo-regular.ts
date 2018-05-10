@@ -380,8 +380,8 @@ export class VerboRegularPage {
     this.navCtrl.push('InfoPage', { type:t });
   }
 
-  goRule(rule){
-    this.navCtrl.push('RulePage', {rules : rule})
+  goRule(rule, forma){
+    this.navCtrl.push('RulePage', {rules : rule, forma : forma})
   }
 
 }

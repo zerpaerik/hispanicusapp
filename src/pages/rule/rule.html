@@ -15,7 +15,7 @@
 		   <ion-icon color="light" name="school" float-right></ion-icon>
 		  </ion-card-header>
 		  <ion-card-content>
-				<p>
+				<p *ngIf="rule.forma == forma">
 					{{rule.regla}}
 				</p>	  	
 		  </ion-card-content>
