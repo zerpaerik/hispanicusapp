@@ -19,10 +19,10 @@ export class RulePage {
   }
 
   enchular(s){
-    s = s.replace('[', '<b class="rc">');
-    s = s.replace("]", '</b>');
-    s = s.replace('{', '<b class="bc">');
-    s = s.replace("}", '</b>');
+    s = s.replace(/\[/g, '<b class="rc">');
+    s = s.replace(/\]/g, '</b>');
+    s = s.replace(/\{/g, '<b class="bc">');
+    s = s.replace(/\}/g, '</b>');
     return s;
   }
 

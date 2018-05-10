@@ -210,6 +210,7 @@ export class VerboRegularPage {
         items[i]['hidden'] = false;
       }
     }
+    this.shouldShowRule();  
   }
 
   hideEmpty(){
@@ -228,6 +229,7 @@ export class VerboRegularPage {
         items[i]['hidden'] = true;
       }
     }
+    this.shouldShowRule();  
   }
 
   presentLoading() {
@@ -398,8 +400,10 @@ export class VerboRegularPage {
     for(var rule in this.rules){
       for(let forma in this.rules[rule]){
         if(this.rules[rule][forma].forma == this.forma){
+          console.log(this.rules[rule][forma].forma + " " + this.forma + (this.rules[rule][forma].forma == this.forma));
           this.showRule = true;
         }else{
+          console.log(this.rules[rule][forma].forma + " " + this.forma + (this.rules[rule][forma].forma == this.forma));
           this.showRule = false;
         }
       }
