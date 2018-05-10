@@ -92,7 +92,9 @@
         <ion-col col-1 ><span *ngIf="item.negativo != '0'">no</span></ion-col>
         <ion-col col-1 ><span [innerHTML]="item.pronombre_reflex"></span></ion-col>
         <ion-col col-2 align="left"><span [innerHTML]="item.verbo_auxiliar"></span></ion-col>
-        <ion-col col-4 align="right"><span *ngIf="item.raiz != 'nulo'" [innerHTML]="item.raiz"></span><span class="desinencia" *ngIf="item.desinencia" [innerHTML]="item.desinencia"></span></ion-col>
+
+        <ion-col col-4 align="right"><span [innerHTML]="item.raiz" *ngIf="item.raiz != item.desinencia"></span><span class="desinencia" *ngIf="item.desinencia" [innerHTML]="item.desinencia"></span></ion-col>
+
         <ion-col col-1 align="right">
           <span *ngIf="!item.plural && item.pg" class="pgramatical2">{{getGramatical(item.pg)}}</span>
           <span *ngIf="item.plural && item.pg" class="pgramatical">{{getGramatical(item.pg)}}</span>
