@@ -52,7 +52,7 @@
     
     <ion-item-divider color="primary">
       <b>{{capit(f)}}</b>
-      <ion-icon name="school" item-end *ngIf="myInclude(getKeys(rules), capit(f))" (click)="goRule(rules[capit(f)], forma)" color="info"></ion-icon>
+      <ion-icon name="school" item-end *ngIf="myInclude(getKeys(rules), capit(f)) && showRule" (click)="goRule(rules[capit(f)], forma)" color="info"></ion-icon>
       <ion-icon name="alert" item-end (click)="goTuto(verbo)" color="info"></ion-icon>
     </ion-item-divider>
 

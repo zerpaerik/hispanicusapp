@@ -21,6 +21,7 @@ export class VerboRegularPage {
   verboKeys : any;
   finalKeys : any; 
   rules : any;
+  showRule: boolean;
 
   informal : boolean;
   afirmativo : boolean;
@@ -45,6 +46,7 @@ export class VerboRegularPage {
     this.tenses = false;
     this.verbo = navParams.get('verbo');
     this.tenseMsgs = [];
+
    /* if (this.plt.is('cordova')) {
       let currentOrientation = this.screenOrientation.type;
       console.log(currentOrientation);
@@ -149,10 +151,13 @@ export class VerboRegularPage {
         this.forma = 'Negativo formal';
       }
     }
+
     setTimeout(() => {
       this.hideEmpty();
       this.showNotEmpty();
      }, 1);
+
+    this.shouldShowRule();  
 
   }
 
@@ -168,10 +173,9 @@ export class VerboRegularPage {
     this.vp.getVerb(this.verbo.id)
       .subscribe(data => {
         this.rules = data["reglas"];
-        console.log(data);
         this.verboData = data["data"];
         this.verboKeys = Object.keys(this.verboData);
-        
+        this.shouldShowRule();  
         loader.dismiss();
       },error => {
         loader.dismiss();
@@ -297,6 +301,10 @@ export class VerboRegularPage {
        this.showNotEmpty();
      }, 1);
 
+     this.shouldShowRule();
+
+
+
   }
 
   informalAfmt(){
@@ -312,6 +320,10 @@ export class VerboRegularPage {
        this.hideEmpty();
        this.showNotEmpty();
      }, 1);
+
+     this.shouldShowRule();
+
+
      
 
   }
@@ -334,7 +346,8 @@ export class VerboRegularPage {
        this.hideEmpty();
        this.showNotEmpty();
      }, 1);
-     
+
+     this.shouldShowRule();
 
   }  
 
@@ -351,6 +364,9 @@ export class VerboRegularPage {
        this.hideEmpty();
        this.showNotEmpty();
      }, 1);
+
+    this.shouldShowRule();
+
   }
 
   getGramatical(value){
@@ -384,4 +400,17 @@ export class VerboRegularPage {
     this.navCtrl.push('RulePage', {rules : rule, forma : forma})
   }
 
+    shouldShowRule(){
+
+    for(var rule in this.rules){
+      for(let forma in this.rules[rule]){
+        if(this.rules[rule][forma].forma == this.forma){
+          this.showRule = true;
+        }else{
+          this.showRule = false;
+        }
+      }
+    }
+
+    }
 }
