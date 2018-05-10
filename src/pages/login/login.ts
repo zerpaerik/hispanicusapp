@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { RegisterPage } from '../register/register';
-import { Globalization } from '@ionic-native/globalization';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth';
 import { LoadingController } from 'ionic-angular';
@@ -17,17 +16,12 @@ export class LoginPage {
 
   loginFormGroup : FormGroup;
 
-  constructor(public translateServ : TranslateService, public toastCtrl : ToastController, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, private globalization: Globalization, public formBuilder: FormBuilder, public authProvider : AuthProvider) {
+  constructor(public translateServ : TranslateService, public toastCtrl : ToastController, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public authProvider : AuthProvider) {
     
     this.loginFormGroup = formBuilder.group({
       email     : ['', Validators.required],
       password  : ['', Validators.compose([Validators.minLength(6), Validators.pattern('[a-zA-Z0-9]*'), Validators.required])]
     });    
-
-  	this.globalization.getPreferredLanguage()
-    .then(res => console.log(res))
-    .catch(e => console.log(e));
-
   }
 
   ionViewCanEnter(){

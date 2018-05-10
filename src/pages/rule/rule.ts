@@ -18,4 +18,12 @@ export class RulePage {
   	console.log(this.forma);
   }
 
+  enchular(s){
+    s = s.replace('[', '<b class="rc">');
+    s = s.replace("]", '</b>');
+    s = s.replace('{', '<b class="bc">');
+    s = s.replace("}", '</b>');
+    return s;
+  }
+
 }

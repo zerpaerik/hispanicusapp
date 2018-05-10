@@ -16,7 +16,7 @@
 		  </ion-card-header>
 		  <ion-card-content>
 				<p *ngIf="rule.forma == forma">
-					{{rule.regla}}
+					<span [innerHTML]="enchular(rule.regla)"></span>
 				</p>	  	
 		  </ion-card-content>
 		</ion-card>

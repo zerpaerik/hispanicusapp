@@ -5,7 +5,6 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 //NATIVES
-import { Globalization } from '@ionic-native/globalization';
 import {TranslateModule, TranslateLoader} from "@ngx-translate/core";
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -79,7 +78,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   providers: [
     StatusBar,
     SplashScreen,
-    Globalization,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     VerbosProvider,
     AuthProvider,

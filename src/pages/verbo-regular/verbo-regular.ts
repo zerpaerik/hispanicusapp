@@ -6,12 +6,13 @@ import { AlertController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Platform } from 'ionic-angular';
 import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
+
 //import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @IonicPage()
 @Component({
   selector: 'page-verbo-regular',
-  templateUrl: 'verbo-regular.html',
+  templateUrl: 'verbo-regular.html'
 })
 
 export class VerboRegularPage {
@@ -194,11 +195,11 @@ export class VerboRegularPage {
   showNotEmpty(){
     
     var items = document.getElementsByClassName('verbitem');
-    
+
     for (var i = 0; i < items.length; i++) {
       var empty = true;
 
-      for (var j = 1; j < items[i].children.length - 1; j++) {
+      for (var j = 0; j < items[i].children.length - 1; j++) {
         if (items[i].children[j].childElementCount > 0) {
           empty = false;
           break;
@@ -208,7 +209,6 @@ export class VerboRegularPage {
       if (!empty) {
         items[i]['hidden'] = false;
       }
-
     }
   }
 
@@ -217,7 +217,7 @@ export class VerboRegularPage {
     var items = document.getElementsByClassName('verbitem');
     for (var i = 0; i < items.length; i++) {
       var empty = false;
-      for (var j = 1; j < items[i].children.length - 1; j++) {
+      for (var j = 0; j < items[i].children.length - 1; j++) {
         if (items[i].children[j].childElementCount > 0) {
           empty = false;
           break;
@@ -227,7 +227,6 @@ export class VerboRegularPage {
       if (empty) {
         items[i]['hidden'] = true;
       }
-
     }
   }
 
@@ -303,8 +302,6 @@ export class VerboRegularPage {
 
      this.shouldShowRule();
 
-
-
   }
 
   informalAfmt(){
@@ -322,9 +319,6 @@ export class VerboRegularPage {
      }, 1);
 
      this.shouldShowRule();
-
-
-     
 
   }
 
@@ -400,8 +394,7 @@ export class VerboRegularPage {
     this.navCtrl.push('RulePage', {rules : rule, forma : forma})
   }
 
-    shouldShowRule(){
-
+  shouldShowRule(){
     for(var rule in this.rules){
       for(let forma in this.rules[rule]){
         if(this.rules[rule][forma].forma == this.forma){
@@ -411,6 +404,5 @@ export class VerboRegularPage {
         }
       }
     }
-
-    }
+  }
 }
