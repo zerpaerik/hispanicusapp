@@ -9,13 +9,13 @@
 
 <ion-content padding>
 		<div *ngFor="let rule of rules; let index = index ">
-			<ion-card>
+			<ion-card *ngIf="rule.forma == forma">
 		  <ion-card-header>
-		   {{'GENERAL.RULE' | translate}} Nº {{index + 1}}
+		   {{'GENERAL.RULE' | translate}}
 		   <ion-icon color="light" name="school" float-right></ion-icon>
 		  </ion-card-header>
 		  <ion-card-content>
-				<p *ngIf="rule.forma == forma">
+				<p>
 					<span [innerHTML]="enchular(rule.regla)"></span>
 				</p>	  	
 		  </ion-card-content>

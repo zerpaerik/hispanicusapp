@@ -22,7 +22,6 @@ export class VerboRegularPage {
   verboKeys : any;
   finalKeys : any; 
   rules : any;
-  showRule: boolean;
 
   informal : boolean;
   afirmativo : boolean;
@@ -47,13 +46,6 @@ export class VerboRegularPage {
     this.tenses = false;
     this.verbo = navParams.get('verbo');
     this.tenseMsgs = [];
-
-   /* if (this.plt.is('cordova')) {
-      let currentOrientation = this.screenOrientation.type;
-      console.log(currentOrientation);
-      console.log(this.verbo);
-      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
-    }*/
 
     this.translateServ.get('VERBS_MENU').subscribe(verb => {
       this.tenseMsgs = [verb.SIMPLE_TENSES, verb.COMPOUND_TENSES];
@@ -111,6 +103,10 @@ export class VerboRegularPage {
 
   public myInclude(a, v){
 
+    if (a == undefined) {
+      return;
+    }
+
     if (a[0] == '*') {
        return true;
     }
@@ -158,7 +154,7 @@ export class VerboRegularPage {
       this.showNotEmpty();
      }, 1);
 
-    this.shouldShowRule();  
+   
 
   }
 
@@ -175,8 +171,9 @@ export class VerboRegularPage {
       .subscribe(data => {
         this.rules = data["reglas"];
         this.verboData = data["data"];
+        console.log(this.verboData);
         this.verboKeys = Object.keys(this.verboData);
-        this.shouldShowRule();  
+       
         loader.dismiss();
       },error => {
         loader.dismiss();
@@ -210,7 +207,7 @@ export class VerboRegularPage {
         items[i]['hidden'] = false;
       }
     }
-    this.shouldShowRule();  
+   
   }
 
   hideEmpty(){
@@ -229,7 +226,7 @@ export class VerboRegularPage {
         items[i]['hidden'] = true;
       }
     }
-    this.shouldShowRule();  
+   
   }
 
   presentLoading() {
@@ -302,7 +299,7 @@ export class VerboRegularPage {
        this.showNotEmpty();
      }, 1);
 
-     this.shouldShowRule();
+     
 
   }
 
@@ -320,7 +317,7 @@ export class VerboRegularPage {
        this.showNotEmpty();
      }, 1);
 
-     this.shouldShowRule();
+     
 
   }
 
@@ -343,7 +340,7 @@ export class VerboRegularPage {
        this.showNotEmpty();
      }, 1);
 
-     this.shouldShowRule();
+     
 
   }  
 
@@ -360,8 +357,6 @@ export class VerboRegularPage {
        this.hideEmpty();
        this.showNotEmpty();
      }, 1);
-
-    this.shouldShowRule();
 
   }
 
@@ -396,17 +391,22 @@ export class VerboRegularPage {
     this.navCtrl.push('RulePage', {rules : rule, forma : forma})
   }
 
-  shouldShowRule(){
-    for(var rule in this.rules){
-      for(let forma in this.rules[rule]){
-        if(this.rules[rule][forma].forma == this.forma){
-          console.log(this.rules[rule][forma].forma + " " + this.forma + (this.rules[rule][forma].forma == this.forma));
-          this.showRule = true;
-        }else{
-          console.log(this.rules[rule][forma].forma + " " + this.forma + (this.rules[rule][forma].forma == this.forma));
-          this.showRule = false;
-        }
+  representar(v){
+    if (v != null) {
+      console.log(v);
+      return !(v.indexOf('*') >= 0);
+    }
+    return false;
+    
+  }
+
+  shouldShowRule(rules){
+    var r = false;
+    for(let r in rules){
+      if(rules[r].forma == this.forma){
+        return true;
       }
     }
+    return r;
   }
 }

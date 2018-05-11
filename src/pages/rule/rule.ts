@@ -13,7 +13,7 @@ export class RulePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   	this.rules = navParams.get('rules') || [];
-  	this.forma = navParams.get('forma') || 'Afirmativo informal';
+  	this.forma = navParams.get('forma') || 'Afirmativo formal';
   	console.log(this.rules);
   	console.log(this.forma);
   }

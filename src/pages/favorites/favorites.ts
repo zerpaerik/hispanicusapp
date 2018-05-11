@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { VerbosProvider } from '../../providers/verbos/verbos'; 
 import { ConfigProvider } from '../../providers/config/config'; 
 import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
+import { LoadingController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -13,9 +14,14 @@ export class FavoritesPage {
 
 	public verbs;
 
-  constructor(public smartAudio : SmartAudioProvider, public navCtrl: NavController, public navParams: NavParams, public verbosProvider : VerbosProvider, public configProvider : ConfigProvider) {
-  	this.verbosProvider.getFavs().subscribe(res => {
+  constructor( public loadingCtrl: LoadingController, public smartAudio : SmartAudioProvider, public navCtrl: NavController, public navParams: NavParams, public verbosProvider : VerbosProvider, public configProvider : ConfigProvider) {
+  	let load = this.presentLoading();
+    load.present();
+    this.verbosProvider.getFavs().subscribe(res => {
     	this.verbs = res;
+      load.dismiss();
+    }, error => {
+      load.dismiss();
     });
     smartAudio.preload('tapped', 'assets/audio/waterdroplet.mp3');
     smartAudio.preload('fav', 'assets/audio/fav.mp3');
@@ -25,6 +31,14 @@ export class FavoritesPage {
     this.smartAudio.play('tapped');
     this.navCtrl.push('VerboRegularPage', {verbo : xverbo});
   }
+
+  presentLoading() {
+    let loader = this.loadingCtrl.create({
+      spinner : 'crescent',
+      showBackdrop : false
+    });
+    return loader;
+  }  
 
   isFav(item){
     let f = JSON.parse(localStorage.getItem('favs'));
