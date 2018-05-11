@@ -15,7 +15,7 @@
 	<ion-grid>
 	  <ion-row>
 	    <ion-col col-2 *ngFor="let l of letras">
-	    	<button (click)="close($event)" ion-button block><b>{{l}}</b></button>
+	    	<button (click)="close($event)" ion-button block><b [class.changeSize]="isModel">{{l}}</b></button>
 	    </ion-col>
 	  </ion-row>
 	</ion-grid>	

@@ -13,7 +13,7 @@
 
 <ion-item id="tense">
   <ion-label>{{'VERBS_MENU.REFLEX_PRONOUN' | translate}}</ion-label>
-  <ion-toggle checked="true" [(ngModel)]="tenses" (ionChange)="setTense()" color="info"></ion-toggle>  
+  <ion-toggle checked="true" [(ngModel)]="tenses" [disabled]="reflexOnly" (ionChange)="setTense()" color="info"></ion-toggle>  
 </ion-item>
 
 <div block>

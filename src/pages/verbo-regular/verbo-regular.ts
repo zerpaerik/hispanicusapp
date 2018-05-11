@@ -22,6 +22,7 @@ export class VerboRegularPage {
   verboKeys : any;
   finalKeys : any; 
   rules : any;
+  reflexOnly : any;
 
   informal : boolean;
   afirmativo : boolean;
@@ -46,6 +47,7 @@ export class VerboRegularPage {
     this.tenses = false;
     this.verbo = navParams.get('verbo');
     this.tenseMsgs = [];
+    this.reflexOnly = false;
 
     this.translateServ.get('VERBS_MENU').subscribe(verb => {
       this.tenseMsgs = [verb.SIMPLE_TENSES, verb.COMPOUND_TENSES];
@@ -125,6 +127,10 @@ export class VerboRegularPage {
 
   setTense(){
 
+    if (this.reflexOnly) {
+      return;
+    }
+
     if (this.tenses) {
       this.tense = this.tenseMsgs[1];
       if (this.forma == 'Afirmativo informal') {
@@ -153,9 +159,6 @@ export class VerboRegularPage {
       this.hideEmpty();
       this.showNotEmpty();
      }, 1);
-
-   
-
   }
 
   ionViewDidLoad(){
@@ -171,8 +174,13 @@ export class VerboRegularPage {
       .subscribe(data => {
         this.rules = data["reglas"];
         this.verboData = data["data"];
-        console.log(this.verboData);
+        this.reflexOnly = data["reflexOnly"];
         this.verboKeys = Object.keys(this.verboData);
+
+        if (this.reflexOnly) {
+           this.tenses = true;
+           this.setTense();
+        }
        
         loader.dismiss();
       },error => {
