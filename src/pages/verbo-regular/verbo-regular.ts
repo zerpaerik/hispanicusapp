@@ -7,8 +7,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { Platform } from 'ionic-angular';
 import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
 
-//import { ScreenOrientation } from '@ionic-native/screen-orientation';
-
 @IonicPage()
 @Component({
   selector: 'page-verbo-regular',
@@ -58,13 +56,7 @@ export class VerboRegularPage {
 
     smartAudio.preload('tapped', 'assets/audio/waterdroplet.mp3');
   }
-/*
-  ionViewWillLeave(){
-    if (this.plt.is('cordova')) {
-      this.screenOrientation.unlock();
-    }
-  }
-*/
+
   setVerbalTime(){
     this.smartAudio.play('tapped');
     switch (this.formaVerbal) {
@@ -128,7 +120,7 @@ export class VerboRegularPage {
   }
 
   setTense(){
-
+    this.titu = this.appendSe();
     if (this.reflexOnly) {
       return;
     }
@@ -156,8 +148,6 @@ export class VerboRegularPage {
         this.forma = 'Negativo formal';
       }
     }
-
-    this.titu = this.appendSe();
 
     setTimeout(() => {
       this.hideEmpty();
@@ -353,9 +343,6 @@ export class VerboRegularPage {
        this.hideEmpty();
        this.showNotEmpty();
      }, 1);
-
-     
-
   }  
 
   formalNeg(){
@@ -426,13 +413,13 @@ export class VerboRegularPage {
 
   appendSe(){
     let w = this.verbo.infinitivo;
-    if (this.tense) {
+    if (this.tenses) {
       if (w.indexOf('*') >= 0) {
-        w.replace('*', 'se*');
+        w = w.replace('*', 'se*');
         return w;
+      }else{
+        return w+"se";
       }
-      return w+"se";
-
     }else{
       return this.verbo.infinitivo;
     }
