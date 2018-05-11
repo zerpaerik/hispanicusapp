@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{verbo.infinitivo}}<span *ngIf="tenses">se</span></ion-title>
+    <ion-title>{{titu}}</ion-title>
     <ion-buttons right>
       <button tappable ion-button icon-only (click)="goTuto(verbo)"><ion-icon name="alert" color="info"></ion-icon></button>
     </ion-buttons>    
@@ -96,8 +96,8 @@
         <ion-col col-4 align="right"><span [innerHTML]="item.raiz" *ngIf="item.raiz != item.desinencia"></span><span class="desinencia" *ngIf="item.desinencia" [innerHTML]="item.desinencia"></span></ion-col>
 
         <ion-col col-1 align="right">
-          <span *ngIf="!item.plural && item.pg" class="pgramatical2">{{getGramatical(item.pg)}}</span>
-          <span *ngIf="item.plural && item.pg" class="pgramatical">{{getGramatical(item.pg)}}</span>
+          <span *ngIf="!item.plural && item.pg" class="pgramatical2" [innerHTML]="getGramatical(item.pg)"></span>
+          <span *ngIf="item.plural && item.pg" class="pgramatical" [innerHTML]="getGramatical(item.pg)"></span>
         </ion-col>
       </ion-row>
     </ion-item>

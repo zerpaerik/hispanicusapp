@@ -23,6 +23,7 @@ export class VerboRegularPage {
   finalKeys : any; 
   rules : any;
   reflexOnly : any;
+  titu : string;
 
   informal : boolean;
   afirmativo : boolean;
@@ -48,6 +49,7 @@ export class VerboRegularPage {
     this.verbo = navParams.get('verbo');
     this.tenseMsgs = [];
     this.reflexOnly = false;
+    this.titu = this.verbo.infinitivo;
 
     this.translateServ.get('VERBS_MENU').subscribe(verb => {
       this.tenseMsgs = [verb.SIMPLE_TENSES, verb.COMPOUND_TENSES];
@@ -155,6 +157,8 @@ export class VerboRegularPage {
       }
     }
 
+    this.titu = this.appendSe();
+
     setTimeout(() => {
       this.hideEmpty();
       this.showNotEmpty();
@@ -179,7 +183,9 @@ export class VerboRegularPage {
 
         if (this.reflexOnly) {
            this.tenses = true;
+           this.forma = 'Afirmativo reflexivo informal';
            this.setTense();
+           this.titu = this.appendSe();
         }
        
         loader.dismiss();
@@ -373,17 +379,17 @@ export class VerboRegularPage {
     switch (value) {
       case 1:
         if (localStorage.getItem("lang") == "en") {
-          return (value+"st");            
+          return (value+"<b class='sup'>st</b>");            
         }
         return (value+"ª");
       case 2:
         if (localStorage.getItem("lang") == "en") {
-          return (value+"nd");            
+          return (value+"<b class='sup'>nd</b>");            
         }
           return (value+"ª");
       case 3:
         if (localStorage.getItem("lang") == "en") {
-          return (value+"rd");    
+          return (value+"<b class='sup'>rd</b>");    
         }
           return (value+"ª");
       default:
@@ -417,4 +423,19 @@ export class VerboRegularPage {
     }
     return r;
   }
+
+  appendSe(){
+    let w = this.verbo.infinitivo;
+    if (this.tense) {
+      if (w.indexOf('*') >= 0) {
+        w.replace('*', 'se*');
+        return w;
+      }
+      return w+"se";
+
+    }else{
+      return this.verbo.infinitivo;
+    }
+  }
+
 }
