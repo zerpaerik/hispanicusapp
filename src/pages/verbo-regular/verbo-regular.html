@@ -48,27 +48,27 @@
       <ion-icon name="alert" item-end (click)="goTuto(verbo)" color="info"></ion-icon>
     </ion-item-divider>
 
-    <div *ngFor="let f of getKeys(verboData[key][t]); let ff = first " class="verbitem {{key}}">
+    <div *ngFor="let f of getKeys(verboData[key][t]); let ff = first; let idx = index" class="verbitem {{key}}">
     
     <ion-item-divider color="primary">
       <b>{{capit(f)}}</b>
       <ion-icon name="school" item-end *ngIf="myInclude(getKeys(rules), capit(f)) && shouldShowRule(rules[capit(f)])" (click)="goRule(rules[capit(f)], forma)" color="info"></ion-icon>
       <ion-icon name="alert" item-end (click)="goTuto(verbo)" color="info"></ion-icon>
     </ion-item-divider>
-    <div *ngFor="let item of verboData[key][t][f]; let first = first ">
+    <div *ngFor="let item of verboData[key][t][f]; let first = first; let index = index">
     
-    <ion-item *ngIf="first && item.raiz && first!=last" no-padding >
+    <ion-item *ngIf="first && item.raiz && first!=last && hasChild" no-padding >
       <ion-row no-margin>
 
         <ion-col col-3 align="left">
-          <ion-icon (click)="goInfo('p_informal')" tappable name="alert" color="info" *ngIf="item.pronombre && capit(key) != 'Imperativo' || representar(item.pronombre)"></ion-icon>
-          <ion-icon (click)="goInfo('p_formal')" tappable name="alert" color="info" *ngIf="item.pronombre_formal_id && capit(key) != 'Imperativo' || representar(item.pronombre_formal_id)"></ion-icon>
+          <div *ngIf="representar(item.pronombre)"><ion-icon (click)="goInfo('p_informal')" tappable name="alert" color="info" *ngIf="item.pronombre && capit(key) != 'Imperativo'"></ion-icon></div>
+          <div *ngIf="representar(item.pronombre_formal_id)"><ion-icon (click)="goInfo('p_formal')" tappable name="alert" color="info" *ngIf="item.pronombre_formal_id && capit(key) != 'Imperativo'"></ion-icon></div>
         </ion-col>
         <ion-col col-1 align="left">
           <ion-icon (click)="goInfo('negacion')" tappable name="alert" color="info" *ngIf="!afirmativo"></ion-icon>
         </ion-col>
         <ion-col col-1>
-          <ion-icon (click)="goInfo('reflex')" tappable name="alert" color="info" *ngIf="tenses"></ion-icon>
+          <ion-icon (click)="goInfo('reflex')" tappable name="alert" color="info" *ngIf="tenses && item.pronombre_reflex"></ion-icon>
         </ion-col>
         <ion-col col-2 align="left">
           <ion-icon (click)="goInfo('auxiliar')" tappable name="alert" color="info" *ngIf="item.verbo_auxiliar"></ion-icon>
@@ -83,7 +83,7 @@
       </ion-row>
     </ion-item>
   
-    <ion-item *ngIf="(item.forma_verbal == forma)" no-padding>
+    <ion-item *ngIf="(item.forma_verbal == forma)" no-padding id="it_{{index}}">
       <ion-row>
         <ion-col col-3 align="left">
           <div *ngIf="representar(item.pronombre)"><span *ngIf="capit(key) != 'Imperativo'" [innerHTML]="item.pronombre"></span></div> 
@@ -93,7 +93,7 @@
         <ion-col col-1 ><span [innerHTML]="item.pronombre_reflex"></span></ion-col>
         <ion-col col-2 align="left"><span [innerHTML]="item.verbo_auxiliar"></span></ion-col>
 
-        <ion-col col-4 align="right"><span [innerHTML]="item.raiz" *ngIf="item.raiz != item.desinencia"></span><span class="desinencia" *ngIf="item.desinencia" [innerHTML]="item.desinencia"></span></ion-col>
+        <ion-col col-4 align="right"><span [innerHTML]="delAst(item.raiz)" *ngIf="item.raiz != item.desinencia"></span><span class="desinencia" *ngIf="item.desinencia" [innerHTML]="item.desinencia"></span></ion-col>
 
         <ion-col col-1 align="right">
           <span *ngIf="!item.plural && item.pg" class="pgramatical2" [innerHTML]="getGramatical(item.pg)"></span>

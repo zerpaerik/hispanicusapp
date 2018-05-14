@@ -22,6 +22,7 @@ export class VerboRegularPage {
   rules : any;
   reflexOnly : any;
   titu : string;
+  hasChild : boolean;
 
   informal : boolean;
   afirmativo : boolean;
@@ -48,6 +49,7 @@ export class VerboRegularPage {
     this.tenseMsgs = [];
     this.reflexOnly = false;
     this.titu = this.verbo.infinitivo;
+    this.hasChild = true;
 
     this.translateServ.get('VERBS_MENU').subscribe(verb => {
       this.tenseMsgs = [verb.SIMPLE_TENSES, verb.COMPOUND_TENSES];
@@ -126,6 +128,7 @@ export class VerboRegularPage {
     }
 
     if (this.tenses) {
+
       this.tense = this.tenseMsgs[1];
       if (this.forma == 'Afirmativo informal') {
         this.forma = 'Afirmativo reflexivo informal';
@@ -211,7 +214,7 @@ export class VerboRegularPage {
         items[i]['hidden'] = false;
       }
     }
-   
+   this.hasChild = this.hasChildren();
   }
 
   hideEmpty(){
@@ -230,7 +233,6 @@ export class VerboRegularPage {
         items[i]['hidden'] = true;
       }
     }
-   
   }
 
   presentLoading() {
@@ -394,7 +396,6 @@ export class VerboRegularPage {
 
   representar(v){
     if (v != null) {
-      console.log(v);
       return !(v.indexOf('*') >= 0);
     }
     return false;
@@ -414,8 +415,8 @@ export class VerboRegularPage {
   appendSe(){
     let w = this.verbo.infinitivo;
     if (this.tenses) {
-      if (w.indexOf('*') >= 0) {
-        w = w.replace('*', 'se*');
+      if (w.indexOf(".") >= 0) {
+        w = w.replace(/.[0-9]/g, "se");
         return w;
       }else{
         return w+"se";
@@ -423,6 +424,20 @@ export class VerboRegularPage {
     }else{
       return this.verbo.infinitivo;
     }
+  }
+
+  hasChildren(){
+    for (var i = 2; i < 15; i++) {
+      if (document.querySelector("#it_" + i) != null) {
+        return true;
+      }
+    }
+    
+    return false;
+  }
+
+  delAst(w){
+    return w.replace(/\*/g, '');
   }
 
 }

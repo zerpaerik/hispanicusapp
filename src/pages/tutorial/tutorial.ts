@@ -20,4 +20,12 @@ export class TutorialPage {
   	});
   }
 
+  pro(t){
+    t = t.replace(/\[/g, '<b class="rc">');
+    t = t.replace(/\]/g, '</b>');
+    t = t.replace(/\{/g, '<b class="bc">');
+    t = t.replace(/\}/g, '</b>');
+    return t;    
+  }
+
 }
