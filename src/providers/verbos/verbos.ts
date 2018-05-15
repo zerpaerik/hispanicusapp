@@ -20,6 +20,13 @@ export class VerbosProvider {
     });
   }
 
+  getInfo(tipo){
+
+    let xlang = localStorage.getItem('lang') || 'en';
+    return this.http.get(HOST + '/api/v1/info/'+xlang+'/'+tipo);
+    
+  }
+
   getTuto(id){
     return this.http.get(HOST + '/api/v1/tutorial/' + id, {
       headers: {

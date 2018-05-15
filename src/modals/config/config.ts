@@ -16,15 +16,39 @@ export class ConfigPage {
   lang   : string;
   mode   : string;
   region : any;
+  infot  : string;
 
   constructor(public smartAudio : SmartAudioProvider, public toastCtrl : ToastController, public configProvider : ConfigProvider, public authProvider : AuthProvider, public navCtrl: NavController, public navParams: NavParams, private translate : TranslateService,  public viewCtrl: ViewController) {
+
     this.mode   = localStorage.getItem("rmode") ||  '1';
+    this.infot  = this.mode;
     this.lang   = localStorage.getItem("lang")  ||  'en';
     this.region = localStorage.getItem("region") || [0, 2, 4];
+
+  }
+
+  goInfo(){
+    let t;
+    switch (this.mode) {
+      case '1':
+        t = 'esp';
+        break;
+      case '2':
+        t = 'lat';
+        break;
+      case '3':
+        t = 'voseo';
+        break;  
+      default:
+        t = 'esp';
+        break;
+    }
+    this.navCtrl.push('InfoPage', {type : t});
   }
 
   changeLang(){
-  	let xlang = this.lang || 'en';
+  	
+    let xlang = this.lang || 'en';
     localStorage.setItem('lang', xlang);
   	this.translate.use(xlang);
     this.configProvider.setLang(xlang).subscribe(res => {
@@ -37,11 +61,14 @@ export class ConfigPage {
     }, error => {
       this.presentToast(false);
     });
+
   }
 
   changeMode(){
     let xmode = this.mode || 1;
     
+    this.infot = this.mode;
+
     switch (xmode) {
          case '1':
            localStorage.setItem('rmode', '1');
