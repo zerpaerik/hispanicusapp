@@ -23,6 +23,16 @@ export class VerbosProvider {
   getInfo(tipo){
 
     let xlang = localStorage.getItem('lang') || 'en';
+    tipo = tipo.replace(/ /g, "_");
+    tipo = tipo.replace(/_$/, "");
+    tipo = tipo.replace(/á/g, "a");
+    tipo = tipo.replace(/é/g, "e");
+    tipo = tipo.replace(/í/g, "i");
+    tipo = tipo.replace(/ó/g, "o");
+    tipo = tipo.replace(/ú/g, "u");
+    tipo = tipo.replace(/\(/g, "");
+    tipo = tipo.replace(/\)/g, "");
+    tipo = tipo.toLowerCase();
     return this.http.get(HOST + '/api/v1/info/'+xlang+'/'+tipo);
     
   }

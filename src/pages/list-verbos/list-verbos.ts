@@ -21,6 +21,7 @@ export class ListVerbosPage {
 
   public verbs;
   public keys;
+  public infokw;
   public items;
   public isLoading : boolean = false;
   public types : number;
@@ -40,15 +41,19 @@ export class ListVerbosPage {
       switch (this.types) {
        case 1:
          this.title = word.REGULAR;
+         this.infokw = 'regular';
          break;
        case 2:
          this.title = word.ORTH_CHANGE;
+         this.infokw = 'irregular';
          break;
        case 3:
          this.title = word.IRREGULAR;
+         this.infokw = 'cambio';
          break; 
        default:
          this.title = word.ALL;
+         this.infokw = 'regular';
          break;
       }
      }, error => {
@@ -255,5 +260,8 @@ export class ListVerbosPage {
     this.setFocus();
   }
 
+  goInfo(){
+    this.navCtrl.push('InfoPage', {type:this.infokw});
+  }
 
 }

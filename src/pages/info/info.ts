@@ -12,14 +12,17 @@ import {VerbosProvider} from '../../providers/verbos/verbos';
 export class InfoPage {
 
 	public type : string;
-	public title : any;
+	public title : string;
+  public info : string;
 	public content : any;
 
   constructor(public vp : VerbosProvider, public sanitizer :  DomSanitizer, public translate : TranslateService, public navCtrl: NavController, public navParams: NavParams) {
-  	
+  	this.title = "...";
+    
   	this.type = navParams.get('type');
   	this.vp.getInfo(this.type).subscribe(res => {
-  		console.log(res);
+  		this.info = res["info"];
+      this.title = res["title"];
   	}, error => {
   		console.log(error);
   	});

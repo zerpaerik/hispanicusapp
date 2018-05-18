@@ -39,13 +39,13 @@
   <ion-item-group *ngFor="let key of verboKeys;  let idx = index " id="{{key}}">
     <ion-item-divider class="fdivider" color="primary">
       <b>{{capit(key)}}</b> 
-      <ion-icon name="alert" item-end (click)="goInfo({{key}})" color="info"></ion-icon>
+      <ion-icon name="alert" item-end (click)="goInfo(key)" color="info"></ion-icon>
     </ion-item-divider>
     <div *ngFor="let t of getKeys(verboData[key])">
     
     <ion-item-divider *ngIf="idx < 2" color="primary">
       <b style="color:#ff592b;">{{capit(t)}}</b> 
-      <ion-icon name="alert" item-end (click)="goTuto(verbo)" color="info"></ion-icon>
+      <ion-icon name="alert" item-end (click)="goInfo(t)" color="info"></ion-icon>
     </ion-item-divider>
 
     <div *ngFor="let f of getKeys(verboData[key][t]); let ff = first; let idx = index" class="verbitem {{key}}">
@@ -53,7 +53,7 @@
     <ion-item-divider color="primary">
       <b>{{capit(f)}}</b>
       <ion-icon name="school" item-end *ngIf="myInclude(getKeys(rules), capit(f)) && shouldShowRule(rules[capit(f)])" (click)="goRule(rules[capit(f)], forma)" color="info"></ion-icon>
-      <ion-icon name="alert" item-end (click)="goTuto({{f}})" color="info"></ion-icon>
+      <ion-icon name="alert" item-end (click)="goInfo(f)" color="info"></ion-icon>
     </ion-item-divider>
     <div *ngFor="let item of verboData[key][t][f]; let first = first; let index = index">
     

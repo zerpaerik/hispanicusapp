@@ -7,22 +7,16 @@
 </ion-header>
 
 
-<ion-content [ngSwitch]="type" padding>
+<ion-content padding>
 
-		<ion-item-group *ngSwitchCase="'raiz'">
-			<ion-item-divider>Raiz</ion-item-divider>
+		<ion-item-group>
+			<ion-item-divider>{{title}}</ion-item-divider>
 			<ion-item>
-				<p class="info">La raiz bla bla bla bla bla</p>
-			</ion-item>
-		</ion-item-group>
-	
-		<ion-item-group *ngSwitchCase="'desinencia'">
-			<ion-item-divider>Desinencia</ion-item-divider>
-			<ion-item>
-				<p class="info">La desinencia bla bla bla bla</p>
+				<p class="info">{{info}}</p>
 			</ion-item>
 		</ion-item-group>
 
+<!--
 		<ion-item-group *ngSwitchCase="'dedos'">
 			<ion-item-divider>Negativo-Afirmativo</ion-item-divider>
 			<ion-item>
@@ -42,6 +36,6 @@
 				<p item-end>Negativo formal</p>
 			</ion-item>
 		</ion-item-group>
-
+-->
 
 </ion-content>

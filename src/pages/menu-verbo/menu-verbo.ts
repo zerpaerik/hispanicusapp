@@ -18,6 +18,10 @@ export class MenuVerboPage {
   	});
   }
 
+  goInfo(t){
+    this.navCtrl.push('InfoPage', {type:t});
+  }
+
   next(t){
   	this.smartAudio.play('tapped');
 		this.navCtrl.push(ListVerbosPage, {type : t});
