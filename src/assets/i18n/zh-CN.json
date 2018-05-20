@@ -1,57 +1,74 @@
 {
-
 	"GENERAL": {	
-		"SELECT" : "Select",
-		"BACK"   : "Back",
-		"SETTINGS" : "Settings",
-		"EXIT" : "Exit",
-		"MODE" : "Combine Mode",
-		"LOG_OUT" : "Log out",
+		"SELECT" : "请选择",
+		"BACK"   : "上一页",
+		"SETTINGS" : "设置",
+		"EXIT" : "退出",
+		"MODE" : "动词变形模式",
+		"LOG_OUT" : "退出登录",
 		"ACCOUNT" : "Account",
-		"CHANGE_PSW" : "Change Password",
+		"CHANGE_PSW" : "修改密码",
 		"RULE" : "Rule",
+		"RULES" : "Rules",
 		"SIGN_IN" : "Sign in",
 		"SIGN_UP" : "Sign up",
 		"EMAIL" : "Email",
 		"PASSWORD" : "Password",
 		"NAME" : "Name",
-		"CPASSWORD" : "Confirm Password",
-		"CHANGE_SUCCESS" : "Changes Saved",
-		"CHANGE_FAIL" : "An error has occurred when trying to update settings"
+		"CPASSWORD" : "Confirm password",
+		"CHANGE_SUCCESS" : "Changes saved",
+		"CHANGE_FAIL" : "An error has occurred when trying to update settings",
+		"CREATE_USER" : "Create user",
+		"SEARCH" : "搜索",
+		"OK" : "确定",
+		"CANCEL" : "取消",
+		"GRAMATICAL_1" : "ª",
+		"GRAMATICAL_2" : "ª",
+		"GRAMATICAL_3" : "ª"
 	},
 
 	"LANG" : {
-		"LANG" : "Language",
-		"ES"   : "Español",
-		"EN"   : "English",
-		"CN"   : "Chinese",
-		"PT"   : "Português",
-		"SP"   : "Spain",
-		"LAN"  : "Latin America",
-		"LAS"  : "Argentina/Uruguay"
+		"LANG" : "语言",
+		"ES" : "Español",
+		"EN" : "English",
+		"CN" : "中文",
+		"PT" : "Português",
+		"SP"   : "西班牙",
+		"LAN"  : "拉丁美洲",
+		"LAS"  : "阿根廷/乌拉圭（voseo)"		
 	},
 
 	"HOME" : {
 		"MENU": {
-			"COMBINE_BUTTON" : "Combine",
-			"TITLE" 	     : "Menu",
-			"FAVS" : "Favorites",
-			"DICT" : "Dictionary"
+			"COMBINE_BUTTON" : "Conjugate",
+			"TITLE" 	     : "菜单",
+			"FAVS" : "收藏",
+			"DICT" : "字典",
+			"CONTACT" : "Contact"
+		},
+		"CONTACT" : {
+			"SEND" : "Send",
+			"SENDING" : "Sending",
+			"SENT" : "Your message has been sent.",
+			"MESSAGE" : "Message"
 		}
 	},
 
 	"VERBS_MENU" : {
-		"TITLE" : "Select a group",
-		"REGULAR" : "Regular Verbs",	
-		"IRREGULAR" : "Irregular Verbs",
-		"ORTH_CHANGE" : "Regular Verbs (Orthographic Change)",
-		"ALL" : "All",
-		"START" : "GO",
-		"INFO"  : "INFO",
-		"SIMPLE_TENSES" : "Simple Tenses",
-		"COMPOUND_TENSES" : "Compound Tenses"
+		"TITLE" : "请选择一组",
+		"REGULAR" : "规则动词",	
+		"IRREGULAR" : "不规则动词",
+		"ORTH_CHANGE" : "规则动词 <br>(但有书写变化)",
+		"ALL" : "所有",
+		"START" : "开始",
+		"INFO"  : "Info",
+		"SIMPLE_TENSES" : "简单时态",
+		"COMPOUND_TENSES" : "复合时态",
+		"REFLEX_PRONOUN" : "自复形式",
+		"FORMAL" : "Formal",
+		"INFORMAL" : "Informal"	
 	},
-
+	
 	"ERROR" : {
 		"TITLE" : "Error",
 		"SUBTITLE" : "An error has ocurred, please check your internet connection.",
@@ -61,5 +78,12 @@
 		"UNKNOW" : "An unknow error has ocurred",
 		"CHECK_CREDS" : "Wrong email or password",
 		"NO_TUTO" : "There are not tutorials yet for this verb."
-	}
+	},
+	"INFO" : {
+		"PERSONAL_PRONOUN" : {
+			"TITLE" : "Personal pronoun",
+			"CONTENT" : "Los <b style='color:green;'>pronombres personales</b> son las palabras que sirven para hacer referencia a las personas o sujetos que intervienen en un enunciado. Su función es sustituir al sustantivo cuando este ha sido omitido.",
+			"IMG_SRC" : ""
+		}
+	}	
 }

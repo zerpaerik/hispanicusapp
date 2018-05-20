@@ -369,16 +369,22 @@ export class VerboRegularPage {
       case 1:
         if (localStorage.getItem("lang") == "en") {
           return (value+"<b class='sup'>st</b>");            
+        }else if(localStorage.getItem("lang") == 'zh-CN'){
+          return ("<b>第一</b>");            
         }
         return (value+"ª");
       case 2:
         if (localStorage.getItem("lang") == "en") {
           return (value+"<b class='sup'>nd</b>");            
+        }else if(localStorage.getItem("lang") == 'zh-CN'){
+          return ("<b>第二</b>");            
         }
           return (value+"ª");
       case 3:
         if (localStorage.getItem("lang") == "en") {
           return (value+"<b class='sup'>rd</b>");    
+        }else if(localStorage.getItem("lang") == 'zh-CN'){
+          return ("<b>第三</b>");    
         }
           return (value+"ª");
       default:
