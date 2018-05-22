@@ -9,12 +9,17 @@
 
 <ion-content padding>
 
-		<ion-item-group>
-			<ion-item-divider>{{title}}</ion-item-divider>
-			<ion-item>
-				<p class="info">{{info}}</p>
-			</ion-item>
-		</ion-item-group>
+<ion-content padding>
+	<ion-card>
+	  <ion-card-header>
+	    {{title}}
+	  </ion-card-header>
+	  <ion-card-content>
+	    <p *ngIf="info; else not_found"class="info" [innerHTML]="pro(info)"></p>
+	    <ng-template #not_found class="tuto">☺☺☺</ng-template>
+	  </ion-card-content>
+	</ion-card>
+</ion-content>
 
 <!--
 		<ion-item-group *ngSwitchCase="'dedos'">
