@@ -1,65 +1,95 @@
 {
-
 	"GENERAL": {	
-		"SELECT" : "Select",
-		"BACK"   : "Back",
-		"SETTINGS" : "Settings",
-		"EXIT" : "Exit",
-		"MODE" : "Combine Mode",
-		"LOG_OUT" : "Log out",
-		"ACCOUNT" : "Account",
-		"CHANGE_PSW" : "Change Password",
-		"RULE" : "Rule",
-		"SIGN_IN" : "Sign in",
-		"SIGN_UP" : "Sign up",
-		"EMAIL" : "Email",
-		"PASSWORD" : "Password",
-		"NAME" : "Name",
-		"CPASSWORD" : "Confirm Password",
-		"CHANGE_SUCCESS" : "Changes Saved",
-		"CHANGE_FAIL" : "An error has occurred when trying to update settings"
+		"SELECT" : "Seleccione",
+		"BACK"   : "Anterior",
+		"SETTINGS" : "Ajustes",
+		"EXIT" : "Sair",
+		"MODE" : "Modo de conjugação",
+		"LOG_OUT" : "Fechar sessão",
+		"ACCOUNT" : "Conta",
+		"CHANGE_PSW" : "Cambiar contraseña",
+		"RULE" : "Regla",
+		"RULES" : "Reglas",
+		"SIGN_IN" : "Acceder",
+		"SIGN_UP" : "Registrarse",
+		"EMAIL" : "E-mail",
+		"PASSWORD" : "Contraseña",
+		"NAME" : "Usuario",
+		"CPASSWORD" : "Confirmar contraseña",
+		"CONFIG_CHANGED" : "Los cambios han sido guardados",
+		"CHANGE_FAIL" : "Ha ocurrido un error al intentar actualizar la configuración",
+		"CREATE_USER" : "Crear usuario",
+		"SEARCH" : "Buscar",
+		"OK" : "Aceitar",
+		"CANCEL" : "Cancelar",
+		"GRAMATICAL_1" : "ª",
+		"GRAMATICAL_2" : "ª",
+		"GRAMATICAL_3" : "ª"
 	},
 
 	"LANG" : {
-		"LANG" : "Language",
-		"ES"   : "Español",
-		"EN"   : "English",
-		"CN"   : "中文",
-		"PT"   : "Português",
-		"SP"   : "Spain",
-		"LAN"  : "Latin America",
-		"LAS"  : "Argentina/Uruguay"
+		"LANG" : "Língua",
+		"ES" : "Español",
+		"EN" : "English",
+		"CN" : "中文",
+		"PT" : "Português",
+		"SP"   : "Espanha",
+		"LAN"  : "América latina",
+		"LAS"  : "Argentina/Uruguai (voseo)"		
 	},
 
 	"HOME" : {
 		"MENU": {
-			"COMBINE_BUTTON" : "Combine",
+			"COMBINE_BUTTON" : "Conjugar",
 			"TITLE" 	     : "Menu",
-			"FAVS" : "Favorites",
-			"DICT" : "Dictionary"
+			"FAVS" : "Favoritos",
+			"DICT" : "Dicionário",
+			"CONTACT" : "Contato"
+		},
+		"CONTACT" : {
+			"SEND" : "Enviar",
+			"SENDING" : "Enviando",
+			"SENT" : "Su mensaje ha sido enviado.",
+			"MESSAGE" : "Mensagem"
 		}
 	},
 
-	"VERBS_MENU" : {
-		"TITLE" : "Select a group",
-		"REGULAR" : "Regular Verbs",	
-		"IRREGULAR" : "Irregular Verbs",
-		"ORTH_CHANGE" : "Regular Verbs (Orthographic Change)",
-		"ALL" : "All",
-		"START" : "GO",
-		"INFO"  : "INFO",
-		"SIMPLE_TENSES" : "Simple Tenses",
-		"COMPOUND_TENSES" : "Compound Tenses"
+	"DICT" : {
+		"LETTER" : "Selecione uma letra",
+		"MODEL" : "Selecione um modelo"		
 	},
 
+	"VERBS_MENU" : {
+		"TITLE" : "Selecione um grupo",
+		"REGULAR" : "Verbos regulares",	
+		"IRREGULAR" : "Verbos irregulares",
+		"ORTH_CHANGE" : "Verbos regulares <br>(com mudança ortográfica)",
+		"ALL" : "Todos",
+		"START" : "Iniciar",
+		"INFO"  : "Info",
+		"SIMPLE_TENSES" : "Tempos simples",
+		"COMPOUND_TENSES" : "Tempos compostos",
+		"REFLEX_PRONOUN" : "Forma reflexiva",
+		"FORMAL" : "Formales",
+		"INFORMAL" : "Informales"	
+	},
+	
 	"ERROR" : {
 		"TITLE" : "Error",
-		"SUBTITLE" : "An error has ocurred, please check your internet connection.",
-		"TRY_AGAIN" : "Try again",
-		"EMAIL_TAKEN" : "This email is not available",
-		"PASS_MISMATCH" : "Password must match",
-		"UNKNOW" : "An unknow error has ocurred",
-		"CHECK_CREDS" : "Wrong email or password",
-		"NO_TUTO" : "There are not tutorials yet for this verb."
-	}
+		"SUBTITLE" : "Ha ocurrido un error, por favor compruebe su conexión a internet.",
+		"TRY_AGAIN" : "Reintentar",
+		"EMAIL_TAKEN" : "Email no disponible",
+		"PASS_MISMATCH" : "La contraseña debe coincidir",
+		"UNKNOW" : "Ha ocurrido un error inesperado",
+		"CHECK_CREDS" : "Email o Contraseña errónea",
+		"NO_TUTO" : "No hay tutoriales para este verbo aun."
+	},
+	
+	"INFO" : {
+		"PERSONAL_PRONOUN" : {
+			"TITLE" : "Personal pronoun",
+			"CONTENT" : "Los <b style='color:green;'>pronombres personales</b> son las palabras que sirven para hacer referencia a las personas o sujetos que intervienen en un enunciado. Su función es sustituir al sustantivo cuando este ha sido omitido.",
+			"IMG_SRC" : ""
+		}
+	}	
 }

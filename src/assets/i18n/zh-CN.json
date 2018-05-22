@@ -54,6 +54,11 @@
 		}
 	},
 
+	"DICT" : {
+		"LETTER" : "Select a letter",
+		"MODEL" : "Select a model"	
+	},	
+
 	"VERBS_MENU" : {
 		"TITLE" : "请选择一组",
 		"REGULAR" : "规则动词",	

@@ -54,6 +54,11 @@
 		}
 	},
 
+	"DICT" : {
+		"LETTER" : "Select a letter",
+		"MODEL" : "Select a model"	
+	},
+
 	"VERBS_MENU" : {
 		"TITLE" : "Select a group",
 		"REGULAR" : "Regular verbs",	

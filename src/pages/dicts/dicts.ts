@@ -20,6 +20,7 @@ export class DictsPage {
   public myInput : string;
   public unsorted;
   public sortedItems;
+  public title : string;
 
   constructor(public smartAudio : SmartAudioProvider, public configProvider : ConfigProvider,
               public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams,
