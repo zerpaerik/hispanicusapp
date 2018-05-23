@@ -83,9 +83,12 @@
 		"NO_TUTO" : "There are not tutorials yet for this verb."
 	},
 	"INFO" : {
-		"PERSONAL_PRONOUN" : {
-			"TITLE" : "Personal pronoun",
-			"CONTENT" : "Esta representado con el <b style='color:green;'>color verde</b>. Los pronombres personales son las palabras que sirven para hacer referencia a las personas o sujetos que intervienen en un enunciado. Su función es sustituir al sustantivo cuando este ha sido omitido."
-		}
+		"AFFIRMATIVE_FORMAL" : "Affirmative formal",
+		"NEGATIVE_FORMAL" : "Negative formal",
+		"AFFIRMATIVE_INFORMAL" : "Affirmative informal",
+		"NEGATIVE_INFORMAL" : "Negative informal",
+		"AFFIRMATIVE-REFLEX" : "Affirmative reflex",
+		"NEGATIVE-REFLEX" : "Negative reflex",
+		"MODES" : "Modes"
 	}
 }

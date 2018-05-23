@@ -9,7 +9,7 @@
 
 <ion-content padding>
 
-<ion-content padding>
+<ion-content padding *ngIf="type != 'dedos'">
 	<ion-card>
 	  <ion-card-header>
 	    {{title}}
@@ -21,26 +21,28 @@
 	</ion-card>
 </ion-content>
 
-<!--
-		<ion-item-group *ngSwitchCase="'dedos'">
-			<ion-item-divider>Negativo-Afirmativo</ion-item-divider>
-			<ion-item>
-				<ion-icon color="soft-blue" name="ios-thumbs-up-outline"></ion-icon>
-				<p item-end>Afirmativo informal</p>
-			</ion-item>
-			<ion-item>
-				<ion-icon color="soft-blue" name="ios-thumbs-down-outline"></ion-icon>
-				<p item-end>Negativo informal</p>
-			</ion-item>
-			<ion-item>
-				<ion-icon color="soft-blue" name="ios-thumbs-up"></ion-icon>
-				<p item-end>Afirmativo formal</p>
-			</ion-item>
-			<ion-item>
-				<ion-icon color="soft-blue" name="ios-thumbs-down"></ion-icon>
-				<p item-end>Negativo formal</p>
-			</ion-item>
-		</ion-item-group>
--->
+	<ion-item-group *ngIf="type == 'dedos'">
+		<ion-item-divider>{{'INFO.MODES' | translate}}</ion-item-divider>
+		<ion-item>
+			<ion-icon color="soft-blue" name="ios-thumbs-up-outline"></ion-icon>
+			<p item-end>{{'INFO.AFFIRMATIVE_INFORMAL' | translate}}</p>
+		</ion-item>
+		<ion-item>
+			<ion-icon color="soft-blue" name="ios-thumbs-down-outline"></ion-icon>
+			<p item-end>{{'INFO.NEGATIVE_INFORMAL' | translate}}</p>
+		</ion-item>
+		<ion-item>
+			<ion-icon color="soft-blue" name="ios-thumbs-up"></ion-icon>
+			<p item-end>{{'INFO.AFFIRMATIVE_FORMAL' | translate}}</p>
+		</ion-item>
+		<ion-item>
+			<ion-icon color="soft-blue" name="ios-thumbs-down"></ion-icon>
+			<p item-end>{{'INFO.NEGATIVE_FORMAL' | translate}}</p>
+		</ion-item>
+		<ion-item>
+			<ion-toggle item-start checked="true" disabled color="info"></ion-toggle> 
+			<p item-end>{{'VERBS_MENU.REFLEX_PRONOUN' | translate}}</p>
+		</ion-item>
+	</ion-item-group>
 
 </ion-content>

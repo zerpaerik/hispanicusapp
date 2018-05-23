@@ -86,10 +86,12 @@
 	},
 	
 	"INFO" : {
-		"PERSONAL_PRONOUN" : {
-			"TITLE" : "Personal pronoun",
-			"CONTENT" : "Los <b style='color:green;'>pronombres personales</b> son las palabras que sirven para hacer referencia a las personas o sujetos que intervienen en un enunciado. Su función es sustituir al sustantivo cuando este ha sido omitido.",
-			"IMG_SRC" : ""
-		}
-	}	
+		"AFFIRMATIVE_FORMAL" : "Afirmativo formal",
+		"NEGATIVE_FORMAL" : "Negativo formal",
+		"AFFIRMATIVE_INFORMAL" : "Afirmativo informal",
+		"NEGATIVE_INFORMAL" : "Negativo informal",
+		"AFFIRMATIVE-REFLEX" : "Afirmativo reflexivo",
+		"NEGATIVE-REFLEX" : "Negativo reflexivo",
+		"MODES" : "Modos"
+	}
 }

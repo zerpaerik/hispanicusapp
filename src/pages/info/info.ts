@@ -22,7 +22,10 @@ export class InfoPage {
   	this.title = "...";
     
   	this.type = navParams.get('type');
-    this.initializeItems();
+    if (this.type != 'dedos') {
+      this.initializeItems();  
+    }
+    
 
   }
 

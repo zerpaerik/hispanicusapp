@@ -6,10 +6,10 @@
 		"EXIT" : "退出",
 		"MODE" : "动词变形模式",
 		"LOG_OUT" : "退出登录",
-		"ACCOUNT" : "Account",
+		"ACCOUNT" : "账户",
 		"CHANGE_PSW" : "修改密码",
-		"RULE" : "Rule",
-		"RULES" : "Rules",
+		"RULE" : "动词变形规则",
+		"RULES" : "动词变形规则",
 		"SIGN_IN" : "Sign in",
 		"SIGN_UP" : "Sign up",
 		"EMAIL" : "Email",
@@ -40,17 +40,17 @@
 
 	"HOME" : {
 		"MENU": {
-			"COMBINE_BUTTON" : "Conjugate",
+			"COMBINE_BUTTON" : "动词变形",
 			"TITLE" 	     : "菜单",
 			"FAVS" : "收藏",
 			"DICT" : "字典",
-			"CONTACT" : "Contact"
+			"CONTACT" : "联系我们"
 		},
 		"CONTACT" : {
-			"SEND" : "Send",
+			"SEND" : "发送",
 			"SENDING" : "Sending",
 			"SENT" : "Your message has been sent.",
-			"MESSAGE" : "Message"
+			"MESSAGE" : "信息"
 		}
 	},
 
@@ -85,10 +85,9 @@
 		"NO_TUTO" : "There are not tutorials yet for this verb."
 	},
 	"INFO" : {
-		"PERSONAL_PRONOUN" : {
-			"TITLE" : "Personal pronoun",
-			"CONTENT" : "Los <b style='color:green;'>pronombres personales</b> son las palabras que sirven para hacer referencia a las personas o sujetos que intervienen en un enunciado. Su función es sustituir al sustantivo cuando este ha sido omitido.",
-			"IMG_SRC" : ""
-		}
-	}	
+		"AFFIRMATIVE_FORMAL" : "正式肯定",
+		"NEGATIVE_FORMAL" : "正式否定",
+		"AFFIRMATIVE_INFORMAL" : "非正式肯定",
+		"NEGATIVE_INFORMAL" : "非正式否定"
+	}
 }
