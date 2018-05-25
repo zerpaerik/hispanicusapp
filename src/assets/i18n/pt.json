@@ -1,6 +1,6 @@
 {
 	"GENERAL": {	
-		"SELECT" : "Seleccione",
+		"SELECT" : "Selecione",
 		"BACK"   : "Anterior",
 		"SETTINGS" : "Ajustes",
 		"EXIT" : "Sair",
@@ -24,7 +24,9 @@
 		"CANCEL" : "Cancelar",
 		"GRAMATICAL_1" : "ª",
 		"GRAMATICAL_2" : "ª",
-		"GRAMATICAL_3" : "ª"
+		"GRAMATICAL_3" : "ª",
+		"TUTORIAL" : "Tutorial",
+		"INFORMATION" : "Informação"
 	},
 
 	"LANG" : {

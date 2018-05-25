@@ -24,7 +24,9 @@
 		"CANCEL" : "取消",
 		"GRAMATICAL_1" : "ª",
 		"GRAMATICAL_2" : "ª",
-		"GRAMATICAL_3" : "ª"
+		"GRAMATICAL_3" : "ª",
+		"TUTORIAL" : "您可能感兴趣",
+		"INFORMATION" : "鸟儿在树梢上筑巢"
 	},
 
 	"LANG" : {
@@ -55,8 +57,8 @@
 	},
 
 	"DICT" : {
-		"LETTER" : "Select a letter",
-		"MODEL" : "Select a model"	
+		"LETTER" : "请选择一个字母",
+		"MODEL" : "请选择一个范例"	
 	},	
 
 	"VERBS_MENU" : {
@@ -88,6 +90,7 @@
 		"AFFIRMATIVE_FORMAL" : "正式肯定",
 		"NEGATIVE_FORMAL" : "正式否定",
 		"AFFIRMATIVE_INFORMAL" : "非正式肯定",
-		"NEGATIVE_INFORMAL" : "非正式否定"
+		"NEGATIVE_INFORMAL" : "非正式否定",
+		"MODES" : "Modes"
 	}
 }

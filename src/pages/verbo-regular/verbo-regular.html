@@ -68,7 +68,7 @@
           <ion-icon (click)="goInfo('negacion')" tappable name="alert" color="info" *ngIf="!afirmativo"></ion-icon>
         </ion-col>
         <ion-col col-1>
-          <ion-icon (click)="goInfo('reflex')" tappable name="alert" color="info" *ngIf="tenses && item.pronombre_reflex"></ion-icon>
+          <ion-icon (click)="goInfo('reflex')" tappable name="alert" color="info" *ngIf="tenses"></ion-icon>
         </ion-col>
         <ion-col col-2 align="left">
           <ion-icon (click)="goInfo('auxiliar')" tappable name="alert" color="info" *ngIf="item.verbo_auxiliar"></ion-icon>

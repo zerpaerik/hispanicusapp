@@ -10,7 +10,7 @@
 <ion-content padding>
 	<ion-card>
 	  <ion-card-header>
-	    Tutorial
+	    {{'GENERAL.TUTORIAL' |  translate}}
 	  </ion-card-header>
 	  <ion-card-content>
 	    <p *ngIf="tutorial; else not_found" justify="justify" class="tuto" [innerHTML]="pro(tutorial)"></p>

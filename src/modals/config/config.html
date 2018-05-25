@@ -31,7 +31,7 @@
 	<ion-list>
 	  <ion-item>
 	  	<ion-label stacked>{{'GENERAL.SELECT' | translate}}</ion-label>
-			<ion-select okText="{{'GENERAL.OK' | translate}}" cancelText="{{'GENERAL.CANCEL' | translate}}" [(ngModel)]="mode" (ngModelChange)="changeMode()" block>
+			<ion-select okText="{{'GENERAL.OK' | translate}}" cancelText="{{'GENERAL.CANCEL' | translate}}" [(ngModel)]="mode" (ngModelChange)="changeMode()" block #selectMode id="selectm">
 	      <ion-option value="1">{{'LANG.SP' | translate}}</ion-option>
 	      <ion-option value="2">{{'LANG.LAN' | translate}}</ion-option>
 	      <ion-option value="3">{{'LANG.LAS' | translate}}</ion-option>

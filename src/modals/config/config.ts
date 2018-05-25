@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { Select, NavController, NavParams, ViewController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthProvider } from '../../providers/auth/auth';
 import { LoginPage } from '../../pages/login/login';
@@ -12,11 +12,12 @@ import { ToastController } from 'ionic-angular';
   templateUrl: 'config.html',
 })
 export class ConfigPage {
-
+  @ViewChild('selectMode') selectMode: Select;
   lang   : string;
   mode   : string;
   region : any;
   infot  : string;
+
 
   constructor(public smartAudio : SmartAudioProvider, public toastCtrl : ToastController, public configProvider : ConfigProvider, public authProvider : AuthProvider, public navCtrl: NavController, public navParams: NavParams, private translate : TranslateService,  public viewCtrl: ViewController) {
 
@@ -51,6 +52,23 @@ export class ConfigPage {
     let xlang = this.lang || 'en';
     localStorage.setItem('lang', xlang);
   	this.translate.use(xlang);
+    this.translate.get('LANG').subscribe(res => {
+      switch (this.mode) {
+        case "1":
+          this.selectMode.selectedText = res.SP;
+          break;
+        case "2":
+          this.selectMode.selectedText = res.LAN;
+          break;
+        case "3":
+          this.selectMode.selectedText = res.LAS;
+          break;
+        default:
+          this.selectMode.selectedText = res.SP;
+          break;
+      }
+    });
+
     this.configProvider.setLang(xlang).subscribe(res => {
       
       if (res['success']) {

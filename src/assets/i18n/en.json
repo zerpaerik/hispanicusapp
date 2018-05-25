@@ -24,7 +24,9 @@
 		"CANCEL" : "Cancel",
 		"GRAMATICAL_1" : "st",
 		"GRAMATICAL_2" : "nd",
-		"GRAMATICAL_3" : "rd"
+		"GRAMATICAL_3" : "rd",
+		"TUTORIAL" : "Tutorial",
+		"INFORMATION" : "Information"
 	},
 
 	"LANG" : {
