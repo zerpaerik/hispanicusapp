@@ -34,5 +34,4 @@ export class DiccionarioPage {
         this.isModel = true;
     }
   }
-
 }

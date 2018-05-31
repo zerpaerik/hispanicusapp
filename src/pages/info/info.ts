@@ -29,7 +29,7 @@ export class InfoPage {
 
   }
 
- initializeItems(){
+  initializeItems(){
     this.vp.getInfo(this.type).subscribe(res => {
       this.info = res["info"];
       this.title = res["title"];
@@ -39,7 +39,7 @@ export class InfoPage {
       }
       
     });   
- }
+  }
 
 showAlert() {
 

@@ -118,7 +118,7 @@ export class VerboRegularPage {
   }  
 
   public goTuto(xverbo){
-    this.navCtrl.push('TutorialPage', {verbo : xverbo});
+    this.navCtrl.push('TutorialPage', {verbo : xverbo, isReflex: this.tenses});
   }
 
   setTense(){
@@ -171,6 +171,7 @@ export class VerboRegularPage {
       .subscribe(data => {
         this.rules = data["reglas"];
         this.verboData = data["data"];
+        console.log(data["data"]);
         this.reflexOnly = data["reflexOnly"];
         this.verboKeys = Object.keys(this.verboData);
 
@@ -180,7 +181,6 @@ export class VerboRegularPage {
            this.setTense();
            this.titu = this.appendSe();
         }
-       
         loader.dismiss();
       },error => {
         loader.dismiss();
@@ -304,9 +304,6 @@ export class VerboRegularPage {
        this.hideEmpty();
        this.showNotEmpty();
      }, 1);
-
-     
-
   }
 
   informalAfmt(){
@@ -322,9 +319,6 @@ export class VerboRegularPage {
        this.hideEmpty();
        this.showNotEmpty();
      }, 1);
-
-     
-
   }
 
   capit(w:string){
