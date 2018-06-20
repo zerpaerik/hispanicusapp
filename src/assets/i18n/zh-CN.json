@@ -77,9 +77,9 @@
 	},
 	
 	"ERROR" : {
-		"TITLE" : "Error",
-		"SUBTITLE" : "An error has ocurred, please check your internet connection.",
-		"TRY_AGAIN" : "Try again",
+		"TITLE" : "错误 错误提示",
+		"SUBTITLE" : "请检查您的网络连接。",
+		"TRY_AGAIN" : "重试",
 		"EMAIL_TAKEN" : "This email is not available",
 		"PASS_MISMATCH" : "Password must match",
 		"UNKNOW" : "An unknow error has ocurred",

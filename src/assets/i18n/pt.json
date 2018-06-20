@@ -78,7 +78,7 @@
 	
 	"ERROR" : {
 		"TITLE" : "Error",
-		"SUBTITLE" : "Ha ocurrido un error, por favor compruebe su conexión a internet.",
+		"SUBTITLE" : "Se ocorrer um erro, verifique sua conexão com a Internet",
 		"TRY_AGAIN" : "Reintentar",
 		"EMAIL_TAKEN" : "Email no disponible",
 		"PASS_MISMATCH" : "La contraseña debe coincidir",
