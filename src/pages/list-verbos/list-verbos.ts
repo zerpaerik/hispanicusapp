@@ -6,6 +6,7 @@ import { DiccionarioPage } from '../../modals/diccionario/diccionario';
 import { VerbosProvider } from '../../providers/verbos/verbos';
 import { ConfigProvider } from '../../providers/config/config';
 import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
+import { ListAllPage } from './list-all';
 import { LoadingController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertController } from 'ionic-angular';
@@ -24,8 +25,8 @@ export class ListVerbosPage {
   public infokw;
   public items;
   public isLoading : boolean = false;
-  public types : number;
-  public title : string;
+  public types   : number;
+  public title   : string;
   public myInput : string = '';
   public unsorted;
   public sortedItems;  
@@ -262,6 +263,10 @@ export class ListVerbosPage {
 
   goInfo(){
     this.navCtrl.push('InfoPage', {type:this.infokw});
+  }
+
+  showAll(verbos, letter){
+    this.navCtrl.push(ListAllPage, {'verbos':verbos, 'letter' : letter});
   }
 
 }

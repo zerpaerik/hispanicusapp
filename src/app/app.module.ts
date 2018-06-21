@@ -16,6 +16,7 @@ import { RegisterPage } from '../pages/register/register';
 
 import { MenuVerboPage } from '../pages/menu-verbo/menu-verbo';
 import { ListVerbosPage } from '../pages/list-verbos/list-verbos';
+import { ListAllPage } from '../pages/list-verbos/list-all';
 
 //MODALS
 import { DiccionarioPage } from '../modals/diccionario/diccionario';
@@ -47,7 +48,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ListVerbosPage,
     DiccionarioPage,
     ConfigPage,
-    RegisterPage
+    RegisterPage,
+    ListAllPage
   ],
   imports: [
     BrowserModule,
@@ -73,7 +75,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ListVerbosPage,
     DiccionarioPage,
     ConfigPage,
-    RegisterPage
+    RegisterPage,
+    ListAllPage
   ],
   providers: [
     StatusBar,
