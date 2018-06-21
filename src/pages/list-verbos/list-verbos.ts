@@ -77,7 +77,7 @@ export class ListVerbosPage {
 
   onInput(e){
     e.target.value = e.target.value.toLowerCase();
-    if (e.target.value && e.target.value != '') {
+    if (e.target.value && e.target.value != '' && e.target.value.length > 3) {
       this.sortedItems = this.getMatches(e.target.value);
     }
   }

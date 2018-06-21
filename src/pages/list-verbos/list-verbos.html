@@ -21,15 +21,18 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="!myInput || myInput == ''; else normalList">
+  <div *ngIf="!myInput || myInput.length<4; else normalList">
   	<ion-list *ngFor="let i of keys" >
       <ion-item-divider color="light" (tap)="openModal()" id="{{i}}"><b>{{i}}</b></ion-item-divider>
-      <ion-item *ngFor="let it of verbs[i]">
+      <ion-item *ngFor="let it of verbs[i].slice(0,9)">
       	<h2 tappable (click)="selectVerbo(it)"><b>{{it.infinitivo}}</b></h2>
         <p style="color:gray;" tappable (click)="selectVerbo(it)" >{{it.def}}</p>
         <button ion-fab mini color="light" [ngClass]="{'shine': isFav(it.id)}" item-end (click)="addFav(it.id)">
           <ion-icon name="star-outline"></ion-icon>
         </button>  
+      </ion-item>
+      <ion-item>
+        Show all
       </ion-item>
     </ion-list>
   </div>
