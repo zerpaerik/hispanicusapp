@@ -32,7 +32,7 @@
         </button>  
       </ion-item>
       <ion-item (click)="showAll(verbs[i], i)">
-        {{i.toUpperCase()}} all
+        <span style="font-weight: bold; color:blue;">{{i.toUpperCase()}}</span> {{'VERBS_MENU.ALL' | translate}}
       </ion-item>
     </ion-list>
   </div>
