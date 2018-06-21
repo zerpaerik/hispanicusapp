@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title mode="ios">{{title.toUpperCase()}}</ion-title>
+  </ion-navbar>
+
+<ion-searchbar
+  mode="ios"
+  [(ngModel)]="myInput"
+  (ionInput)="onInput($event)"
+  animated="true"
+  debounce=200
+  placeholder="{{'GENERAL.SEARCH' | translate}}"
+  type="text"
+  id="search_2"
+  >
+</ion-searchbar>
+
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!myInput || myInput.length<4; else normalList">
+  	<ion-list >
+      <ion-item *ngFor="let it of verbs" >
+      	<h2 tappable (click)="selectVerbo(it)"><b>{{it.infinitivo}}</b></h2>
+        <p style="color:gray;" tappable (click)="selectVerbo(it)" >{{it.def}}</p>
+        <button ion-fab mini color="light" [ngClass]="{'shine': isFav(it.id)}" item-end (click)="addFav(it.id)">
+          <ion-icon name="star-outline"></ion-icon>
+        </button>  
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <ng-template #normalList>
+    <ion-list>
+      <ion-item *ngFor="let item of sortedItems">
+        <h2 (click)="selectVerbo(item)"><b>{{item.infinitivo}}</b></h2>
+        <p style="color:gray;" (click)="selectVerbo(item)" >{{item.def}}</p>
+        <button ion-fab mini color="light" [ngClass]="{'shine': isFav(item.id)}" item-end (click)="addFav(item.id)">
+          <ion-icon name="star-outline"></ion-icon>
+        </button>                  
+      </ion-item>
+    </ion-list>
+  </ng-template>
+
+</ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar block>
+    <ion-buttons align="center">
+      <button ion-button class="extrakeys" mode="ios" (click)="type('í')"><b>í</b></button>
+      <button ion-button class="extrakeys" mode="ios" (click)="type('ñ')"><b>ñ</b></button>
+      <button ion-button class="extrakeys" mode="ios" (click)="delete()"><b><ion-icon mode="md" name="arrow-back"></ion-icon></b></button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
