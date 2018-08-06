@@ -75,7 +75,7 @@
         </ion-col>
         <ion-col col-4 align="right">
           <ion-icon *ngIf="item.raiz != 'nulo'" (click)="goInfo('raiz')" class="mover" tappable name="alert" color="info"></ion-icon>
-          <ion-icon (click)="goInfo('desinencia')" tappable name="alert" color="info"></ion-icon>
+          <ion-icon *ngIf="!(f == 'Infinitivo presente ')" (click)="goInfo('desinencia')" tappable name="alert" color="info"></ion-icon>
         </ion-col>
         <ion-col col-1 align="right">
           <ion-icon (click)="goInfo('p_gramatical')" tappable name="alert" color="info" *ngIf="item.pg"></ion-icon>
