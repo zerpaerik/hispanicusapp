@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
 import { SmartAudioProvider } from '../providers/smart-audio/smart-audio';
+import { NativeAudio } from '@ionic-native/native-audio';
 
 import { LoginPage } from '../pages/login/login';
 
@@ -13,7 +14,7 @@ import { LoginPage } from '../pages/login/login';
 export class MyApp {
   rootPage:any = LoginPage;
 
-  constructor(smartAudio: SmartAudioProvider, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public translate: TranslateService) {
+  constructor(smartAudio: SmartAudioProvider, nativeaudio : NativeAudio, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public translate: TranslateService) {
     let lang = localStorage.getItem('lang') || 'en';
     this.translate.setDefaultLang(lang);
     
@@ -22,8 +23,21 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-      smartAudio.preload('tapped', 'assets/audio/waterdroplet.mp3');
-      smartAudio.preload('fav', 'assets/audio/fav.mp3');
+
+      nativeaudio.preloadSimple('tapped', 'assets/audio/waterdroplet.mp3').then(() => {
+        console.log("tapped audio loaded");
+        smartAudio.preload('tapped', 'assets/audio/waterdroplet.mp3');  
+      }).catch((error) => {
+        console.log(error);
+      });
+    
+      nativeaudio.preloadSimple('fav', 'assets/audio/fav.mp3').then(() => {
+        console.log("fav Audio loaded");
+        smartAudio.preload('fav', 'assets/audio/fav.mp3');
+      }).catch((error) => {
+        console.log(error);
+      });      
+
     });
   }
 }
