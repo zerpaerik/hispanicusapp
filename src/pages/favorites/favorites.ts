@@ -23,8 +23,6 @@ export class FavoritesPage {
     }, error => {
       load.dismiss();
     });
-    smartAudio.preload('tapped', 'assets/audio/waterdroplet.mp3');
-    smartAudio.preload('fav', 'assets/audio/fav.mp3');
   }
 
 	public selectVerbo(xverbo){
@@ -52,7 +50,6 @@ export class FavoritesPage {
   }
 
   public addFav(item){
-    this.smartAudio.play('fav');
     let f = JSON.parse(localStorage.getItem('favs'));
     
     if (this.myInclude(f, item)) {

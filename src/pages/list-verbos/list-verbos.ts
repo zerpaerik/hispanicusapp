@@ -110,8 +110,6 @@ export class ListVerbosPage {
 
   public addFav(item){
     let f = JSON.parse(localStorage.getItem('favs'));
-    this.smartAudio.play('fav');
-    
     if (this.myInclude(f, item)) {
       let i = f.indexOf(item);
       f.splice(i, 1);

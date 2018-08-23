@@ -29,14 +29,7 @@ export class MyApp {
         smartAudio.preload('tapped', 'assets/audio/waterdroplet.mp3');  
       }).catch((error) => {
         console.log(error);
-      });
-    
-      nativeaudio.preloadSimple('fav', 'assets/audio/fav.mp3').then(() => {
-        console.log("fav Audio loaded");
-        smartAudio.preload('fav', 'assets/audio/fav.mp3');
-      }).catch((error) => {
-        console.log(error);
-      });      
+      });   
 
     });
   }

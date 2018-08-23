@@ -23,11 +23,11 @@ export class SmartAudioProvider {
     };
 
     this.sounds.push(audio);
-    console.log(this.sounds);
-      
+
   }
 
   play(key){
+    
       let audio = this.sounds.find((sound) => {
           return sound.key == key;
       });

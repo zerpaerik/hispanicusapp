@@ -27,8 +27,7 @@ export class DictsPage {
               public modalCtrl : ModalController, public vp : VerbosProvider) {
    
     this.myInput = '';
-    smartAudio.preload('tapped', 'assets/audio/waterdroplet.mp3');
-    smartAudio.preload('fav', 'assets/audio/fav.mp3');
+    
   }
 
   onInput(e){
@@ -153,7 +152,6 @@ export class DictsPage {
 
   public addFav(item){
     let f = JSON.parse(localStorage.getItem('favs'));
-    this.smartAudio.play('fav');
     
     if (this.myInclude(f, item)) {
       let i = f.indexOf(item);
