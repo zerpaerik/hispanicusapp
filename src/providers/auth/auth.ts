@@ -21,6 +21,13 @@ export class AuthProvider {
   
   }
 
+  consumeCode(uuid, pass){
+    let code = {device_id: uuid, code : pass};
+    return this.http.post(HOST + '/api/v1/consume_code', code, {
+      headers : {'Accept' : 'application/json'}
+    });
+  }
+
   register(xname, xemail, xpassword, xconfirm){
 
   	let regData = {'name' : xname, 'email' : xemail, 'password' : xpassword, 'confirm_password' : xconfirm};

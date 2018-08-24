@@ -6,6 +6,8 @@ import { ConfigPage } from '../../modals/config/config';
 import { Platform } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
+import { AuthProvider } from '../../providers/auth/auth';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -13,8 +15,8 @@ import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
 })
 export class HomePage {
 
-  constructor(public smartAudio : SmartAudioProvider, public navCtrl: NavController, private modalCtrl : ModalController, public plt : Platform) {
-    
+  constructor(private auth : AuthProvider, public alertCtrl: AlertController, public smartAudio : SmartAudioProvider, public navCtrl: NavController, private modalCtrl : ModalController, public plt : Platform) {
+    this.showPrompt();
   }
   
   ionViewCanEnter(){
@@ -53,5 +55,35 @@ export class HomePage {
   	let modal = this.modalCtrl.create(ConfigPage);
     modal.present();
   }  
+
+  showPrompt() {
+    const prompt = this.alertCtrl.create({
+      title: 'Codigo de acceso',
+      enableBackdropDismiss : false,
+      message: "Introduzca su codigo de acceso",
+      inputs: [
+        {
+          name: 'codigo',
+          placeholder: '6 digitos',
+          max: 6,
+          min: 6
+        },
+      ],
+      buttons: [
+        {
+          text: 'Listo',
+          handler: data => {
+            this.auth.consumeCode(localStorage.getItem('uuid'), data.codigo)
+            .subscribe(res => {
+              console.log(res);
+            }, error => {
+              console.log(error);
+            });
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
 
 }

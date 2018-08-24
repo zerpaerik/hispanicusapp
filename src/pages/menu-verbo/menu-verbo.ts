@@ -16,6 +16,7 @@ export class MenuVerboPage {
   	this.translate.get('VERBS_MENU').subscribe(res => {
   		this.spelling = res.ORTH_CHANGE;
   	});
+    
   }
 
   goInfo(t){
