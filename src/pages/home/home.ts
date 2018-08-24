@@ -16,7 +16,15 @@ import { AlertController } from 'ionic-angular';
 export class HomePage {
 
   constructor(private auth : AuthProvider, public alertCtrl: AlertController, public smartAudio : SmartAudioProvider, public navCtrl: NavController, private modalCtrl : ModalController, public plt : Platform) {
-    this.showPrompt();
+  
+    this.auth.checkUuid().subscribe(res => {
+      console.log("authorized!");
+    }, error => {
+      if (error.status == 401) {
+        this.showPrompt();
+      }
+    });
+  
   }
   
   ionViewCanEnter(){
@@ -75,9 +83,9 @@ export class HomePage {
           handler: data => {
             this.auth.consumeCode(localStorage.getItem('uuid'), data.codigo)
             .subscribe(res => {
-              console.log(res);
+              console.log("success");
             }, error => {
-              console.log(error);
+              this.showPrompt();
             });
           }
         }

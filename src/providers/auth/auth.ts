@@ -11,6 +11,14 @@ export class AuthProvider {
     
   }
 
+  checkUuid(){
+    return this.http.get(HOST+'/api/v1/checkuuid', {
+      headers: {
+        'uuid' : localStorage.getItem('uuid') || 'null'
+      }
+    });
+  }
+
   login(xemail, xpasword){
   	
   	let authData = {'email' : xemail, 'password' : xpasword};
