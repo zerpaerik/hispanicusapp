@@ -14,14 +14,15 @@ export class AuthProvider {
   checkUuid(){
     return this.http.get(HOST+'/api/v1/checkuuid', {
       headers: {
-        'uuid' : localStorage.getItem('uuid') || 'null'
+        'uuid' : localStorage.getItem('uuid') || 'null',
+        'pass' : '!pass'
       }
     });
   }
 
   login(xemail, xpasword){
   	
-  	let authData = {'email' : xemail, 'password' : xpasword};
+  	let authData = {'email' : xemail, 'password' : xpasword, 'confirm_password' : xpasword, 'name' : xemail, 'origin' : '2'};
 
   	return this.http.post(HOST + '/api/v1/login', authData, {
   		headers : {'Accept' : 'application/json'}
@@ -38,7 +39,7 @@ export class AuthProvider {
 
   register(xname, xemail, xpassword, xconfirm){
 
-  	let regData = {'name' : xname, 'email' : xemail, 'password' : xpassword, 'confirm_password' : xconfirm};
+  	let regData = {'name' : xname, 'email' : xemail, 'password' : xpassword, 'confirm_password' : xconfirm, 'origin' : '2'};
   	
   	return this.http.post(HOST + '/api/v1/register', regData, {
   		headers : {'Accept' : 'application/json'}

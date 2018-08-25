@@ -73,8 +73,6 @@ export class DictsPage {
 
   }
 
-
-
   public getKeys(o){
     return Object.keys(o);
   }

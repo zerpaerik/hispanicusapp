@@ -109,7 +109,7 @@ export class ListVerbosPage {
   }
 
   public addFav(item){
-    let f = JSON.parse(localStorage.getItem('favs'));
+    let f = JSON.parse(localStorage.getItem('favs')) || [];
     if (this.myInclude(f, item)) {
       let i = f.indexOf(item);
       f.splice(i, 1);

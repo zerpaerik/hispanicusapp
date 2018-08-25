@@ -18,7 +18,7 @@ export class SmartAudioProvider {
 
     preload(key, asset) {
  
-        if(this.audioType === 'html5'){
+        if(this.audioType == 'html5'){
  
             let audio = {
                 key: key,
@@ -46,10 +46,10 @@ export class SmartAudioProvider {
     play(key){
  
         let audio = this.sounds.find((sound) => {
-            return sound.key === key;
+            return sound.key == key;
         });
- 
-        if(audio.type === 'html5'){
+        if(!audio) return;
+        if(audio.type == 'html5'){
  
             let audioAsset = new Audio(audio.asset);
             audioAsset.play();
