@@ -24,7 +24,7 @@ import { ConfigPage } from '../modals/config/config';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { UniqueDeviceID } from '@ionic-native/unique-device-id';
+import { Device } from '@ionic-native/device';
 
 //PROVIDERS
 import { VerbosProvider } from '../providers/verbos/verbos';
@@ -82,7 +82,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   providers: [
     StatusBar,
     SplashScreen,
-    UniqueDeviceID,
+    Device,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     VerbosProvider,
     AuthProvider,

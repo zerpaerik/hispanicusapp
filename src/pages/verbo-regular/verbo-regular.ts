@@ -50,13 +50,12 @@ export class VerboRegularPage {
     this.reflexOnly = false;
     this.titu = this.verbo.infinitivo;
     this.hasChild = true;
-
+    smartAudio.preload('tapped', 'assets/audio/waterdroplet.mp3');
     this.translateServ.get('VERBS_MENU').subscribe(verb => {
       this.tenseMsgs = [verb.SIMPLE_TENSES, verb.COMPOUND_TENSES];
       this.tense = verb.SIMPLE_TENSES;
     });
 
-    smartAudio.preload('tapped', 'assets/audio/waterdroplet.mp3');
   }
 
   setVerbalTime(){

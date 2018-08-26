@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
 import { SmartAudioProvider } from '../providers/smart-audio/smart-audio';
 import { NativeAudio } from '@ionic-native/native-audio';
-import { UniqueDeviceID } from '@ionic-native/unique-device-id';
+import { Device } from '@ionic-native/device';
 import { HomePage } from '../pages/home/home';
 import { AuthProvider } from '../providers/auth/auth';
 import { AlertController } from 'ionic-angular';
@@ -17,7 +17,7 @@ import { ToastController } from 'ionic-angular';
 export class MyApp {
   rootPage:any = HomePage;
 
-  constructor(private toast : ToastController, public alertCtrl: AlertController, private authProvider : AuthProvider, private uniqueDeviceID: UniqueDeviceID, smartAudio: SmartAudioProvider, nativeaudio : NativeAudio, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public translate: TranslateService) {
+  constructor(private toast : ToastController, public alertCtrl: AlertController, private authProvider : AuthProvider, private device: Device, smartAudio: SmartAudioProvider, nativeaudio : NativeAudio, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public translate: TranslateService) {
     let lang = localStorage.getItem('lang') || 'en';
     this.translate.setDefaultLang(lang);
     
@@ -27,11 +27,7 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
 
-      this.uniqueDeviceID.get()
-        .then(this.consumeCode)
-        .catch((error: any) => {
-          this.consumeCode('tstts3')
-        });
+      this.consumeCode(this.device.uuid);
      
       smartAudio.preload('tapped', 'assets/audio/waterdroplet.mp3');
 
@@ -40,6 +36,7 @@ export class MyApp {
   }
 
   consumeCode(uuid:any){
+    if(uuid == null) uuid="123123";
     localStorage.setItem('uuid', uuid);
     this.authProvider.checkUuid().subscribe(res => {
       this.login(uuid);
@@ -60,7 +57,7 @@ export class MyApp {
       localStorage.setItem('lang', res['lang']);
       localStorage.setItem('rmode', res['modo']);
       localStorage.setItem('favs', JSON.stringify(res['favs']));
-
+       
       this.authProvider.checkUuid().subscribe(res => {
         console.log("authorized!");
       }, error => {
